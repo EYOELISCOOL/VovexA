@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VOVEX — Careers</title>
+<meta name="description" content="VOVEX is a global technology holding company building platforms, systems, and ventures across AI, media, infrastructure, commerce, and digital systems."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Noto+Sans+Ethiopic:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./Resources/logo.PNG">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #fff; }
+
+/* ─── TOKENS ─── */
+:root {
+  --white: #ffffff;
+  --off-white: #f5f5f7;
+  --section-dark: #1d1d1f;
+  --headline: #1d1d1f;
+  --body: #1d1d1f;
+  --secondary: #6e6e73;
+  --tertiary: #86868b;
+  --link: #0066cc;
+  --link-hover: #0077ed;
+  --divider: rgba(0,0,0,0.06);
+  --nav-bg: rgba(255,255,255,0.92);
+  --card-radius: 20px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-ethiopic: 'Noto Sans Ethiopic', 'Nyala', var(--font);
+  --font-arabic: 'Noto Sans Arabic', var(--font);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── LANGUAGE BAR ─── */
+#langbar {
+  background: var(--section-dark);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#langbar::-webkit-scrollbar { display: none; }
+
+.lbtn {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 14px;
+  height: 40px;
+  white-space: nowrap;
+  transition: color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  font-family: var(--font);
+  position: relative;
+}
+.lbtn:last-child { border-right: none; }
+.lbtn .ln { font-size: 8.5px; opacity: 0.5; margin-top: 1px; }
+.lbtn:hover { color: rgba(255,255,255,0.85); }
+.lbtn.active { color: #ffffff; }
+.lbtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 14px; right: 14px;
+  height: 2px;
+  background: #0066cc;
+  border-radius: 2px 2px 0 0;
+}
+
+/* ─── NAV ─── */
+#nav {
+  position: sticky;
+  top: 40px;
+  z-index: 999;
+  height: 44px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--divider);
+}
+.nav-inner {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--headline);
+  text-decoration: none;
+  justify-self: start;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0 10px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--headline); }
+.nav-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-contact {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-contact:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* ─── CAREERS ─── */
+#careers {
+  background: var(--white);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 120px;
+}
+.careers-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.careers-inner .icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  opacity: 0.3;
+}
+.careers-inner .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--link);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.careers-inner h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  color: var(--headline);
+  margin-bottom: 12px;
+}
+.careers-inner .sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 8px;
+}
+.careers-inner .message {
+  background: var(--off-white);
+  border-radius: var(--card-radius);
+  padding: 48px 40px;
+  margin-top: 32px;
+  border: 1px solid var(--divider);
+}
+.careers-inner .message .emoji {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+.careers-inner .message h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--headline);
+  margin-bottom: 8px;
+}
+.careers-inner .message p {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.careers-inner .message .highlight {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tertiary);
+  letter-spacing: 0.02em;
+}
+.careers-inner .message .highlight span {
+  color: var(--link);
+}
+
+/* ─── JOB POSTING ─── */
+.job-card {
+  background: var(--off-white);
+  border-radius: var(--card-radius);
+  padding: 44px 40px;
+  margin-top: 32px;
+  border: 1px solid var(--divider);
+  text-align: left;
+}
+.job-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.job-role {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--headline);
+  margin-bottom: 6px;
+}
+.job-company {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--tertiary);
+}
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.job-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--link);
+  background: rgba(0,102,204,0.08);
+  padding: 6px 12px;
+  border-radius: 980px;
+  white-space: nowrap;
+}
+.job-desc {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--secondary);
+  margin: 18px 0 22px;
+  max-width: 560px;
+}
+.job-desc ul {
+  margin: 10px 0 0 20px;
+  padding: 0;
+}
+.job-desc li { margin-bottom: 6px; }
+.apply-cta {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: var(--link);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 980px;
+  transition: background 0.2s, transform 0.15s;
+}
+.apply-cta:hover { background: var(--link-hover); }
+.apply-cta:active { transform: scale(0.97); }
+.apply-cta:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+
+/* ─── APPLICATION FORM ─── */
+#applyFormWrap {
+  max-width: 640px;
+  margin: 28px auto 0;
+  text-align: left;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s ease;
+}
+#applyFormWrap.open {
+  max-height: 5000px;
+  opacity: 1;
+}
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: var(--card-radius);
+  padding: 36px 32px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+}
+.form-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--headline);
+  margin-bottom: 6px;
+}
+.form-subtitle {
+  font-size: 14px;
+  color: var(--secondary);
+  margin-bottom: 28px;
+}
+.form-section + .form-section {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--divider);
+}
+.form-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--link);
+  margin-bottom: 18px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group { margin-bottom: 18px; }
+.form-row .form-group { margin-bottom: 0; }
+.form-group label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--headline);
+  margin-bottom: 7px;
+}
+.form-group .opt-tag {
+  font-weight: 400;
+  color: var(--tertiary);
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.req-mark { color: #ff3b30; margin-left: 2px; }
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--body);
+  background: var(--off-white);
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 13px 15px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.form-group textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--link);
+  background: var(--white);
+}
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+  border-color: #ff3b30;
+}
+.field-error {
+  display: none;
+  font-size: 12.5px;
+  color: #ff3b30;
+  margin-top: 6px;
+}
+.field-error.show { display: block; }
+
+/* radio / checkbox groups */
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  color: var(--body);
+  cursor: pointer;
+}
+.choice-item input[type="radio"],
+.choice-item input[type="checkbox"] {
+  width: 17px; height: 17px;
+  accent-color: var(--link);
+  cursor: pointer;
+}
+
+.conditional-field {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+.conditional-field.show {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.agreement-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--secondary);
+  line-height: 1.5;
+  margin-top: 8px;
+}
+.agreement-row input {
+  margin-top: 3px;
+  width: 17px; height: 17px;
+  flex-shrink: 0;
+  accent-color: var(--link);
+  cursor: pointer;
+}
+
+/* honeypot - hidden from humans, visible in DOM for bots */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.submit-row { margin-top: 30px; }
+.submit-btn {
+  width: 100%;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: var(--link);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s, transform 0.15s, opacity 0.2s;
+}
+.submit-btn:hover:not(:disabled) { background: var(--link-hover); }
+.submit-btn:active:not(:disabled) { transform: scale(0.98); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.submit-btn:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+.spinner {
+  width: 17px; height: 17px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: none;
+  animation: spin 0.7s linear infinite;
+}
+.submit-btn.loading .spinner { display: inline-block; }
+.submit-btn.loading .btn-label { opacity: 0.85; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.form-note {
+  font-size: 12px;
+  color: var(--tertiary);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* success state */
+.success-card {
+  display: none;
+  text-align: center;
+  padding: 20px 10px 6px;
+}
+.success-card.show {
+  display: block;
+  animation: fadeUp 0.5s ease;
+}
+.success-check {
+  width: 76px; height: 76px;
+  margin: 0 auto 22px;
+}
+.success-check circle {
+  stroke: var(--link);
+  stroke-width: 3;
+  fill: none;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: drawCircle 0.6s ease forwards;
+}
+.success-check path {
+  stroke: var(--link);
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: drawCheck 0.35s ease forwards 0.55s;
+}
+@keyframes drawCircle { to { stroke-dashoffset: 0; } }
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.success-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--headline);
+  margin-bottom: 10px;
+}
+.success-text {
+  font-size: 15px;
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.form-error-banner {
+  display: none;
+  background: rgba(255,59,48,0.08);
+  color: #d70015;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  margin-bottom: 18px;
+}
+.form-error-banner.show { display: block; }
+
+/* ─── FINAL ─── */
+#final {
+  background: var(--section-dark);
+  text-align: center;
+  padding: 140px 20px 120px;
+  position: relative;
+  overflow: hidden;
+}
+#final-canvas {
+  position: absolute;
+  inset: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+}
+.final-tagline {
+  font-size: clamp(13px, 1.5vw, 17px);
+  font-weight: 400;
+  color: #a1a1a6;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  position: relative; z-index: 2;
+}
+.final-wordmark {
+  font-size: clamp(64px, 12vw, 148px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+  line-height: 1;
+  position: relative; z-index: 2;
+}
+.final-sub {
+  font-size: 19px;
+  font-weight: 400;
+  color: #6e6e73;
+  margin-top: 20px;
+  position: relative; z-index: 2;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.47;
+}
+.final-founder {
+  font-size: 14px;
+  font-weight: 300;
+  color: #6e6e73;
+  margin-top: 8px;
+  position: relative; z-index: 2;
+  letter-spacing: 0.02em;
+}
+.final-founder span {
+  color: #a1a1a6;
+  font-weight: 400;
+}
+.final-cta-row {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  position: relative; z-index: 2;
+}
+.final-link {
+  font-size: 17px;
+  font-weight: 400;
+  color: #2997ff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.final-link:hover { color: #47a9ff; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--off-white);
+  border-top: 1px solid var(--divider);
+  padding: 28px 20px;
+}
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-logo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary);
+  letter-spacing: -0.01em;
+}
+.footer-copy {
+  font-size: 12px;
+  color: var(--tertiary);
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--link); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-inner { grid-template-columns: auto 1fr; }
+  .nav-right { display: none; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  #langbar { justify-content: flex-start; }
+  #careers { padding: 60px 20px 80px; min-height: 60vh; }
+  .careers-inner .message { padding: 32px 24px; }
+  .job-card { padding: 30px 22px; }
+  .job-card-top { flex-direction: column; }
+  .form-card { padding: 26px 18px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .careers-inner .icon { font-size: 48px; }
+  .careers-inner .message .emoji { font-size: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── LANGUAGE BAR ─── -->
+<div id="langbar" role="navigation" aria-label="Language selection">
+  <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN<span class="ln">English</span></button>
+  <button class="lbtn" data-lang="am" onclick="setLang('am')">አማ<span class="ln">አማርኛ</span></button>
+  <button class="lbtn" data-lang="nl" onclick="setLang('nl')">NL<span class="ln">Nederlands</span></button>
+  <button class="lbtn" data-lang="om" onclick="setLang('om')">OM<span class="ln">Oromoo</span></button>
+  <button class="lbtn" data-lang="ti" onclick="setLang('ti')">ትግ<span class="ln">ትግርኛ</span></button>
+  <button class="lbtn" data-lang="sw" onclick="setLang('sw')">SW<span class="ln">Kiswahili</span></button>
+  <button class="lbtn" data-lang="fr" onclick="setLang('fr')">FR<span class="ln">Français</span></button>
+  <button class="lbtn" data-lang="ar" onclick="setLang('ar')">عر<span class="ln">العربية</span></button>
+  <button class="lbtn" data-lang="zh" onclick="setLang('zh')">中文<span class="ln">普通话</span></button>
+</div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="./index.html">VOVEX</a>
+    <ul class="nav-links" role="list">
+      <li><a href="./About.html" data-i18n="nav_about">About</a></li>
+      <li><a href="./ventures.html" data-i18n="nav_ventures">Ventures</a></li>
+      <li><a href="./careers.html" data-i18n="nav_platforms">Careers</a></li>
+      <li><a href="./principles.html" data-i18n="nav_principles">Principles</a></li>
+      <li><a href="./create-website.html" data-i18n="nav_timeline">Build/Create a website</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-contact" href="./contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── CAREERS ─── -->
+<section id="careers">
+  <div class="careers-inner">
+    <div class="icon"></div>
+    <div class="label" data-i18n="careers_label">● Careers</div>
+    <h1 data-i18n="careers_title">Join the Team</h1>
+    <p class="sub" data-i18n="careers_sub">We're always looking for passionate people to help us build the future.</p>
+
+    <div class="job-card">
+      <div class="job-card-top">
+        <div>
+          <div class="job-role" data-i18n="job_role">Vovex Sales Partner</div>
+          <div class="job-company" data-i18n="job_company">Vovex</div>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag" data-i18n="job_tag1">Commission-Based</span>
+          <span class="job-tag" data-i18n="job_tag2">Remote</span>
+          <span class="job-tag" data-i18n="job_tag3">Flexible Hours</span>
+        </div>
+      </div>
+      <p class="job-desc" data-i18n="job_desc">We're looking for motivated, people-driven individuals to represent Vovex and help bring in new clients. No prior sales certification required — just drive, good communication, and a network worth tapping into. This is a commission-based opportunity with flexible hours, perfect alongside a job, studies, or freelance work.</p>
+      <button type="button" class="apply-cta" id="applyCtaBtn" data-i18n="job_apply_btn">Apply Now</button>
+    </div>
+
+    <div id="applyFormWrap">
+      <div class="form-card">
+        <div id="formSuccess" class="success-card" role="status" aria-live="polite">
+          <svg class="success-check" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="34"></circle>
+            <path d="M24 41 L35 52 L57 28"></path>
+          </svg>
+          <div class="success-title" data-i18n="success_title">Application Submitted!</div>
+          <p class="success-text" data-i18n="success_text">Thank you for applying! We've received your application and will contact you if you're selected.</p>
+        </div>
+
+        <form id="applyForm" novalidate>
+          <div id="formBody">
+            <div class="form-title" data-i18n="form_title">Apply for Sales Partner</div>
+            <p class="form-subtitle" data-i18n="form_subtitle">Fill out the form below — it only takes a few minutes.</p>
+
+            <div class="form-error-banner" id="formErrorBanner" data-i18n="form_error_generic" role="alert">Something went wrong. Please try again.</div>
+
+            <!-- Honeypot field: hidden from real users, catches simple bots -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="hp_website">Website</label>
+              <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Personal Information -->
+            <div class="form-section">
+              <div class="form-section-title" data-i18n="section_personal">Personal Information</div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f_name"><span data-i18n="field_name">Full Name</span><span class="req-mark">*</span></label>
+                  <input type="text" id="f_name" name="fullName" required autocomplete="name">
+                  <div class="field-error" data-err="f_name" data-i18n="err_required">This field is required.</div>
+                </div>
+                <div class="form-group">
+                  <label for="f_email"><span data-i18n="field_email">Email Address</span><span class="req-mark">*</span></label>
+                  <input type="email" id="f_email" name="email" required autocomplete="email">
+                  <div class="field-error" data-err="f_email" data-i18n="err_email">Please enter a valid email address.</div>
+                </div>
+              </div>
+              <div class="form-row" style="margin-top:18px">
+                <div class="form-group">
+                  <label for="f_phone"><span data-i18n="field_phone">Phone Number</span><span class="req-mark">*</span></label>
+                  <input type="tel" id="f_phone" name="phone" required autocomplete="tel">
+                  <div class="field-error" data-err="f_phone" data-i18n="err_phone">Please enter a valid phone number.</div>
+                </div>
+                <div class="form-group">
+                  <label for="f_linkedin"><span data-i18n="field_linkedin">LinkedIn Profile</span> <span class="opt-tag" data-i18n="optional_tag">(optional)</span></label>
+                  <input type="text" id="f_linkedin" name="linkedin" autocomplete="url" placeholder="linkedin.com/in/...">
+                </div>
+              </div>
+              <div class="form-row" style="margin-top:18px">
+                <div class="form-group">
+                  <label for="f_country"><span data-i18n="field_country">Country</span><span class="req-mark">*</span></label>
+                  <input type="text" id="f_country" name="country" required autocomplete="country-name">
+                  <div class="field-error" data-err="f_country" data-i18n="err_required">This field is required.</div>
+                </div>
+                <div class="form-group">
+                  <label for="f_city"><span data-i18n="field_city">City</span><span class="req-mark">*</span></label>
+                  <input type="text" id="f_city" name="city" required autocomplete="address-level2">
+                  <div class="field-error" data-err="f_city" data-i18n="err_required">This field is required.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- About the Applicant -->
+            <div class="form-section">
+              <div class="form-section-title" data-i18n="section_about">About the Applicant</div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f_age"><span data-i18n="field_age">Age</span> <span class="opt-tag" data-i18n="optional_tag">(optional)</span></label>
+                  <input type="number" id="f_age" name="age" min="14" max="99">
+                </div>
+                <div class="form-group">
+                  <label for="f_occupation" data-i18n="field_occupation">Occupation</label>
+                  <select id="f_occupation" name="occupation">
+                    <option value="Student" data-i18n="occ_student">Student</option>
+                    <option value="Freelancer" data-i18n="occ_freelancer">Freelancer</option>
+                    <option value="Employee" data-i18n="occ_employee">Employee</option>
+                    <option value="Business Owner" data-i18n="occ_business">Business Owner</option>
+                    <option value="Other" data-i18n="occ_other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" style="margin-top:18px">
+                <label for="f_about" data-i18n="field_about">Tell us about yourself</label>
+                <textarea id="f_about" name="about" rows="3"></textarea>
+              </div>
+            </div>
+
+            <!-- Sales & Communication -->
+            <div class="form-section">
+              <div class="form-section-title" data-i18n="section_sales">Sales &amp; Communication</div>
+              <div class="form-group">
+                <label for="f_why"><span data-i18n="field_why">Why do you want to become a Vovex Sales Partner?</span><span class="req-mark">*</span></label>
+                <textarea id="f_why" name="why" rows="3" required></textarea>
+                <div class="field-error" data-err="f_why" data-i18n="err_required">This field is required.</div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="field_experience">Do you have experience talking to clients or selling products/services?</label>
+                <div class="choice-group" role="radiogroup">
+                  <label class="choice-item"><input type="radio" name="experience" value="Yes" id="exp_yes"> <span data-i18n="yes_label">Yes</span></label>
+                  <label class="choice-item"><input type="radio" name="experience" value="No" id="exp_no"> <span data-i18n="no_label">No</span></label>
+                </div>
+                <div class="conditional-field" id="experienceExplainWrap">
+                  <label for="f_experience_explain" data-i18n="field_experience_explain">If yes, briefly explain.</label>
+                  <textarea id="f_experience_explain" name="experienceExplain" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="field_clients">Where would you find potential clients?</label>
+                <div class="choice-group">
+                  <label class="choice-item"><input type="checkbox" name="clients" value="Friends & Family"> <span data-i18n="client_friends">Friends &amp; Family</span></label>
+                  <label class="choice-item"><input type="checkbox" name="clients" value="Social Media"> <span data-i18n="client_social">Social Media</span></label>
+                  <label class="choice-item"><input type="checkbox" name="clients" value="Local Businesses"> <span data-i18n="client_local">Local Businesses</span></label>
+                  <label class="choice-item"><input type="checkbox" name="clients" value="LinkedIn"> <span data-i18n="client_linkedin">LinkedIn</span></label>
+                  <label class="choice-item"><input type="checkbox" name="clients" value="Cold Outreach"> <span data-i18n="client_cold">Cold Outreach</span></label>
+                  <label class="choice-item"><input type="checkbox" name="clients" value="Other"> <span data-i18n="client_other">Other</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Availability -->
+            <div class="form-section">
+              <div class="form-section-title" data-i18n="section_availability">Availability</div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f_hours" data-i18n="field_hours">Hours per week you can dedicate</label>
+                  <select id="f_hours" name="hours">
+                    <option value="1-5" data-i18n="hours_1_5">1–5 hours</option>
+                    <option value="5-10" data-i18n="hours_5_10">5–10 hours</option>
+                    <option value="10-20" data-i18n="hours_10_20">10–20 hours</option>
+                    <option value="20+" data-i18n="hours_20plus">20+ hours</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="f_start" data-i18n="field_start">When can you start?</label>
+                  <select id="f_start" name="startDate">
+                    <option value="Immediately" data-i18n="start_now">Immediately</option>
+                    <option value="1-2 weeks" data-i18n="start_1_2w">In 1–2 weeks</option>
+                    <option value="1 month" data-i18n="start_1m">In about a month</option>
+                    <option value="Not sure yet" data-i18n="start_unsure">Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" style="margin-top:18px">
+                <label data-i18n="field_contact_method">Preferred contact method</label>
+                <div class="choice-group" role="radiogroup">
+                  <label class="choice-item"><input type="radio" name="contactMethod" value="Email" checked> <span data-i18n="contact_email">Email</span></label>
+                  <label class="choice-item"><input type="radio" name="contactMethod" value="Phone"> <span data-i18n="contact_phone">Phone</span></label>
+                  <label class="choice-item"><input type="radio" name="contactMethod" value="WhatsApp"> <span data-i18n="contact_whatsapp">WhatsApp</span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="agreement-row">
+                <input type="checkbox" id="f_agree" name="agree" required>
+                <label for="f_agree" data-i18n="agree_text">I confirm that the information provided is accurate and I understand this is a commission-based opportunity.</label>
+              </div>
+              <div class="field-error" data-err="f_agree" data-i18n="err_agree">Please confirm before submitting.</div>
+            </div>
+
+            <div class="submit-row">
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <span class="spinner" aria-hidden="true"></span>
+                <span class="btn-label" data-i18n="submit_label">Apply Now</span>
+              </button>
+              <p class="form-note" data-i18n="form_note">Your information is kept confidential and used only to review your application.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL ─── -->
+<section id="final">
+  <canvas id="final-canvas"></canvas>
+  <p class="final-tagline" data-i18n="final_eyebrow">Technology Holding Company</p>
+  <h2 class="final-wordmark">VOVEX</h2>
+  <p class="final-sub" data-i18n="final_quote">"The future is built quietly."</p>
+  <p class="final-founder" data-i18n="final_founder">— <span>Eyoel Mulugeta</span>, CEO and Founder of Vovex</p>
+  <div class="final-cta-row">
+    <a class="final-link" href="./About.html" data-i18n="final_cta1">Our story ›</a>
+    <a class="final-link" href="./ventures.html" data-i18n="final_cta2">Our ventures ›</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">VOVEX</span>
+    <span class="footer-copy" data-i18n="footer_copy">Copyright © 2026 VOVEX. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="./privacypolicy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="./legal.html" data-i18n="footer_legal">Legal</a>
+      <a href="./press.html" data-i18n="footer_press">Press</a>
+      <a href="./contact.html" data-i18n="footer_contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════
+   I18N
+════════════════════════════════ */
+const T = {
+  en:{
+    nav_about:"About",nav_ventures:"Ventures",nav_platforms:"Careers",
+    nav_principles:"Principles",nav_timeline:"Build/Create a website",nav_contact:"Contact",
+    careers_label:"● Careers",
+    careers_title:"Join the Team",
+    careers_sub:"We're always looking for passionate people to help us build the future.",
+    message_title:"No Open Roles Right Now",
+    message_desc:"We don't have any positions open at the moment, but we're always interested in meeting talented people.",
+    
+    final_eyebrow:"Technology Holding Company",final_quote:"“The future is built quietly.”",
+    final_founder:"— Eyoel Mulugeta, CEO and Founder of Vovex",
+    final_cta1:"Our story ›",final_cta2:"Our ventures ›",
+    footer_copy:"Copyright © 2026 VOVEX. All rights reserved.",
+    footer_privacy:"Privacy Policy",footer_legal:"Legal",footer_press:"Press",footer_contact:"Contact",
+
+    job_role:"Vovex Sales Partner",job_company:"Vovex",
+    job_tag1:"Commission-Based",job_tag2:"Remote",job_tag3:"Flexible Hours",
+    job_desc:"We're looking for motivated, people-driven individuals to represent Vovex and help bring in new clients. No prior sales certification required — just drive, good communication, and a network worth tapping into. This is a commission-based opportunity with flexible hours, perfect alongside a job, studies, or freelance work.",
+    job_apply_btn:"Apply Now",
+    form_title:"Apply for Sales Partner",form_subtitle:"Fill out the form below — it only takes a few minutes.",
+    form_error_generic:"Something went wrong. Please try again.",
+    section_personal:"Personal Information",
+    field_name:"Full Name",err_required:"This field is required.",
+    field_email:"Email Address",err_email:"Please enter a valid email address.",
+    field_phone:"Phone Number",err_phone:"Please enter a valid phone number.",
+    field_linkedin:"LinkedIn Profile",optional_tag:"(optional)",
+    field_country:"Country",field_city:"City",
+    section_about:"About the Applicant",
+    field_age:"Age",field_occupation:"Occupation",
+    occ_student:"Student",occ_freelancer:"Freelancer",occ_employee:"Employee",occ_business:"Business Owner",occ_other:"Other",
+    field_about:"Tell us about yourself",
+    section_sales:"Sales & Communication",
+    field_why:"Why do you want to become a Vovex Sales Partner?",
+    field_experience:"Do you have experience talking to clients or selling products/services?",
+    yes_label:"Yes",no_label:"No",
+    field_experience_explain:"If yes, briefly explain.",
+    field_clients:"Where would you find potential clients?",
+    client_friends:"Friends & Family",client_social:"Social Media",client_local:"Local Businesses",client_linkedin:"LinkedIn",client_cold:"Cold Outreach",client_other:"Other",
+    section_availability:"Availability",
+    field_hours:"Hours per week you can dedicate",
+    hours_1_5:"1–5 hours",hours_5_10:"5–10 hours",hours_10_20:"10–20 hours",hours_20plus:"20+ hours",
+    field_start:"When can you start?",
+    start_now:"Immediately",start_1_2w:"In 1–2 weeks",start_1m:"In about a month",start_unsure:"Not sure yet",
+    field_contact_method:"Preferred contact method",
+    contact_email:"Email",contact_phone:"Phone",contact_whatsapp:"WhatsApp",
+    agree_text:"I confirm that the information provided is accurate and I understand this is a commission-based opportunity.",
+    err_agree:"Please confirm before submitting.",
+    submit_label:"Apply Now",
+    form_note:"Your information is kept confidential and used only to review your application.",
+    success_title:"Application Submitted!",
+    success_text:"Thank you for applying! We've received your application and will contact you if you're selected."
+  },
+  am:{
+    nav_about:"ስለ",nav_ventures:"ተቋሞች",nav_platforms:"ስራዎች",
+    nav_principles:"መርሆዎች",nav_timeline:"ድህረ ገጽ ግንባ/ፍጠር",nav_contact:"አግኙን",
+    careers_label:"● ስራዎች",
+    careers_title:"ቡድኑን ይቀላቀሉ",
+    careers_sub:"ወደፊት ለመገንባት ፍቅር ያላቸውን ሰዎች እየፈለግን ነው።",
+    message_title:"አሁን ክፍት የስራ ቦታዎች የሉም",
+    message_desc:"በአሁኑ ጊዜ ክፍት የስራ ቦታዎች የሉንም፣ ነገር ግን ተሰጥኦ ያላቸውን ሰዎች ለማግኘት ሁልጊዜ ፍላጎት አለን።",
+   
+    final_eyebrow:"የቴክኖሎጂ ሆልዲንግ ኩባንያ",final_quote:"“ወደፊቱ በጸጥታ ይሠራል።”",
+    final_founder:"— ኢየኤል ሙሉጌታ፣ የቮቬክስ ዋና ሥራ አስፈጻሚ እና መሥራች",
+    final_cta1:"ታሪካችን ›",final_cta2:"ተቋሞቻችን ›",
+    footer_copy:"© 2026 VOVEX. መብቱ በሕግ የተጠበቀ ነው።",
+    footer_privacy:"የግልነት ፖሊሲ",footer_legal:"ሕጋዊ",footer_press:"ፕሬስ",footer_contact:"አግኙን",
+
+    job_role:"የቮቬክስ የሽያጭ አጋር",job_company:"ቮቬክስ",
+    job_tag1:"በኮሚሽን ላይ የተመሰረተ",job_tag2:"ከርቀት",job_tag3:"ተለዋዋጭ ሰዓታት",
+    job_desc:"ቮቬክስን ወክለው አዳዲስ ደንበኞችን ለማምጣት የሚያግዙ ተነሳሽነት ያላቸው ሰዎችን እየፈለግን ነው። ቀደም ሲል የሽያጭ ማረጋገጫ አያስፈልግም — ተነሳሽነት፣ ጥሩ የመግባቢያ ችሎታ እና ጠቃሚ ግንኙነት ብቻ ያስፈልጋል። ይህ ከስራ፣ ትምህርት ወይም ፍሪላንስ ስራ ጎን ለጎን ተስማሚ የሆነ በኮሚሽን ላይ የተመሰረተ እድል ነው።",
+    job_apply_btn:"አመልክት",
+    form_title:"ለሽያጭ አጋርነት ያመልክቱ",form_subtitle:"ከታች ያለውን ቅጽ ይሙሉ — ጥቂት ደቂቃዎችን ብቻ ይወስዳል።",
+    form_error_generic:"የሆነ ስህተት ተከስቷል። እባክዎ እንደገና ይሞክሩ።",
+    section_personal:"የግል መረጃ",
+    field_name:"ሙሉ ስም",err_required:"ይህ መስክ ያስፈልጋል።",
+    field_email:"የኢሜይል አድራሻ",err_email:"እባክዎ ትክክለኛ የኢሜይል አድራሻ ያስገቡ።",
+    field_phone:"ስልክ ቁጥር",err_phone:"እባክዎ ትክክለኛ ስልክ ቁጥር ያስገቡ።",
+    field_linkedin:"የሊንክድኢን መገለጫ",optional_tag:"(አማራጭ)",
+    field_country:"ሀገር",field_city:"ከተማ",
+    section_about:"ስለ አመልካቹ",
+    field_age:"እድሜ",field_occupation:"ሙያ",
+    occ_student:"ተማሪ",occ_freelancer:"ፍሪላንሰር",occ_employee:"ሰራተኛ",occ_business:"የንግድ ባለቤት",occ_other:"ሌላ",
+    field_about:"ስለ እራስዎ ይንገሩን",
+    section_sales:"ሽያጭ እና ግንኙነት",
+    field_why:"ለምን የቮቬክስ የሽያጭ አጋር መሆን ይፈልጋሉ?",
+    field_experience:"ከደንበኞች ጋር የመነጋገር ወይም ምርቶችን/አገልግሎቶችን የመሸጥ ልምድ አለዎት?",
+    yes_label:"አዎ",no_label:"የለም",
+    field_experience_explain:"አዎ ከሆነ በአጭሩ ያብራሩ።",
+    field_clients:"ደንበኞችን የት ያገኛሉ?",
+    client_friends:"ጓደኞች እና ቤተሰብ",client_social:"ማህበራዊ ሚዲያ",client_local:"የአካባቢ ንግዶች",client_linkedin:"ሊንክድኢን",client_cold:"ቀጥተኛ ግንኙነት",client_other:"ሌላ",
+    section_availability:"ተገኝነት",
+    field_hours:"በሳምንት ምን ያህል ሰዓታት ማዋል ይችላሉ?",
+    hours_1_5:"1–5 ሰዓታት",hours_5_10:"5–10 ሰዓታት",hours_10_20:"10–20 ሰዓታት",hours_20plus:"ከ20 ሰዓታት በላይ",
+    field_start:"መቼ መጀመር ይችላሉ?",
+    start_now:"ወዲያውኑ",start_1_2w:"በ1–2 ሳምንታት ውስጥ",start_1m:"በአንድ ወር ውስጥ",start_unsure:"እርግጠኛ አይደለሁም",
+    field_contact_method:"ተመራጭ የመገናኛ ዘዴ",
+    contact_email:"ኢሜይል",contact_phone:"ስልክ",contact_whatsapp:"ዋትስአፕ",
+    agree_text:"የቀረበው መረጃ ትክክለኛ መሆኑን አረጋግጣለሁ እንዲሁም ይህ በኮሚሽን ላይ የተመሰረተ እድል መሆኑን እረዳለሁ።",
+    err_agree:"እባክዎ ከማስገባትዎ በፊት ያረጋግጡ።",
+    submit_label:"አመልክት",
+    form_note:"መረጃዎ በሚስጥር ተጠብቆ ማመልከቻዎን ለመገምገም ብቻ ጥቅም ላይ ይውላል።",
+    success_title:"ማመልከቻ ገብቷል!",
+    success_text:"ስላመለከቱ እናመሰግናለን! ማመልከቻዎን ተቀብለናል፣ ከተመረጡ እናገኝዎታለን።"
+  },
+  nl:{
+    nav_about:"Over",nav_ventures:"Activiteiten",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Website bouwen/maken",nav_contact:"Contact",
+    careers_label:"● Carrières",
+    careers_title:"Word Lid van het Team",
+    careers_sub:"We zijn altijd op zoek naar gepassioneerde mensen om de toekomst mee te bouwen.",
+    message_title:"Geen Openstaande Vacatures",
+    message_desc:"We hebben momenteel geen posities open, maar we zijn altijd geïnteresseerd in getalenteerde mensen.",
+
+    final_eyebrow:"Technologisch Holdingbedrijf",final_quote:"“De toekomst wordt stil gebouwd.”",
+    final_founder:"— Eyoel Mulugeta, CEO en Oprichter van Vovex",
+    final_cta1:"Ons verhaal ›",final_cta2:"Onze activiteiten ›",
+    footer_copy:"© 2026 VOVEX. Alle rechten voorbehouden.",
+    footer_privacy:"Privacybeleid",footer_legal:"Juridisch",footer_press:"Pers",footer_contact:"Contact",
+
+    job_role:"Vovex Sales Partner",job_company:"Vovex",
+    job_tag1:"Op commissie",job_tag2:"Op afstand",job_tag3:"Flexibele uren",
+    job_desc:"We zoeken gemotiveerde, mensgerichte personen om Vovex te vertegenwoordigen en te helpen nieuwe klanten binnen te halen. Geen eerdere salescertificering vereist — alleen gedrevenheid, goede communicatie en een netwerk dat de moeite waard is. Dit is een op commissie gebaseerde kans met flexibele uren, perfect naast een baan, studie of freelancewerk.",
+    job_apply_btn:"Nu solliciteren",
+    form_title:"Solliciteer als Sales Partner",form_subtitle:"Vul onderstaand formulier in — het duurt maar een paar minuten.",
+    form_error_generic:"Er is iets misgegaan. Probeer het opnieuw.",
+    section_personal:"Persoonlijke gegevens",
+    field_name:"Volledige naam",err_required:"Dit veld is verplicht.",
+    field_email:"E-mailadres",err_email:"Voer een geldig e-mailadres in.",
+    field_phone:"Telefoonnummer",err_phone:"Voer een geldig telefoonnummer in.",
+    field_linkedin:"LinkedIn-profiel",optional_tag:"(optioneel)",
+    field_country:"Land",field_city:"Stad",
+    section_about:"Over de sollicitant",
+    field_age:"Leeftijd",field_occupation:"Beroep",
+    occ_student:"Student",occ_freelancer:"Freelancer",occ_employee:"Werknemer",occ_business:"Ondernemer",occ_other:"Anders",
+    field_about:"Vertel ons over jezelf",
+    section_sales:"Verkoop & Communicatie",
+    field_why:"Waarom wil je Vovex Sales Partner worden?",
+    field_experience:"Heb je ervaring met het praten met klanten of het verkopen van producten/diensten?",
+    yes_label:"Ja",no_label:"Nee",
+    field_experience_explain:"Zo ja, leg kort uit.",
+    field_clients:"Waar zou je potentiële klanten vinden?",
+    client_friends:"Vrienden & familie",client_social:"Sociale media",client_local:"Lokale bedrijven",client_linkedin:"LinkedIn",client_cold:"Koude acquisitie",client_other:"Anders",
+    section_availability:"Beschikbaarheid",
+    field_hours:"Hoeveel uur per week kun je besteden?",
+    hours_1_5:"1–5 uur",hours_5_10:"5–10 uur",hours_10_20:"10–20 uur",hours_20plus:"20+ uur",
+    field_start:"Wanneer kun je beginnen?",
+    start_now:"Onmiddellijk",start_1_2w:"Over 1–2 weken",start_1m:"Over ongeveer een maand",start_unsure:"Nog niet zeker",
+    field_contact_method:"Voorkeurscontactmethode",
+    contact_email:"E-mail",contact_phone:"Telefoon",contact_whatsapp:"WhatsApp",
+    agree_text:"Ik bevestig dat de verstrekte informatie juist is en begrijp dat dit een op commissie gebaseerde kans is.",
+    err_agree:"Bevestig dit voordat u verzendt.",
+    submit_label:"Nu solliciteren",
+    form_note:"Jouw gegevens worden vertrouwelijk behandeld en alleen gebruikt om je sollicitatie te beoordelen.",
+    success_title:"Sollicitatie verzonden!",
+    success_text:"Bedankt voor je sollicitatie! We hebben je aanvraag ontvangen en nemen contact op als je bent geselecteerd."
+  },
+  om:{
+    nav_about:"Waa",nav_ventures:"Dhaabbilee",nav_platforms:"Hojiiwwan",
+    nav_principles:"Murtii",nav_timeline:"Marsaa ijaari/ummi",nav_contact:"Nu Quunnamaa",
+    careers_label:"● Hojiiwwan",
+    careers_title:"Garee Keessa Galii",
+    careers_sub:"Yeroo hundumaa namoota hawwii qaban fuuldurra ijaaruuf barbaadnaa jirra.",
+    message_title:"Bakkeewwan Hojii Banan Amma Hinjiran",
+    message_desc:"Amma bakkeewwan hojii banan hin qabnu, garuu namoota dandeettii qaban walarguuf yeroo hundumaa fedhii qabna.",
+    
+    final_eyebrow:"Dhaabbata Teeknoloojii Qabaa",final_quote:"“Fuuldurri tasgabbiin ijaarama.”",
+    final_founder:"— Eyoel Mulugeta, CEO fi Hundaa'aa Vovex",
+    final_cta1:"Seenaa keenya ›",final_cta2:"Dhaabbilee keenya ›",
+    footer_copy:"© 2026 VOVEX. Mirgi hundaa qabame.",
+    footer_privacy:"Iccitii Imaammata",footer_legal:"Seera",footer_press:"Pireesii",footer_contact:"Nu Quunnamaa",
+
+    job_role:"Michoota Gurgurtaa Vovex",job_company:"Vovex",
+    job_tag1:"Kaffaltii Komishinii Irratti Hundaa'e",job_tag2:"Fageenyaan",job_tag3:"Sa'aatii Jijjiiramaa",
+    job_desc:"Nama Vovex bakka bu'anii maamiltoota haaraa argamsiisuuf gargaaran kan hawwii qaban barbaaduu jirra. Ragaan gurgurtaa duraan hin barbaachisu — hawwii, dandeettii walqunnamtii gaarii, fi walqunnamtii gaarii qofa gaha. Kun carraa kaffaltii komishinii irratti hundaa'e sa'aatii jijjiiramaa qabuu fi hojii, barnoota ykn hojii firiilaansii waliin walsimu dha.",
+    job_apply_btn:"Amma Iyyadhu",
+    form_title:"Hojii Michuu Gurgurtaa Iyyadhu",form_subtitle:"Foormii armaan gadii guuti — daqiiqaa muraasa qofa fudhata.",
+    form_error_generic:"Wanti tokko dogoggora ta'e. Irra deebi'ii yaali.",
+    section_personal:"Odeeffannoo Dhuunfaa",
+    field_name:"Maqaa Guutuu",err_required:"Bakki kun barbaachisaadha.",
+    field_email:"Teessoo Imeelii",err_email:"Maaloo teessoo imeelii sirrii galchi.",
+    field_phone:"Lakkoofsa Bilbilaa",err_phone:"Maaloo lakkoofsa bilbilaa sirrii galchi.",
+    field_linkedin:"Profaayilii LinkedIn",optional_tag:"(filannoo)",
+    field_country:"Biyya",field_city:"Magaalaa",
+    section_about:"Waa'ee Iyyataa",
+    field_age:"Umurii",field_occupation:"Hojii",
+    occ_student:"Barataa",occ_freelancer:"Firiilaansaraa",occ_employee:"Hojjetaa",occ_business:"Abbaa Daldalaa",occ_other:"Kan biraa",
+    field_about:"Waa'ee kee nutti himi",
+    section_sales:"Gurgurtaa fi Walqunnamtii",
+    field_why:"Maaliif Michuu Gurgurtaa Vovex ta'uu barbaadda?",
+    field_experience:"Maamiltoota waliin haasa'uu ykn oomisha/tajaajila gurguruu keessatti muuxannoo qabdaa?",
+    yes_label:"Eeyyee",no_label:"Lakki",
+    field_experience_explain:"Eeyyee yoo ta'e, gabaabinaan ibsi.",
+    field_clients:"Maamiltoota dandeettii qaban eessatti argatta?",
+    client_friends:"Michoota fi Maatii",client_social:"Miidiyaa Hawaasaa",client_local:"Daldala Naannoo",client_linkedin:"LinkedIn",client_cold:"Qunnamtii Tasaa",client_other:"Kan biraa",
+    section_availability:"Argamuu",
+    field_hours:"Torbaniif sa'aatii meeqa kennuu dandeessa?",
+    hours_1_5:"Sa'aatii 1–5",hours_5_10:"Sa'aatii 5–10",hours_10_20:"Sa'aatii 10–20",hours_20plus:"Sa'aatii 20+",
+    field_start:"Yoom jalqabuu dandeessa?",
+    start_now:"Battalumatti",start_1_2w:"Torban 1–2 keessatti",start_1m:"Ji'a tokko keessatti",start_unsure:"Ammatti hin beeku",
+    field_contact_method:"Mala Qunnamtii Filatamaa",
+    contact_email:"Imeelii",contact_phone:"Bilbila",contact_whatsapp:"WhatsApp",
+    agree_text:"Odeeffannoon kennames sirrii ta'uu isaa mirkaneessa, kunis carraa kaffaltii komishinii irratti hundaa'e ta'uu isaa hubadheera.",
+    err_agree:"Maaloo utuu hin ergin dura mirkaneessi.",
+    submit_label:"Amma Iyyadhu",
+    form_note:"Odeeffannoon kee iccitiin eegamee iyyata kee ilaaluuf qofa itti fayyadama.",
+    success_title:"Iyyannoon Ergameera!",
+    success_text:"Waan iyyattaniif galatoomaa! Iyyannoo keessan fudhanneerra, yoo filatamtan isin qunnamna."
+  },
+  ti:{
+    nav_about:"ብዛዕባ",nav_ventures:"ትካላት",nav_platforms:"ስራሕቲ",
+    nav_principles:"መትከላት",nav_timeline:"ድህረ ገጽ ህነጽ/ፍጠር",nav_contact:"ተወከሉና",
+    careers_label:"● ስራሕቲ",
+    careers_title:"ናብ ብድር ተቀላቀል",
+    careers_sub:"ንመጻኢ ንምስራት ፍቅር ዘለዎም ሰባት ክንደሊ ኢና።",
+    message_title:"ክፍቲ ስራሕቲ ኣይህልዉን",
+    message_desc:"ክፍቲ ስራሕቲ የለናን፣ ግን ንኽእለት ዘለዎም ሰባት ክንረኽብ ኩሉ ግዜ ፍቓድ ኣሎና።",
+  
+    final_eyebrow:"ናይ ቴክኖሎጂ ሆልዲንግ ትካል",final_quote:"“መጻኢ ብህድኣት ይሃነጽ።”",
+    final_founder:"— ኢዮኤል ሙሉጌታ፣ ሃላፊን መስራቲ ቮቬክስ",
+    final_cta1:"ታሪክና ›",final_cta2:"ትካላትና ›",
+    footer_copy:"© 2026 VOVEX. ኩሉ መሰላት ዝተሓዙ።",
+    footer_privacy:"ፕሮቶኮል ምስጢርነት",footer_legal:"ሕጊ",footer_press:"ፕሬስ",footer_contact:"ተወከሉና",
+
+    job_role:"መሻርኽ ሽያጭ ቮቬክስ",job_company:"ቮቬክስ",
+    job_tag1:"ኮሚሽን ዝተመስረተ",job_tag2:"ርሑቕ",job_tag3:"ተለዋዋጢ ሰዓታት",
+    job_desc:"ንቮቬክስ ወኪሎም ዓድዑት ዓማዊል ንምርካብ ዝሕግዙ ተበግሶ ዘለዎም ሰባት ንደሊ ኣለና። ናይ ቀደም ናይ ሽያጭ ምስክር ወረቐት ኣየድልየናን — ተበግሶ፣ ጽቡቕ ርክብ ምክያድ ክእለት፣ ኣገዳሲ ርክባትን ጥራይ የድሊ። እዚ ምስ ስራሕ፣ ትምህርቲ ወይ ናጻ ስራሕ ዝሰማማዕ ኮሚሽን ዝተመስረተ ዕድል እዩ።",
+    job_apply_btn:"ሕጂ ኣመልክት",
+    form_title:"ንመሻርኽ ሽያጭ ኣመልክት",form_subtitle:"ነቲ ኣብ ታሕቲ ዘሎ ፎርም ምላእ — ውሑድ ደቓይቕ ጥራይ እዩ ዝወስድ።",
+    form_error_generic:"ገለ ጌጋ ተፈጢሩ። በጃኻ ደጊምካ ፈትን።",
+    section_personal:"ውልቃዊ ሓበሬታ",
+    field_name:"ምሉእ ስም",err_required:"እዚ ቦታ የድሊ እዩ።",
+    field_email:"ኢመይል ኣድራሻ",err_email:"በጃኻ ቅኑዕ ኢመይል ኣድራሻ ኣእቱ።",
+    field_phone:"ቁጽሪ ተሌፎን",err_phone:"በጃኻ ቅኑዕ ቁጽሪ ተሌፎን ኣእቱ።",
+    field_linkedin:"ናይ LinkedIn መገለጺ",optional_tag:"(ኣማራጺ)",
+    field_country:"ሃገር",field_city:"ከተማ",
+    section_about:"ብዛዕባ ኣመልካቲ",
+    field_age:"ዕድመ",field_occupation:"ሞያ",
+    occ_student:"ተምሃራይ",occ_freelancer:"ናጻ ሰራሕተኛ",occ_employee:"ሰራሕተኛ",occ_business:"ወናኒ ትካል",occ_other:"ካልእ",
+    field_about:"ብዛዕባ ርእስኻ ንገረና",
+    section_sales:"ሽያጭን ርክብን",
+    field_why:"ስለምንታይ መሻርኽ ሽያጭ ቮቬክስ ክትከውን ትደሊ?",
+    field_experience:"ምስ ዓማዊል ናይ ምዝራብ ወይ ኣቕሑት/ኣገልግሎት ናይ ምሻጥ ተመክሮ ኣሎካ ድዩ?",
+    yes_label:"እወ",no_label:"ኣይፋልን",
+    field_experience_explain:"እወ እንተኾይኑ፣ ብሓጺሩ ግለጽ።",
+    field_clients:"ዓቕሚ ዘለዎም ዓማዊል ኣበይ ክትረኽብ ኢኻ?",
+    client_friends:"ኣዕሩኽን ስድራቤትን",client_social:"ማሕበራዊ ሚድያ",client_local:"ናይ ከባቢ ትካላት",client_linkedin:"LinkedIn",client_cold:"ቀጥታዊ ርክብ",client_other:"ካልእ",
+    section_availability:"ምርካብ",
+    field_hours:"ኣብ ሰሙን ክንደይ ሰዓታት ከተወፍይ ትኽእል?",
+    hours_1_5:"1–5 ሰዓታት",hours_5_10:"5–10 ሰዓታት",hours_10_20:"10–20 ሰዓታት",hours_20plus:"20+ ሰዓታት",
+    field_start:"መዓስ ክትጅምር ትኽእል?",
+    start_now:"ብኡ ንብኡ",start_1_2w:"ኣብ 1–2 ሰሙን",start_1m:"ኣብ ውሽጢ ሓደ ወርሒ",start_unsure:"ገና ርግጸኛ ኣይኮንኩን",
+    field_contact_method:"ዝምረጽ ኣገባብ ርክብ",
+    contact_email:"ኢመይል",contact_phone:"ተሌፎን",contact_whatsapp:"ዋትስኣፕ",
+    agree_text:"እቲ ዝቐረበ ሓበሬታ ቅኑዕ ምዃኑ የረጋግጽ፣ እዚ ኮሚሽን ዝተመስረተ ዕድል ምዃኑ እርድኦ እየ።",
+    err_agree:"በጃኻ ቅድሚ ምስዳድካ ኣረጋግጽ።",
+    submit_label:"ሕጂ ኣመልክት",
+    form_note:"ሓበሬታኻ ብምስጢር ተሓፊዙ ንምርመራ ማመልከቻኻ ጥራይ ይውዕል።",
+    success_title:"ማመልከቻ ተላኢኹ!",
+    success_text:"ስለ ምምልካትካ ነመስግን! ማመልከቻኻ ተቐቢልና ኣለና፣ እንተተመሪጽካ ክንረኽበካ ኢና።"
+  },
+  sw:{
+    nav_about:"Kuhusu",nav_ventures:"Biashara",nav_platforms:"Kazi",
+    nav_principles:"Kanuni",nav_timeline:"Jenga/Unda tovuti",nav_contact:"Wasiliana",
+    careers_label:"● Kazi",
+    careers_title:"Jiunge na Timu",
+    careers_sub:"Daima tunatafuta watu wenye shauku ya kutusaidia kujenga mustakabali.",
+    message_title:"Hakuna Nafasi Zilizo Wazi Sasa",
+    message_desc:"Hatuna nafasi zozote wazi kwa sasa, lakini tunavutiwa na watu wenye vipaji.",
+   
+    final_eyebrow:"Kampuni ya Teknolojia ya Kushikilia",final_quote:"“Mustakabali unajengwa kwa utulivu.”",
+    final_founder:"— Eyoel Mulugeta, Mkurugenzi Mtendaji na Mwanzilishi wa Vovex",
+    final_cta1:"Hadithi yetu ›",final_cta2:"Biashara zetu ›",
+    footer_copy:"© 2026 VOVEX. Haki zote zimehifadhiwa.",
+    footer_privacy:"Sera ya Faragha",footer_legal:"Kisheria",footer_press:"Habari",footer_contact:"Wasiliana",
+
+    job_role:"Mshirika wa Mauzo wa Vovex",job_company:"Vovex",
+    job_tag1:"Kwa Kamisheni",job_tag2:"Kazi ya Mbali",job_tag3:"Masaa Yanayobadilika",
+    job_desc:"Tunatafuta watu wenye motisha na wanaopenda kushirikiana na wengine kuwakilisha Vovex na kusaidia kuleta wateja wapya. Hakuna cheti cha awali cha mauzo kinachohitajika — kinachohitajika ni bidii, mawasiliano mazuri, na mtandao unaofaa. Hii ni fursa ya kamisheni yenye masaa yanayobadilika, inayofaa pamoja na kazi, masomo, au kazi ya kujitegemea.",
+    job_apply_btn:"Omba Sasa",
+    form_title:"Omba Kuwa Mshirika wa Mauzo",form_subtitle:"Jaza fomu hapa chini — inachukua dakika chache tu.",
+    form_error_generic:"Hitilafu imetokea. Tafadhali jaribu tena.",
+    section_personal:"Taarifa Binafsi",
+    field_name:"Jina Kamili",err_required:"Sehemu hii inahitajika.",
+    field_email:"Anwani ya Barua Pepe",err_email:"Tafadhali weka anwani sahihi ya barua pepe.",
+    field_phone:"Nambari ya Simu",err_phone:"Tafadhali weka nambari sahihi ya simu.",
+    field_linkedin:"Wasifu wa LinkedIn",optional_tag:"(hiari)",
+    field_country:"Nchi",field_city:"Mji",
+    section_about:"Kuhusu Mwombaji",
+    field_age:"Umri",field_occupation:"Kazi",
+    occ_student:"Mwanafunzi",occ_freelancer:"Mfanyakazi Huru",occ_employee:"Mfanyakazi",occ_business:"Mmiliki wa Biashara",occ_other:"Nyingine",
+    field_about:"Tuambie kuhusu wewe",
+    section_sales:"Mauzo na Mawasiliano",
+    field_why:"Kwa nini unataka kuwa Mshirika wa Mauzo wa Vovex?",
+    field_experience:"Una uzoefu wa kuzungumza na wateja au kuuza bidhaa/huduma?",
+    yes_label:"Ndiyo",no_label:"Hapana",
+    field_experience_explain:"Kama ndiyo, eleza kwa ufupi.",
+    field_clients:"Utawapata wapi wateja watarajiwa?",
+    client_friends:"Marafiki na Familia",client_social:"Mitandao ya Kijamii",client_local:"Biashara za Karibu",client_linkedin:"LinkedIn",client_cold:"Mawasiliano ya Moja kwa Moja",client_other:"Nyingine",
+    section_availability:"Upatikanaji",
+    field_hours:"Ni masaa mangapi kwa wiki unaweza kutoa?",
+    hours_1_5:"Masaa 1–5",hours_5_10:"Masaa 5–10",hours_10_20:"Masaa 10–20",hours_20plus:"Masaa 20+",
+    field_start:"Unaweza kuanza lini?",
+    start_now:"Mara moja",start_1_2w:"Ndani ya wiki 1–2",start_1m:"Ndani ya mwezi mmoja hivi",start_unsure:"Sina uhakika bado",
+    field_contact_method:"Njia Unayopendelea ya Mawasiliano",
+    contact_email:"Barua Pepe",contact_phone:"Simu",contact_whatsapp:"WhatsApp",
+    agree_text:"Nathibitisha kuwa taarifa nilizotoa ni sahihi na naelewa hii ni fursa inayotegemea kamisheni.",
+    err_agree:"Tafadhali thibitisha kabla ya kuwasilisha.",
+    submit_label:"Omba Sasa",
+    form_note:"Taarifa zako zinahifadhiwa kwa usiri na kutumika tu kupitia maombi yako.",
+    success_title:"Ombi Limewasilishwa!",
+    success_text:"Asante kwa kuomba! Tumepokea ombi lako na tutawasiliana nawe ukichaguliwa."
+  },
+  fr:{
+    nav_about:"À propos",nav_ventures:"Activités",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Construire/Créer un site web",nav_contact:"Contact",
+    careers_label:"● Carrières",
+    careers_title:"Rejoignez l'Équipe",
+    careers_sub:"Nous sommes toujours à la recherche de personnes passionnées pour nous aider à construire l'avenir.",
+    message_title:"Aucun Poste Ouvert Actuellement",
+    message_desc:"Nous n'avons aucun poste ouvert pour le moment, mais nous sommes toujours intéressés par les personnes talentueuses.",
+  
+    final_eyebrow:"Société Holding Technologique",final_quote:"“L'avenir se construit en silence.”",
+    final_founder:"— Eyoel Mulugeta, PDG et Fondateur de Vovex",
+    final_cta1:"Notre histoire ›",final_cta2:"Nos activités ›",
+    footer_copy:"© 2026 VOVEX. Tous droits réservés.",
+    footer_privacy:"Politique de confidentialité",footer_legal:"Mentions légales",footer_press:"Presse",footer_contact:"Contact",
+
+    job_role:"Partenaire Commercial Vovex",job_company:"Vovex",
+    job_tag1:"À la commission",job_tag2:"Télétravail",job_tag3:"Horaires flexibles",
+    job_desc:"Nous recherchons des personnes motivées et orientées relationnel pour représenter Vovex et aider à attirer de nouveaux clients. Aucune certification commerciale préalable requise — il faut simplement de la motivation, une bonne communication et un réseau utile. C'est une opportunité à la commission avec des horaires flexibles, idéale en complément d'un emploi, d'études ou d'une activité freelance.",
+    job_apply_btn:"Postuler maintenant",
+    form_title:"Postuler comme Partenaire Commercial",form_subtitle:"Remplissez le formulaire ci-dessous — cela ne prend que quelques minutes.",
+    form_error_generic:"Une erreur s'est produite. Veuillez réessayer.",
+    section_personal:"Informations personnelles",
+    field_name:"Nom complet",err_required:"Ce champ est requis.",
+    field_email:"Adresse e-mail",err_email:"Veuillez saisir une adresse e-mail valide.",
+    field_phone:"Numéro de téléphone",err_phone:"Veuillez saisir un numéro de téléphone valide.",
+    field_linkedin:"Profil LinkedIn",optional_tag:"(facultatif)",
+    field_country:"Pays",field_city:"Ville",
+    section_about:"À propos du candidat",
+    field_age:"Âge",field_occupation:"Profession",
+    occ_student:"Étudiant(e)",occ_freelancer:"Freelance",occ_employee:"Salarié(e)",occ_business:"Chef d'entreprise",occ_other:"Autre",
+    field_about:"Parlez-nous de vous",
+    section_sales:"Vente & Communication",
+    field_why:"Pourquoi souhaitez-vous devenir Partenaire Commercial Vovex ?",
+    field_experience:"Avez-vous de l'expérience dans la relation client ou la vente de produits/services ?",
+    yes_label:"Oui",no_label:"Non",
+    field_experience_explain:"Si oui, expliquez brièvement.",
+    field_clients:"Où trouveriez-vous des clients potentiels ?",
+    client_friends:"Amis & famille",client_social:"Réseaux sociaux",client_local:"Entreprises locales",client_linkedin:"LinkedIn",client_cold:"Prospection directe",client_other:"Autre",
+    section_availability:"Disponibilité",
+    field_hours:"Combien d'heures par semaine pouvez-vous consacrer ?",
+    hours_1_5:"1 à 5 heures",hours_5_10:"5 à 10 heures",hours_10_20:"10 à 20 heures",hours_20plus:"20+ heures",
+    field_start:"Quand pouvez-vous commencer ?",
+    start_now:"Immédiatement",start_1_2w:"Dans 1 à 2 semaines",start_1m:"Dans environ un mois",start_unsure:"Pas encore sûr(e)",
+    field_contact_method:"Méthode de contact préférée",
+    contact_email:"E-mail",contact_phone:"Téléphone",contact_whatsapp:"WhatsApp",
+    agree_text:"Je confirme que les informations fournies sont exactes et je comprends qu'il s'agit d'une opportunité à la commission.",
+    err_agree:"Veuillez confirmer avant de soumettre.",
+    submit_label:"Postuler maintenant",
+    form_note:"Vos informations restent confidentielles et ne servent qu'à examiner votre candidature.",
+    success_title:"Candidature envoyée !",
+    success_text:"Merci pour votre candidature ! Nous l'avons bien reçue et vous contacterons si vous êtes sélectionné(e)."
+  },
+  ar:{
+    nav_about:"عن الشركة",nav_ventures:"المشاريع",nav_platforms:"وظائف",
+    nav_principles:"المبادئ",nav_timeline:"بناء/إنشاء موقع",nav_contact:"تواصل",
+    careers_label:"● وظائف",
+    careers_title:"انضم إلى الفريق",
+    careers_sub:"نحن دائمًا نبحث عن أشخاص شغوفين لمساعدتنا في بناء المستقبل.",
+    message_title:"لا توجد وظائف شاغرة حالياً",
+    message_desc:"ليس لدينا أي وظائف شاغرة في الوقت الحالي، لكننا دائمًا مهتمون بالمتعلمين الموهوبين.",
+
+    final_eyebrow:"شركة تكنولوجيا قابضة",final_quote:"“المستقبل يُبنى في صمت.”",
+    final_founder:"— إيويل مولجيتا، الرئيس التنفيذي ومؤسس Vovex",
+    final_cta1:"قصتنا ›",final_cta2:"مشاريعنا ›",
+    footer_copy:"© 2026 VOVEX. جميع الحقوق محفوظة.",
+    footer_privacy:"سياسة الخصوصية",footer_legal:"القانونية",footer_press:"الصحافة",footer_contact:"تواصل",
+
+    job_role:"شريك مبيعات فوفيكس",job_company:"فوفيكس",
+    job_tag1:"بعمولة",job_tag2:"عن بُعد",job_tag3:"ساعات مرنة",
+    job_desc:"نبحث عن أشخاص متحمسين وذوي مهارات تواصل جيدة لتمثيل فوفيكس والمساعدة في جذب عملاء جدد. لا تشترط شهادة مبيعات مسبقة — كل ما تحتاجه هو الحافز، والتواصل الجيد، وشبكة علاقات مفيدة. هذه فرصة قائمة على العمولة بساعات عمل مرنة، مثالية إلى جانب وظيفة أو دراسة أو عمل حر.",
+    job_apply_btn:"قدّم الآن",
+    form_title:"التقديم لشريك مبيعات",form_subtitle:"املأ النموذج أدناه — لن يستغرق سوى بضع دقائق.",
+    form_error_generic:"حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    section_personal:"المعلومات الشخصية",
+    field_name:"الاسم الكامل",err_required:"هذا الحقل مطلوب.",
+    field_email:"البريد الإلكتروني",err_email:"يرجى إدخال بريد إلكتروني صحيح.",
+    field_phone:"رقم الهاتف",err_phone:"يرجى إدخال رقم هاتف صحيح.",
+    field_linkedin:"الملف الشخصي على لينكدإن",optional_tag:"(اختياري)",
+    field_country:"الدولة",field_city:"المدينة",
+    section_about:"عن المتقدم",
+    field_age:"العمر",field_occupation:"المهنة",
+    occ_student:"طالب",occ_freelancer:"عامل مستقل",occ_employee:"موظف",occ_business:"صاحب عمل",occ_other:"أخرى",
+    field_about:"أخبرنا عن نفسك",
+    section_sales:"المبيعات والتواصل",
+    field_why:"لماذا تريد أن تصبح شريك مبيعات في فوفيكس؟",
+    field_experience:"هل لديك خبرة في التحدث مع العملاء أو بيع المنتجات/الخدمات؟",
+    yes_label:"نعم",no_label:"لا",
+    field_experience_explain:"إذا كانت الإجابة نعم، اشرح باختصار.",
+    field_clients:"أين ستجد عملاء محتملين؟",
+    client_friends:"الأصدقاء والعائلة",client_social:"وسائل التواصل الاجتماعي",client_local:"الشركات المحلية",client_linkedin:"لينكدإن",client_cold:"التواصل المباشر",client_other:"أخرى",
+    section_availability:"التوفر",
+    field_hours:"كم عدد الساعات أسبوعيًا التي يمكنك تخصيصها؟",
+    hours_1_5:"1–5 ساعات",hours_5_10:"5–10 ساعات",hours_10_20:"10–20 ساعة",hours_20plus:"أكثر من 20 ساعة",
+    field_start:"متى يمكنك البدء؟",
+    start_now:"فورًا",start_1_2w:"خلال 1–2 أسبوع",start_1m:"خلال شهر تقريبًا",start_unsure:"غير متأكد بعد",
+    field_contact_method:"طريقة التواصل المفضلة",
+    contact_email:"البريد الإلكتروني",contact_phone:"الهاتف",contact_whatsapp:"واتساب",
+    agree_text:"أؤكد أن المعلومات المقدمة دقيقة وأدرك أن هذه فرصة قائمة على العمولة.",
+    err_agree:"يرجى التأكيد قبل الإرسال.",
+    submit_label:"قدّم الآن",
+    form_note:"تُحفظ معلوماتك بسرية ولا تُستخدم إلا لمراجعة طلبك.",
+    success_title:"تم إرسال الطلب!",
+    success_text:"شكرًا لتقديمك! لقد استلمنا طلبك وسنتواصل معك إذا تم اختيارك."
+  },
+  zh:{
+    nav_about:"关于",nav_ventures:"业务",nav_platforms:"职业",
+    nav_principles:"原则",nav_timeline:"构建/创建网站",nav_contact:"联系",
+    careers_label:"● 职业",
+    careers_title:"加入团队",
+    careers_sub:"我们一直在寻找有热情的人来帮助我们建设未来。",
+    message_title:"目前没有空缺职位",
+    message_desc:"我们目前没有任何职位空缺，但我们一直对优秀人才感兴趣。",
+   
+    final_eyebrow:"科技控股集团",final_quote:"“未来，在寂静中构建。”",
+    final_founder:"— 埃约尔·穆卢格塔，Vovex 首席执行官兼创始人",
+    final_cta1:"我们的故事 ›",final_cta2:"我们的业务 ›",
+    footer_copy:"版权所有 © 2026 VOVEX。保留所有权利。",
+    footer_privacy:"隐私政策",footer_legal:"法律",footer_press:"新闻",footer_contact:"联系我们",
+
+    job_role:"Vovex 销售合伙人",job_company:"Vovex",
+    job_tag1:"提成制",job_tag2:"远程",job_tag3:"灵活工时",
+    job_desc:"我们正在寻找积极主动、善于沟通的人才代表 Vovex，协助拓展新客户。无需以往的销售资质——只需要动力、良好的沟通能力以及有价值的人脉。这是一个提成制、工时灵活的机会，非常适合作为正职、学业或自由职业之外的兼职。",
+    job_apply_btn:"立即申请",
+    form_title:"申请销售合伙人",form_subtitle:"填写以下表格——只需几分钟。",
+    form_error_generic:"出了点问题，请重试。",
+    section_personal:"个人信息",
+    field_name:"姓名",err_required:"此字段为必填项。",
+    field_email:"电子邮箱",err_email:"请输入有效的电子邮箱地址。",
+    field_phone:"电话号码",err_phone:"请输入有效的电话号码。",
+    field_linkedin:"领英（LinkedIn）资料",optional_tag:"（选填）",
+    field_country:"国家",field_city:"城市",
+    section_about:"关于申请人",
+    field_age:"年龄",field_occupation:"职业",
+    occ_student:"学生",occ_freelancer:"自由职业者",occ_employee:"在职员工",occ_business:"企业主",occ_other:"其他",
+    field_about:"请介绍一下自己",
+    section_sales:"销售与沟通",
+    field_why:"你为什么想成为 Vovex 销售合伙人？",
+    field_experience:"你有与客户沟通或销售产品/服务的经验吗？",
+    yes_label:"有",no_label:"没有",
+    field_experience_explain:"如果有，请简要说明。",
+    field_clients:"你会从哪里寻找潜在客户？",
+    client_friends:"亲友",client_social:"社交媒体",client_local:"本地商户",client_linkedin:"领英（LinkedIn）",client_cold:"陌生开发",client_other:"其他",
+    section_availability:"时间安排",
+    field_hours:"你每周能投入多少小时？",
+    hours_1_5:"1–5 小时",hours_5_10:"5–10 小时",hours_10_20:"10–20 小时",hours_20plus:"20 小时以上",
+    field_start:"你什么时候可以开始？",
+    start_now:"立即开始",start_1_2w:"1–2 周内",start_1m:"大约一个月内",start_unsure:"尚不确定",
+    field_contact_method:"首选联系方式",
+    contact_email:"电子邮箱",contact_phone:"电话",contact_whatsapp:"WhatsApp",
+    agree_text:"我确认所提供的信息准确无误，并理解这是一个提成制的机会。",
+    err_agree:"请在提交前确认此项。",
+    submit_label:"立即申请",
+    form_note:"您的信息将被保密，仅用于审核您的申请。",
+    success_title:"申请已提交！",
+    success_text:"感谢您的申请！我们已收到您的申请，如果您被选中，我们将与您联系。"
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  const d = T[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.textContent = d[k];
+  });
+  const rtl = lang === 'ar';
+  document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+  document.documentElement.setAttribute('lang', lang);
+  const eth = lang === 'am' || lang === 'ti';
+  const ara = lang === 'ar';
+  document.body.style.fontFamily = eth
+    ? "var(--font-ethiopic)"
+    : ara ? "var(--font-arabic)"
+    : "var(--font)";
+  document.querySelectorAll('.lbtn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+  currentLang = lang;
+  // Re-validate any already-shown field errors in the new language
+  if (typeof refreshVisibleFieldErrors === 'function') refreshVisibleFieldErrors();
+}
+
+/* Returns a translated string for the active language, falling back to English. */
+function t(key) {
+  return (T[currentLang] && T[currentLang][key]) || (T.en && T.en[key]) || key;
+}
+
+/* ════════════════════════════════
+   FINAL CANVAS
+════════════════════════════════ */
+(function(){
+  const c = document.getElementById('final-canvas');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let W, H;
+  const PTS = Array.from({length:50}, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random()-.5)*.0004, vy: (Math.random()-.5)*.0004,
+    r: Math.random()*.8+.2, o: Math.random()*.1+.02
+  }));
+
+  function resize() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; }
+  resize();
+  new ResizeObserver(resize).observe(c);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    PTS.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+      if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${p.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ════════════════════════════════
+   VOVEX SALES PARTNER — APPLICATION FORM
+════════════════════════════════ */
+(function () {
+  const ctaBtn        = document.getElementById('applyCtaBtn');
+  const formWrap      = document.getElementById('applyFormWrap');
+  const form          = document.getElementById('applyForm');
+  const formBody      = document.getElementById('formBody');
+  const formSuccess   = document.getElementById('formSuccess');
+  const errorBanner   = document.getElementById('formErrorBanner');
+  const submitBtn     = document.getElementById('submitBtn');
+  const expWrap       = document.getElementById('experienceExplainWrap');
+  if (!form) return;
+
+  /* ── SECURE SUBMISSION ENDPOINT ──────────────────────────────
+     This form posts to a Formspree endpoint. Formspree relays the
+     submission to the recipient inbox configured privately on the
+     Formspree dashboard — the destination address is never stored
+     in this file, so it never appears in the page source or dev tools.
+
+     Setup (one-time):
+       1. Create a free account at https://formspree.io
+       2. Create a new form and set its notification email there.
+       3. Copy the generated form ID and paste it below, replacing
+          "YOUR_FORM_ID".
+     Any equivalent service (Netlify Functions, a serverless email
+     relay, etc.) can be substituted here as long as it accepts a
+     POST of form-encoded/FormData and keeps the recipient server-side. */
+  const FORM_ENDPOINT = 'https://formspree.io/f/xdarjjlw';
+
+  /* ── OPEN / CLOSE THE FORM ── */
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+      const isOpen = formWrap.classList.toggle('open');
+      if (isOpen) {
+        setTimeout(() => formWrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+      }
+    });
+  }
+
+  /* ── CONDITIONAL "EXPLAIN" FIELD ── */
+  document.querySelectorAll('input[name="experience"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const showIt = document.getElementById('exp_yes').checked;
+      expWrap.classList.toggle('show', showIt);
+      if (!showIt) document.getElementById('f_experience_explain').value = '';
+    });
+  });
+
+  /* ── VALIDATION HELPERS ── */
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const PHONE_RE = /^[+]?[0-9\s\-().]{7,20}$/;
+
+  function showError(inputId, key) {
+    const input = document.getElementById(inputId);
+    const err = document.querySelector(`.field-error[data-err="${inputId}"]`);
+    if (input) input.classList.add('invalid');
+    if (err) {
+      if (key) err.textContent = t(key);
+      err.classList.add('show');
+    }
+  }
+  function clearError(inputId) {
+    const input = document.getElementById(inputId);
+    const err = document.querySelector(`.field-error[data-err="${inputId}"]`);
+    if (input) input.classList.remove('invalid');
+    if (err) err.classList.remove('show');
+  }
+  function clearAllErrors() {
+    ['f_name','f_email','f_phone','f_country','f_city','f_why','f_agree'].forEach(clearError);
+    errorBanner.classList.remove('show');
+  }
+
+  function validate() {
+    clearAllErrors();
+    let valid = true;
+    const val = id => document.getElementById(id).value.trim();
+
+    if (!val('f_name'))                       { showError('f_name', 'err_required'); valid = false; }
+    if (!val('f_email'))                      { showError('f_email', 'err_required'); valid = false; }
+    else if (!EMAIL_RE.test(val('f_email')))  { showError('f_email', 'err_email'); valid = false; }
+    if (!val('f_phone'))                      { showError('f_phone', 'err_required'); valid = false; }
+    else if (!PHONE_RE.test(val('f_phone')))  { showError('f_phone', 'err_phone'); valid = false; }
+    if (!val('f_country'))                    { showError('f_country', 'err_required'); valid = false; }
+    if (!val('f_city'))                       { showError('f_city', 'err_required'); valid = false; }
+    if (!val('f_why'))                        { showError('f_why', 'err_required'); valid = false; }
+    if (!document.getElementById('f_agree').checked) { showError('f_agree', 'err_agree'); valid = false; }
+
+    return valid;
+  }
+
+  /* Live-clear an error as soon as the user fixes a field */
+  ['f_name','f_email','f_phone','f_country','f_city','f_why'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => clearError(id));
+  });
+  const agreeEl = document.getElementById('f_agree');
+  if (agreeEl) agreeEl.addEventListener('change', () => clearError('f_agree'));
+
+  /* ── SUBMISSION ── */
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Honeypot: if this hidden field has any value, it was filled by a bot.
+    const honeypot = document.getElementById('hp_website');
+    const isBot = honeypot && honeypot.value.trim() !== '';
+
+    if (!validate()) {
+      const firstInvalid = form.querySelector('.invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    errorBanner.classList.remove('show');
+
+    if (isBot) {
+      // Silently discard bot submissions but still show success so the
+      // bot has no signal that it was detected.
+      setTimeout(() => showSuccess(), 500);
+      return;
+    }
+
+    const formData = new FormData(form);
+    formData.append('_subject', 'New Vovex Sales Partner Application');
+    formData.append('language', currentLang);
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      if (res.ok) {
+        showSuccess();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      errorBanner.classList.add('show');
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+
+  function showSuccess() {
+    formBody.style.display = 'none';
+    formSuccess.classList.add('show');
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+})();
+
+console.log('VOVEX Careers — Loaded.');
+</script>
+</body>
+</html>
