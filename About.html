@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VOVEX — Leadership</title>
+<meta name="description" content="VOVEX is a global technology holding company building platforms, systems, and ventures across AI, media, infrastructure, commerce, and digital systems."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Noto+Sans+Ethiopic:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./Resources/logo.PNG">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #fff; }
+
+/* ─── TOKENS ─── */
+:root {
+  --white: #ffffff;
+  --off-white: #f5f5f7;
+  --section-dark: #1d1d1f;
+  --headline: #1d1d1f;
+  --body: #1d1d1f;
+  --secondary: #6e6e73;
+  --tertiary: #86868b;
+  --link: #0066cc;
+  --link-hover: #0077ed;
+  --divider: rgba(0,0,0,0.06);
+  --nav-bg: rgba(255,255,255,0.92);
+  --card-radius: 20px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-ethiopic: 'Noto Sans Ethiopic', 'Nyala', var(--font);
+  --font-arabic: 'Noto Sans Arabic', var(--font);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── LANGUAGE BAR ─── */
+#langbar {
+  background: var(--section-dark);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#langbar::-webkit-scrollbar { display: none; }
+
+.lbtn {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 14px;
+  height: 40px;
+  white-space: nowrap;
+  transition: color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  font-family: var(--font);
+  position: relative;
+}
+.lbtn:last-child { border-right: none; }
+.lbtn .ln { font-size: 8.5px; opacity: 0.5; margin-top: 1px; }
+.lbtn:hover { color: rgba(255,255,255,0.85); }
+.lbtn.active { color: #ffffff; }
+.lbtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 14px; right: 14px;
+  height: 2px;
+  background: #0066cc;
+  border-radius: 2px 2px 0 0;
+}
+
+/* ─── NAV ─── */
+#nav {
+  position: sticky;
+  top: 40px;
+  z-index: 999;
+  height: 44px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--divider);
+}
+.nav-inner {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--headline);
+  text-decoration: none;
+  justify-self: start;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0 10px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--headline); }
+.nav-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-contact {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-contact:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* ═══════════════════════════════════════════════
+   LEADERSHIP — MONUMENTAL
+   ═══════════════════════════════════════════════ */
+#leadership {
+  --ld-black: #000000;
+  --ld-white: #ffffff;
+  --ld-gray-50: #fafafa;
+  --ld-gray-100: #f0f0f0;
+  --ld-gray-200: #d4d4d4;
+  --ld-gray-300: #a3a3a3;
+  --ld-gray-400: #737373;
+  --ld-gray-500: #525252;
+  --ld-gray-600: #404040;
+  --ld-gray-700: #262626;
+  --ld-gray-800: #171717;
+  --ld-gray-900: #0a0a0a;
+  --ld-blue: #0066cc;
+  
+  background: var(--ld-white);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background */
+.ld-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.018) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 15%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 15%, transparent 70%);
+}
+
+.ld-bg-gradient {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(160px);
+}
+
+.ld-bg-gradient-1 {
+  width: 800px;
+  height: 800px;
+  background: rgba(0,102,204,0.02);
+  top: -200px;
+  right: -300px;
+}
+
+.ld-bg-gradient-2 {
+  width: 600px;
+  height: 600px;
+  background: rgba(0,0,0,0.012);
+  bottom: 10%;
+  left: -200px;
+}
+
+/* ═══ STATEMENT ═══ */
+.ld-statement {
+  padding: 180px 40px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.ld-statement-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.ld-statement-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.ld-statement-label-line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--ld-gray-300);
+}
+
+.ld-statement-label-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ld-gray-500);
+}
+
+.ld-statement-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ld-statement-headline-line {
+  display: block;
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  color: var(--ld-black);
+}
+
+.ld-statement-headline-line:last-child {
+  font-weight: 300;
+  color: var(--ld-gray-400);
+}
+
+/* ═══ FOUNDER ═══ */
+.ld-founder {
+  padding: 0 40px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.ld-founder-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.ld-founder-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 120px;
+}
+
+.ld-founder-portrait {
+  width: 280px;
+  height: 360px;
+  background: linear-gradient(165deg, #1a1a1c 0%, #252527 40%, #111112 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.ld-founder-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ld-founder-portrait-fallback {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ld-founder-initials {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: rgba(255,255,255,0.8);
+}
+
+.ld-founder-portrait-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255,255,255,0.015) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+.ld-founder-portrait-shadow {
+  width: 280px;
+  height: 20px;
+  background: rgba(0,0,0,0.06);
+  filter: blur(16px);
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.ld-founder-content {
+  max-width: 480px;
+  padding-top: 8px;
+}
+
+.ld-founder-overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ld-blue);
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: rgba(0,102,204,0.04);
+  border-radius: 4px;
+}
+
+.ld-founder-overline-line {
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--ld-blue);
+}
+
+.ld-founder-name {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ld-black);
+  margin-bottom: 24px;
+}
+
+.ld-founder-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--ld-gray-200);
+  margin-bottom: 28px;
+}
+
+.ld-founder-bio {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ld-gray-500);
+  margin-bottom: 28px;
+}
+
+.ld-founder-quote {
+  padding-left: 20px;
+  border-left: 2px solid var(--ld-blue);
+  margin-bottom: 32px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ld-gray-400);
+  font-style: italic;
+}
+
+.ld-founder-meta {
+  display: flex;
+  gap: 48px;
+}
+
+.ld-founder-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ld-founder-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ld-gray-300);
+}
+
+.ld-founder-meta-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ld-gray-700);
+}
+
+/* ═══ TEAM ═══ */
+.ld-team {
+  padding: 0 40px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.ld-team-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding-top: 80px;
+  border-top: 1px solid var(--ld-gray-100);
+}
+
+.ld-team-member {
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-team-member-visual {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 36px;
+}
+
+.ld-team-member-portrait {
+  width: 160px;
+  height: 200px;
+  background: linear-gradient(165deg, #1a1a1c 0%, #252527 40%, #111112 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ld-team-member-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ld-team-member-portrait-fallback {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ld-team-member-portrait-fallback span {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: rgba(255,255,255,0.8);
+}
+
+.ld-team-member-portrait-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255,255,255,0.015) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+.ld-team-member-content {
+  flex: 1;
+}
+
+.ld-team-member-overline {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ld-blue);
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  background: rgba(0,102,204,0.04);
+  border-radius: 4px;
+}
+
+.ld-team-member-name {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--ld-black);
+  margin-bottom: 16px;
+}
+
+.ld-team-member-divider {
+  width: 28px;
+  height: 2px;
+  background: var(--ld-gray-200);
+  margin-bottom: 20px;
+}
+
+.ld-team-member-bio {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ld-gray-500);
+  margin-bottom: 24px;
+}
+
+.ld-team-member-meta {
+  display: flex;
+  gap: 32px;
+}
+
+.ld-team-member-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ld-team-member-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ld-gray-300);
+}
+
+.ld-team-member-meta-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ld-gray-600);
+}
+
+/* ═══ GLOBAL ═══ */
+.ld-global {
+  padding: 56px 40px;
+  border-top: 1px solid var(--ld-gray-100);
+  position: relative;
+  z-index: 1;
+}
+
+.ld-global-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+}
+
+.ld-global-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ld-gray-400);
+  white-space: nowrap;
+}
+
+.ld-global-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ld-global-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.ld-global-city {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ld-black);
+}
+
+.ld-global-type {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ld-gray-400);
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .ld-founder-inner {
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+  }
+  
+  .ld-founder-portrait {
+    width: 240px;
+    height: 310px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-inner { grid-template-columns: auto 1fr; }
+  .nav-right { display: none; }
+  
+  .ld-statement {
+    padding: 120px 24px 72px;
+  }
+  
+  .ld-statement-headline-line {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+  
+  .ld-founder {
+    padding: 0 24px 72px;
+  }
+  
+  .ld-founder-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .ld-founder-visual {
+    position: static;
+    order: -1;
+  }
+  
+  .ld-founder-portrait {
+    width: 200px;
+    height: 260px;
+  }
+  
+  .ld-founder-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .ld-founder-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ld-founder-quote {
+    text-align: left;
+  }
+  
+  .ld-founder-meta {
+    justify-content: center;
+  }
+  
+  .ld-team {
+    padding: 0 24px 72px;
+  }
+  
+  .ld-team-inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding-top: 56px;
+  }
+  
+  .ld-team-member {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  
+  .ld-team-member-visual {
+    margin-bottom: 0;
+    justify-content: center;
+  }
+  
+  .ld-team-member-portrait {
+    width: 140px;
+    height: 180px;
+  }
+  
+  .ld-global {
+    padding: 40px 24px;
+  }
+  
+  .ld-global-inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ld-statement {
+    padding: 80px 20px 56px;
+  }
+  
+  .ld-founder {
+    padding: 0 20px 56px;
+  }
+  
+  .ld-team {
+    padding: 0 20px 56px;
+  }
+  
+  .ld-team-inner {
+    padding-top: 40px;
+    gap: 40px;
+  }
+  
+  .ld-team-member {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .ld-team-member-content {
+    max-width: 100%;
+  }
+  
+  .ld-team-member-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ld-team-member-meta {
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .ld-founder-meta {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .ld-global {
+    padding: 32px 20px;
+  }
+}
+
+/* ─── FINAL ─── */
+#final {
+  background: var(--section-dark);
+  text-align: center;
+  padding: 140px 20px 120px;
+  position: relative;
+  overflow: hidden;
+}
+#final-canvas {
+  position: absolute;
+  inset: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+}
+.final-tagline {
+  font-size: clamp(13px, 1.5vw, 17px);
+  font-weight: 400;
+  color: #a1a1a6;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  position: relative; z-index: 2;
+}
+.final-wordmark {
+  font-size: clamp(64px, 12vw, 148px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+  line-height: 1;
+  position: relative; z-index: 2;
+}
+.final-sub {
+  font-size: 19px;
+  font-weight: 400;
+  color: #6e6e73;
+  margin-top: 20px;
+  position: relative; z-index: 2;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.47;
+}
+.final-founder {
+  font-size: 14px;
+  font-weight: 300;
+  color: #6e6e73;
+  margin-top: 8px;
+  position: relative; z-index: 2;
+  letter-spacing: 0.02em;
+}
+.final-founder span {
+  color: #a1a1a6;
+  font-weight: 400;
+}
+.final-cta-row {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  position: relative; z-index: 2;
+}
+.final-link {
+  font-size: 17px;
+  font-weight: 400;
+  color: #2997ff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.final-link:hover { color: #47a9ff; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--off-white);
+  border-top: 1px solid var(--divider);
+  padding: 28px 20px;
+}
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-logo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary);
+  letter-spacing: -0.01em;
+}
+.footer-copy {
+  font-size: 12px;
+  color: var(--tertiary);
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--link); }
+
+@media (max-width: 768px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  #langbar { justify-content: flex-start; }
+  #final { padding: 100px 20px 80px; }
+  .final-wordmark { font-size: clamp(48px, 10vw, 80px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── LANGUAGE BAR ─── -->
+<div id="langbar" role="navigation" aria-label="Language selection">
+  <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN<span class="ln">English</span></button>
+  <button class="lbtn" data-lang="am" onclick="setLang('am')">አማ<span class="ln">አማርኛ</span></button>
+  <button class="lbtn" data-lang="nl" onclick="setLang('nl')">NL<span class="ln">Nederlands</span></button>
+  <button class="lbtn" data-lang="om" onclick="setLang('om')">OM<span class="ln">Oromoo</span></button>
+  <button class="lbtn" data-lang="ti" onclick="setLang('ti')">ትግ<span class="ln">ትግርኛ</span></button>
+  <button class="lbtn" data-lang="sw" onclick="setLang('sw')">SW<span class="ln">Kiswahili</span></button>
+  <button class="lbtn" data-lang="fr" onclick="setLang('fr')">FR<span class="ln">Français</span></button>
+  <button class="lbtn" data-lang="ar" onclick="setLang('ar')">عر<span class="ln">العربية</span></button>
+  <button class="lbtn" data-lang="zh" onclick="setLang('zh')">中文<span class="ln">普通话</span></button>
+</div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="./index.html">VOVEX</a>
+    <ul class="nav-links" role="list">
+      <li><a href="./About.html" data-i18n="nav_about">About</a></li>
+      <li><a href="./ventures.html" data-i18n="nav_ventures">Ventures</a></li>
+      <li><a href="./careers.html" data-i18n="nav_platforms">Careers</a></li>
+      <li><a href="./principles.html" data-i18n="nav_principles">Principles</a></li>
+      <li><a href="./create-website.html" data-i18n="nav_timeline">Build/Create a website</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-contact" href="./contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── LEADERSHIP ─── -->
+<section id="leadership">
+  <!-- Background Architecture -->
+  <div class="ld-bg-grid"></div>
+  <div class="ld-bg-gradient ld-bg-gradient-1"></div>
+  <div class="ld-bg-gradient ld-bg-gradient-2"></div>
+
+  <!-- Layer 1: The Statement -->
+  <div class="ld-statement">
+    <div class="ld-statement-inner">
+      <div class="ld-statement-label">
+        <span class="ld-statement-label-line"></span>
+        <span class="ld-statement-label-text" data-i18n="leadership_label">Leadership</span>
+      </div>
+      <h2 class="ld-statement-headline">
+        <span class="ld-statement-headline-line" data-i18n="leadership_line1">The people building</span>
+        <span class="ld-statement-headline-line" data-i18n="leadership_line2">infrastructure for</span>
+        <span class="ld-statement-headline-line" data-i18n="leadership_line3">the next century.</span>
+      </h2>
+    </div>
+  </div>
+
+  <!-- Layer 2: Founder & CEO -->
+  <div class="ld-founder">
+    <div class="ld-founder-inner">
+      <div class="ld-founder-visual">
+        <div class="ld-founder-portrait">
+          <img 
+            src="./Resources/Emb.jfif" 
+            alt="Eyoel Mulugeta"
+            class="ld-founder-portrait-img"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="ld-founder-portrait-fallback" style="display:none;">
+            <span class="ld-founder-initials">EM</span>
+          </div>
+          <div class="ld-founder-portrait-shine"></div>
+        </div>
+        <div class="ld-founder-portrait-shadow"></div>
+      </div>
+      <div class="ld-founder-content">
+        <div class="ld-founder-overline">
+          <span class="ld-founder-overline-line"></span>
+          <span data-i18n="founder_title">Founder & Chief Executive Officer</span>
+        </div>
+        <h3 class="ld-founder-name">Eyoel Mulugeta</h3>
+        <div class="ld-founder-divider"></div>
+        <p class="ld-founder-bio" data-i18n="founder_bio">Eyoel founded VOVEX with the conviction that the next century's most consequential technology companies would emerge from places the world has historically overlooked.</p>
+        <blockquote class="ld-founder-quote" data-i18n="founder_quote">"Vovex will be great!"</blockquote>
+        <div class="ld-founder-meta">
+          <div class="ld-founder-meta-item">
+            <span class="ld-founder-meta-label" data-i18n="founder_prev">Previously</span>
+            <span class="ld-founder-meta-value">EyoArc</span>
+          </div>
+          <div class="ld-founder-meta-item">
+            <span class="ld-founder-meta-label" data-i18n="founder_edu">Education</span>
+            <span class="ld-founder-meta-value" data-i18n="founder_edu_val">Addis Ababa University</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 3: Leadership Team -->
+  <div class="ld-team">
+    <div class="ld-team-inner">
+      <!-- Team Member 1 -->
+      <div class="ld-team-member">
+        <div class="ld-team-member-visual">
+          <div class="ld-team-member-portrait">
+            <img 
+              src="./Resources/KM.png" 
+              alt="Kaleab Mersha"
+              class="ld-team-member-portrait-img"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="ld-team-member-portrait-fallback" style="display:none;">
+              <span>KM</span>
+            </div>
+            <div class="ld-team-member-portrait-shine"></div>
+          </div>
+        </div>
+        <div class="ld-team-member-content">
+          <div class="ld-team-member-overline" data-i18n="kaleab_title">Social Media Manager</div>
+          <h4 class="ld-team-member-name">Kaleab Mersha</h4>
+          <div class="ld-team-member-divider"></div>
+          <p class="ld-team-member-bio" data-i18n="kaleab_bio">Proud to be part of the next big event in Ethiopia.</p>
+          <div class="ld-team-member-meta">
+            <div class="ld-team-member-meta-item">
+              <span class="ld-team-member-meta-label"></span>
+              <span class="ld-team-member-meta-value"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="ld-team-member">
+        <div class="ld-team-member-visual">
+          <div class="ld-team-member-portrait">
+            <img 
+              src="./Resources/yafet.jpg" 
+              alt="Yafet Tesfaye"
+              class="ld-team-member-portrait-img"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="ld-team-member-portrait-fallback" style="display:none;">
+              <span>YT</span>
+            </div>
+            <div class="ld-team-member-portrait-shine"></div>
+          </div>
+        </div>
+        <div class="ld-team-member-content">
+          <div class="ld-team-member-overline" data-i18n="yafet_title">Human Resources Executive</div>
+          <h4 class="ld-team-member-name">Yafet Tesfaye</h4>
+          <div class="ld-team-member-divider"></div>
+          <p class="ld-team-member-bio" data-i18n="yafet_bio"></p>
+          <div class="ld-team-member-meta">
+            <div class="ld-team-member-meta-item">
+              <span class="ld-team-member-meta-label" data-i18n="yafet_edu_label">Education</span>
+              <span class="ld-team-member-meta-value" data-i18n="yafet_edu_val">Ethiopian Aviation University</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 4: Global Presence -->
+  <div class="ld-global">
+    <div class="ld-global-inner">
+      <p class="ld-global-label" data-i18n="global_label">Global presence</p>
+      <div class="ld-global-list">
+        <div class="ld-global-item">
+          <span class="ld-global-city">Addis Ababa</span>
+          <span class="ld-global-type" data-i18n="global_hq">Headquarters</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL ─── -->
+<section id="final">
+  <canvas id="final-canvas"></canvas>
+  <p class="final-tagline" data-i18n="final_eyebrow">Technology Holding Company</p>
+  <h2 class="final-wordmark">VOVEX</h2>
+  <p class="final-sub" data-i18n="final_quote">"The future is built quietly."</p>
+  <p class="final-founder" data-i18n="final_founder">— <span>Eyoel Mulugeta</span>, CEO and Founder of Vovex</p>
+  <div class="final-cta-row">
+    <a class="final-link" href="./About.html" data-i18n="final_cta1">Our story ›</a>
+    <a class="final-link" href="./ventures.html" data-i18n="final_cta2">Our ventures ›</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">VOVEX</span>
+    <span class="footer-copy" data-i18n="footer_copy">Copyright © 2026 VOVEX. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="./privacypolicy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="./legal.html" data-i18n="footer_legal">Legal</a>
+      <a href="./press.html" data-i18n="footer_press">Press</a>
+      <a href="./contact.html" data-i18n="footer_contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════
+   I18N - COMPLETE TRANSLATIONS FOR ALL LANGUAGES
+════════════════════════════════ */
+const T = {
+  en:{
+    nav_about:"About",nav_ventures:"Ventures",nav_platforms:"Careers",
+    nav_principles:"Principles",nav_timeline:"Build/Create a website",nav_contact:"Contact",
+    leadership_label:"Leadership",
+    leadership_line1:"The people building",
+    leadership_line2:"infrastructure for",
+    leadership_line3:"the next century.",
+    founder_title:"Founder & Chief Executive Officer",
+    founder_bio:"Eyoel founded VOVEX with the conviction that the next century's most consequential technology companies would emerge from places the world has historically overlooked.",
+    founder_quote:"\"Vovex will be great!\"",
+    founder_prev:"Previously",
+    founder_edu:"Education",
+    founder_edu_val:"Addis Ababa University",
+    kaleab_title:"Co-Founder and Social Media Manager",
+    kaleab_bio:"Proud to be part of the next big event in Ethiopia.",
+    yafet_title:"Human Resources Executive",
+    yafet_bio:"",
+    yafet_edu_label:"Education",
+    yafet_edu_val:"Ethiopian Aviation University",
+    global_label:"Global presence",
+    global_hq:"Headquarters",
+    final_eyebrow:"Technology Holding Company",final_quote:"“The future is built quietly.”",
+    final_founder:"— Eyoel Mulugeta, CEO and Founder of Vovex",
+    final_cta1:"Our story ›",final_cta2:"Our ventures ›",
+    footer_copy:"Copyright © 2026 VOVEX. All rights reserved.",
+    footer_privacy:"Privacy Policy",footer_legal:"Legal",footer_press:"Press",footer_contact:"Contact"
+  },
+  am:{
+    nav_about:"ስለ",nav_ventures:"ተቋሞች",nav_platforms:"ስራዎች",
+    nav_principles:"መርሆዎች",nav_timeline:"ድህረ ገጽ ግንባ/ፍጠር",nav_contact:"አግኙን",
+    leadership_label:"አመራር",
+    leadership_line1:"የሚገነቡት ሰዎች",
+    leadership_line2:"መሠረተ ልማት ለ",
+    leadership_line3:"ቀጣዩ ክፍለ ዘመን።",
+    founder_title:"መሥራች እና ዋና ሥራ አስፈጻሚ",
+    founder_bio:"ኢየኤል የቮቬክስ መሥራች በመሆን ቀጣዩ ክፍለ ዘመን በጣም አስፈላጊ የቴክኖሎጂ ኩባንያዎች ታሪክ ችላ ከተባሉ ቦታዎች እንደሚመጡ በማመን መሠረተ ልማት እየገነባ ነው።",
+    founder_quote:"\"ቮቬክስ ታላቅ ትሆናለች!\"",
+    founder_prev:"ቀደም",
+    founder_edu:"ትምህርት",
+    founder_edu_val:"አዲስ አበባ ዩኒቨርሲቲ",
+    kaleab_title:"ተባባሪ መሥራች እና ማህበራዊ ሚዲያ አስተዳዳሪ",
+    kaleab_bio:"በኢትዮጵያ ቀጣዩ ትልቅ ክስተት አካል መሆኔን እኩራለሁ።",
+    yafet_title:"የሰው ሃይል ሥራ አስፈጻሚ",
+    yafet_bio:"",
+    yafet_edu_label:"ትምህርት",
+    yafet_edu_val:"የኢትዮጵያ አቪዬሽን ዩኒቨርሲቲ",
+    global_label:"ዓለም አቀፍ መገኛ",
+    global_hq:"ዋና መሥሪያ ቤት",
+    final_eyebrow:"የቴክኖሎጂ ሆልዲንግ ኩባንያ",final_quote:"“ወደፊቱ በጸጥታ ይሠራል።”",
+    final_founder:"— ኢየኤል ሙሉጌታ፣ የቮቬክስ ዋና ሥራ አስፈጻሚ እና መሥራች",
+    final_cta1:"ታሪካችን ›",final_cta2:"ተቋሞቻችን ›",
+    footer_copy:"© 2026 VOVEX. መብቱ በሕግ የተጠበቀ ነው።",
+    footer_privacy:"የግልነት ፖሊሲ",footer_legal:"ሕጋዊ",footer_press:"ፕሬስ",footer_contact:"አግኙን"
+  },
+  nl:{
+    nav_about:"Over",nav_ventures:"Activiteiten",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Website bouwen/maken",nav_contact:"Contact",
+    leadership_label:"Leiderschap",
+    leadership_line1:"De mensen die bouwen",
+    leadership_line2:"infrastructuur voor",
+    leadership_line3:"de volgende eeuw.",
+    founder_title:"Oprichter & Chief Executive Officer",
+    founder_bio:"Eyoel richtte VOVEX op met de overtuiging dat de meest invloedrijke technologiebedrijven van de volgende eeuw zouden voortkomen uit plaatsen die de wereld historisch over het hoofd heeft gezien.",
+    founder_quote:"\"Vovex zal geweldig zijn!\"",
+    founder_prev:"Eerder",
+    founder_edu:"Opleiding",
+    founder_edu_val:"Addis Ababa Universiteit",
+    kaleab_title:"Mede-oprichter en Social Media Manager",
+    kaleab_bio:"Trots om deel uit te maken van het volgende grote evenement in Ethiopië.",
+    yafet_title:"Human Resources Executive",
+    yafet_bio:"",
+    yafet_edu_label:"Opleiding",
+    yafet_edu_val:"Ethiopische Luchtvaart Universiteit",
+    global_label:"Wereldwijde aanwezigheid",
+    global_hq:"Hoofdkantoor",
+    final_eyebrow:"Technologisch Holdingbedrijf",final_quote:"“De toekomst wordt stil gebouwd.”",
+    final_founder:"— Eyoel Mulugeta, CEO en Oprichter van Vovex",
+    final_cta1:"Ons verhaal ›",final_cta2:"Onze activiteiten ›",
+    footer_copy:"© 2026 VOVEX. Alle rechten voorbehouden.",
+    footer_privacy:"Privacybeleid",footer_legal:"Juridisch",footer_press:"Pers",footer_contact:"Contact"
+  },
+  om:{
+    nav_about:"Waa",nav_ventures:"Dhaabbilee",nav_platforms:"Hojiiwwan",
+    nav_principles:"Murtii",nav_timeline:"Marsaa ijaari/ummi",nav_contact:"Nu Quunnamaa",
+    leadership_label:"Jechuumsa",
+    leadership_line1:"Namoota ijaaran",
+    leadership_line2:"bu'uuraaf",
+    leadership_line3:"dhaloota itti aanu.",
+    founder_title:"Hundaa'aa fi CEO",
+    founder_bio:"Eyoel VOVEX hundaa'e yaada bara dhufu dhaabbileen teeknoloojii olaanaa iddoo addunyaan illee hin ilaalle ta'e irraa akka ka'an.",
+    founder_quote:"\"Vovex guddaa ta'a!\"",
+    founder_prev:"Dura",
+    founder_edu:"Barnoota",
+    founder_edu_val:"Yunivarsiitii Finfinnee",
+    kaleab_title:"Hundaa'aa fi Bulchaa Media Hawaasaa",
+    kaleab_bio:"Itoophiyaatti waan guddaa itti aanu keessatti argachuu kootiin of jajjuu.",
+    yafet_title:"Bulchaa Qabatee Namootaa",
+    yafet_bio:"",
+    yafet_edu_label:"Barnoota",
+    yafet_edu_val:"Yunivarsiitii Aviiyeishinii Itoophiyaa",
+    global_label:"Argamuu Addunyaa",
+    global_hq:"Buufata Guddicha",
+    final_eyebrow:"Dhaabbata Teeknoloojii Qabaa",final_quote:"“Fuuldurri tasgabbiin ijaarama.”",
+    final_founder:"— Eyoel Mulugeta, CEO fi Hundaa'aa Vovex",
+    final_cta1:"Seenaa keenya ›",final_cta2:"Dhaabbilee keenya ›",
+    footer_copy:"© 2026 VOVEX. Mirgi hundaa qabame.",
+    footer_privacy:"Iccitii Imaammata",footer_legal:"Seera",footer_press:"Pireesii",footer_contact:"Nu Quunnamaa"
+  },
+  ti:{
+    nav_about:"ብዛዕባ",nav_ventures:"ትካላት",nav_platforms:"ስራሕቲ",
+    nav_principles:"መትከላት",nav_timeline:"ድህረ ገጽ ህነጽ/ፍጠር",nav_contact:"ተወከሉና",
+    leadership_label:"ኣመራር",
+    leadership_line1:"እቶም ዝህንጹ ሰባት",
+    leadership_line2:"ሓዊስ ን",
+    leadership_line3:"ዝቕጽል ክፍለ ዘመን።",
+    founder_title:"መስራቲን ሃላፊን ናይ ፈጻሚ ሹም",
+    founder_bio:"ኢዮኤል ነቲ ዝቕጽል ክፍለ ዘመን ኣብ ታሪኽ ተረሲዑ ካብ ዝነበረ ቦታታት ክወጽእ ምእንቲ ኢሉ ቮቬክስ መስርዓወ።",
+    founder_quote:"\"ቮቬክስ ዓቢ ክትከውን እያ!\"",
+    founder_prev:"ቀደም",
+    founder_edu:"ትምህርቲ",
+    founder_edu_val:"ዩኒቨርሲቲ ኣዲስ ኣበባ",
+    kaleab_title:"ተባባሊ መስራቲን ኣስተዳዳሪ ማሕበራዊ ሚዲያን",
+    kaleab_bio:"ኣብ ኢትዮጵያ ዝቕጽል ዓቢ ፍጻሜ ኣካል ምዃነይ ይኩራር ኣለኹ።",
+    yafet_title:"ናይ ሰብ ሓይሊ ፈጻሚ",
+    yafet_bio:"",
+    yafet_edu_label:"ትምህርቲ",
+    yafet_edu_val:"ዩኒቨርሲቲ ኣቪዬሽን ኢትዮጵያ",
+    global_label:"ዓለምለኸ ምዃን",
+    global_hq:"ቤት ጽሕፈት ዓቢ",
+    final_eyebrow:"ናይ ቴክኖሎጂ ሆልዲንግ ትካል",final_quote:"“መጻኢ ብህድኣት ይሃነጽ።”",
+    final_founder:"— ኢዮኤል ሙሉጌታ፣ ሃላፊን መስራቲ ቮቬክስ",
+    final_cta1:"ታሪክና ›",final_cta2:"ትካላትና ›",
+    footer_copy:"© 2026 VOVEX. ኩሉ መሰላት ዝተሓዙ።",
+    footer_privacy:"ፕሮቶኮል ምስጢርነት",footer_legal:"ሕጊ",footer_press:"ፕሬስ",footer_contact:"ተወከሉና"
+  },
+  sw:{
+    nav_about:"Kuhusu",nav_ventures:"Biashara",nav_platforms:"Kazi",
+    nav_principles:"Kanuni",nav_timeline:"Jenga/Unda tovuti",nav_contact:"Wasiliana",
+    leadership_label:"Uongozi",
+    leadership_line1:"Watu wanaojenga",
+    leadership_line2:"miundombinu kwa",
+    leadership_line3:"karne ijayo.",
+    founder_title:"Mwanzilishi na Afisa Mkuu Mtendaji",
+    founder_bio:"Eyoel alianzisha VOVEX kwa imani kwamba kampuni za teknolojia muhimu zaidi katika karne ijayo zitatokea mahali ambapo dunia imepuuza kihistoria.",
+    founder_quote:"\"Vovex itakuwa kubwa!\"",
+    founder_prev:"Hapo awali",
+    founder_edu:"Elimu",
+    founder_edu_val:"Chuo Kikuu cha Addis Ababa",
+    kaleab_title:"Mwanzilishi Mshiriki na Meneja wa Mitandao ya Kijamii",
+    kaleab_bio:"Ninajivunia kuwa sehemu ya tukio kubwa lijalo nchini Ethiopia.",
+    yafet_title:"Afisa Mtendaji wa Rasilimali Watu",
+    yafet_bio:"",
+    yafet_edu_label:"Elimu",
+    yafet_edu_val:"Chuo Kikuu cha Anga cha Ethiopia",
+    global_label:"Uwepo wa Kimataifa",
+    global_hq:"Makao Makuu",
+    final_eyebrow:"Kampuni ya Teknolojia ya Kushikilia",final_quote:"“Mustakabali unajengwa kwa utulivu.”",
+    final_founder:"— Eyoel Mulugeta, Mkurugenzi Mtendaji na Mwanzilishi wa Vovex",
+    final_cta1:"Hadithi yetu ›",final_cta2:"Biashara zetu ›",
+    footer_copy:"© 2026 VOVEX. Haki zote zimehifadhiwa.",
+    footer_privacy:"Sera ya Faragha",footer_legal:"Kisheria",footer_press:"Habari",footer_contact:"Wasiliana"
+  },
+  fr:{
+    nav_about:"À propos",nav_ventures:"Activités",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Construire/Créer un site web",nav_contact:"Contact",
+    leadership_label:"Leadership",
+    leadership_line1:"Les personnes qui construisent",
+    leadership_line2:"l'infrastructure pour",
+    leadership_line3:"le prochain siècle.",
+    founder_title:"Fondateur et Directeur Général",
+    founder_bio:"Eyoel a fondé VOVEX avec la conviction que les entreprises technologiques les plus importantes du prochain siècle émergeraient d'endroits que le monde a historiquement négligés.",
+    founder_quote:"\"Vovex sera génial!\"",
+    founder_prev:"Auparavant",
+    founder_edu:"Éducation",
+    founder_edu_val:"Université d'Addis-Abeba",
+    kaleab_title:"Co-fondateur et Gestionnaire des Médias Sociaux",
+    kaleab_bio:"Fier de faire partie du prochain grand événement en Éthiopie.",
+    yafet_title:"Directeur des Ressources Humaines",
+    yafet_bio:"",
+    yafet_edu_label:"Éducation",
+    yafet_edu_val:"Université d'Aviation Éthiopienne",
+    global_label:"Présence mondiale",
+    global_hq:"Siège social",
+    final_eyebrow:"Société Holding Technologique",final_quote:"“L'avenir se construit en silence.”",
+    final_founder:"— Eyoel Mulugeta, PDG et Fondateur de Vovex",
+    final_cta1:"Notre histoire ›",final_cta2:"Nos activités ›",
+    footer_copy:"© 2026 VOVEX. Tous droits réservés.",
+    footer_privacy:"Politique de confidentialité",footer_legal:"Mentions légales",footer_press:"Presse",footer_contact:"Contact"
+  },
+  ar:{
+    nav_about:"عن الشركة",nav_ventures:"المشاريع",nav_platforms:"وظائف",
+    nav_principles:"المبادئ",nav_timeline:"بناء/إنشاء موقع",nav_contact:"تواصل",
+    leadership_label:"القيادة",
+    leadership_line1:"الأشخاص الذين يبنون",
+    leadership_line2:"البنية التحتية لـ",
+    leadership_line3:"القرن القادم.",
+    founder_title:"المؤسس والرئيس التنفيذي",
+    founder_bio:"أسس إيويل VOVEX عن قناعة بأن شركات التكنولوجيا الأكثر تأثيراً في القرن القادم ستنبثق من أماكن أغفلها العالم تاريخياً.",
+    founder_quote:"\"Vovex ستكون عظيمة!\"",
+    founder_prev:"سابقاً",
+    founder_edu:"التعليم",
+    founder_edu_val:"جامعة أديس أبابا",
+    kaleab_title:"المؤسس المشارك ومدير وسائل التواصل الاجتماعي",
+    kaleab_bio:"فخور بأن أكون جزءاً من الحدث الكبير القادم في إثيوبيا.",
+    yafet_title:"مدير الموارد البشرية",
+    yafet_bio:"",
+    yafet_edu_label:"التعليم",
+    yafet_edu_val:"جامعة الطيران الإثيوبية",
+    global_label:"التواجد العالمي",
+    global_hq:"المقر الرئيسي",
+    final_eyebrow:"شركة تكنولوجيا قابضة",final_quote:"“المستقبل يُبنى في صمت.”",
+    final_founder:"— إيويل مولجيتا، الرئيس التنفيذي ومؤسس Vovex",
+    final_cta1:"قصتنا ›",final_cta2:"مشاريعنا ›",
+    footer_copy:"© 2026 VOVEX. جميع الحقوق محفوظة.",
+    footer_privacy:"سياسة الخصوصية",footer_legal:"القانونية",footer_press:"الصحافة",footer_contact:"تواصل"
+  },
+  zh:{
+    nav_about:"关于",nav_ventures:"业务",nav_platforms:"职业",
+    nav_principles:"原则",nav_timeline:"构建/创建网站",nav_contact:"联系",
+    leadership_label:"领导层",
+    leadership_line1:"正在构建",
+    leadership_line2:"基础设施的人",
+    leadership_line3:"为下一个世纪。",
+    founder_title:"创始人兼首席执行官",
+    founder_bio:"Eyoel创立VOVEX时坚信，下一个世纪最具影响力的科技公司将来自世界历史上忽视的地方。",
+    founder_quote:"\"Vovex会很伟大!\"",
+    founder_prev:"此前",
+    founder_edu:"教育",
+    founder_edu_val:"亚的斯亚贝巴大学",
+    kaleab_title:"联合创始人兼社交媒体经理",
+    kaleab_bio:"为成为埃塞俄比亚下一件大事的一部分而感到自豪。",
+    yafet_title:"人力资源主管",
+    yafet_bio:"",
+    yafet_edu_label:"教育",
+    yafet_edu_val:"埃塞俄比亚航空大学",
+    global_label:"全球布局",
+    global_hq:"总部",
+    final_eyebrow:"科技控股集团",final_quote:"“未来，在寂静中构建。”",
+    final_founder:"— 埃约尔·穆卢格塔，Vovex 首席执行官兼创始人",
+    final_cta1:"我们的故事 ›",final_cta2:"我们的业务 ›",
+    footer_copy:"版权所有 © 2026 VOVEX。保留所有权利。",
+    footer_privacy:"隐私政策",footer_legal:"法律",footer_press:"新闻",footer_contact:"联系我们"
+  }
+};
+
+function setLang(lang) {
+  const d = T[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.textContent = d[k];
+  });
+  const rtl = lang === 'ar';
+  document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+  document.documentElement.setAttribute('lang', lang);
+  const eth = lang === 'am' || lang === 'ti';
+  const ara = lang === 'ar';
+  document.body.style.fontFamily = eth
+    ? "var(--font-ethiopic)"
+    : ara ? "var(--font-arabic)"
+    : "var(--font)";
+  document.querySelectorAll('.lbtn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+}
+
+/* ════════════════════════════════
+   FINAL CANVAS
+════════════════════════════════ */
+(function(){
+  const c = document.getElementById('final-canvas');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let W, H;
+  const PTS = Array.from({length:50}, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random()-.5)*.0004, vy: (Math.random()-.5)*.0004,
+    r: Math.random()*.8+.2, o: Math.random()*.1+.02
+  }));
+
+  function resize() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; }
+  resize();
+  new ResizeObserver(resize).observe(c);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    PTS.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+      if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${p.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+console.log('VOVEX Leadership — Loaded.');
+</script>
+</body>
+</html>

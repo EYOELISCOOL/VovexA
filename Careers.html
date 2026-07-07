@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VOVEX — Careers</title>
+<meta name="description" content="VOVEX is a global technology holding company building platforms, systems, and ventures across AI, media, infrastructure, commerce, and digital systems."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Noto+Sans+Ethiopic:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./Resources/logo.PNG">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #fff; }
+
+/* ─── TOKENS ─── */
+:root {
+  --white: #ffffff;
+  --off-white: #f5f5f7;
+  --section-dark: #1d1d1f;
+  --headline: #1d1d1f;
+  --body: #1d1d1f;
+  --secondary: #6e6e73;
+  --tertiary: #86868b;
+  --link: #0066cc;
+  --link-hover: #0077ed;
+  --divider: rgba(0,0,0,0.06);
+  --nav-bg: rgba(255,255,255,0.92);
+  --card-radius: 20px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-ethiopic: 'Noto Sans Ethiopic', 'Nyala', var(--font);
+  --font-arabic: 'Noto Sans Arabic', var(--font);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── LANGUAGE BAR ─── */
+#langbar {
+  background: var(--section-dark);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#langbar::-webkit-scrollbar { display: none; }
+
+.lbtn {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 14px;
+  height: 40px;
+  white-space: nowrap;
+  transition: color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  font-family: var(--font);
+  position: relative;
+}
+.lbtn:last-child { border-right: none; }
+.lbtn .ln { font-size: 8.5px; opacity: 0.5; margin-top: 1px; }
+.lbtn:hover { color: rgba(255,255,255,0.85); }
+.lbtn.active { color: #ffffff; }
+.lbtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 14px; right: 14px;
+  height: 2px;
+  background: #0066cc;
+  border-radius: 2px 2px 0 0;
+}
+
+/* ─── NAV ─── */
+#nav {
+  position: sticky;
+  top: 40px;
+  z-index: 999;
+  height: 44px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--divider);
+}
+.nav-inner {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--headline);
+  text-decoration: none;
+  justify-self: start;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0 10px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--headline); }
+.nav-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-contact {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-contact:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* ─── CAREERS ─── */
+#careers {
+  background: var(--white);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 120px;
+}
+.careers-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.careers-inner .icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  opacity: 0.3;
+}
+.careers-inner .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--link);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.careers-inner h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  color: var(--headline);
+  margin-bottom: 12px;
+}
+.careers-inner .sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 8px;
+}
+.careers-inner .message {
+  background: var(--off-white);
+  border-radius: var(--card-radius);
+  padding: 48px 40px;
+  margin-top: 32px;
+  border: 1px solid var(--divider);
+}
+.careers-inner .message .emoji {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+.careers-inner .message h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--headline);
+  margin-bottom: 8px;
+}
+.careers-inner .message p {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.careers-inner .message .highlight {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tertiary);
+  letter-spacing: 0.02em;
+}
+.careers-inner .message .highlight span {
+  color: var(--link);
+}
+
+/* ─── FINAL ─── */
+#final {
+  background: var(--section-dark);
+  text-align: center;
+  padding: 140px 20px 120px;
+  position: relative;
+  overflow: hidden;
+}
+#final-canvas {
+  position: absolute;
+  inset: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+}
+.final-tagline {
+  font-size: clamp(13px, 1.5vw, 17px);
+  font-weight: 400;
+  color: #a1a1a6;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  position: relative; z-index: 2;
+}
+.final-wordmark {
+  font-size: clamp(64px, 12vw, 148px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+  line-height: 1;
+  position: relative; z-index: 2;
+}
+.final-sub {
+  font-size: 19px;
+  font-weight: 400;
+  color: #6e6e73;
+  margin-top: 20px;
+  position: relative; z-index: 2;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.47;
+}
+.final-founder {
+  font-size: 14px;
+  font-weight: 300;
+  color: #6e6e73;
+  margin-top: 8px;
+  position: relative; z-index: 2;
+  letter-spacing: 0.02em;
+}
+.final-founder span {
+  color: #a1a1a6;
+  font-weight: 400;
+}
+.final-cta-row {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  position: relative; z-index: 2;
+}
+.final-link {
+  font-size: 17px;
+  font-weight: 400;
+  color: #2997ff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.final-link:hover { color: #47a9ff; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--off-white);
+  border-top: 1px solid var(--divider);
+  padding: 28px 20px;
+}
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-logo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary);
+  letter-spacing: -0.01em;
+}
+.footer-copy {
+  font-size: 12px;
+  color: var(--tertiary);
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--link); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-inner { grid-template-columns: auto 1fr; }
+  .nav-right { display: none; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  #langbar { justify-content: flex-start; }
+  #careers { padding: 60px 20px 80px; min-height: 60vh; }
+  .careers-inner .message { padding: 32px 24px; }
+}
+@media (max-width: 480px) {
+  .careers-inner .icon { font-size: 48px; }
+  .careers-inner .message .emoji { font-size: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── LANGUAGE BAR ─── -->
+<div id="langbar" role="navigation" aria-label="Language selection">
+  <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN<span class="ln">English</span></button>
+  <button class="lbtn" data-lang="am" onclick="setLang('am')">አማ<span class="ln">አማርኛ</span></button>
+  <button class="lbtn" data-lang="nl" onclick="setLang('nl')">NL<span class="ln">Nederlands</span></button>
+  <button class="lbtn" data-lang="om" onclick="setLang('om')">OM<span class="ln">Oromoo</span></button>
+  <button class="lbtn" data-lang="ti" onclick="setLang('ti')">ትግ<span class="ln">ትግርኛ</span></button>
+  <button class="lbtn" data-lang="sw" onclick="setLang('sw')">SW<span class="ln">Kiswahili</span></button>
+  <button class="lbtn" data-lang="fr" onclick="setLang('fr')">FR<span class="ln">Français</span></button>
+  <button class="lbtn" data-lang="ar" onclick="setLang('ar')">عر<span class="ln">العربية</span></button>
+  <button class="lbtn" data-lang="zh" onclick="setLang('zh')">中文<span class="ln">普通话</span></button>
+</div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="./index.html">VOVEX</a>
+    <ul class="nav-links" role="list">
+      <li><a href="./About.html" data-i18n="nav_about">About</a></li>
+      <li><a href="./ventures.html" data-i18n="nav_ventures">Ventures</a></li>
+      <li><a href="./careers.html" data-i18n="nav_platforms">Careers</a></li>
+      <li><a href="./principles.html" data-i18n="nav_principles">Principles</a></li>
+      <li><a href="./create-website.html" data-i18n="nav_timeline">Build/Create a website</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-contact" href="./contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── CAREERS ─── -->
+<section id="careers">
+  <div class="careers-inner">
+    <div class="icon"></div>
+    <div class="label" data-i18n="careers_label">● Careers</div>
+    <h1 data-i18n="careers_title">Join the Team</h1>
+    <p class="sub" data-i18n="careers_sub">We're always looking for passionate people to help us build the future.</p>
+
+    <div class="message">
+      <span class="emoji"></span>
+      <h3 data-i18n="message_title">No Open Roles Right Now</h3>
+      <p data-i18n="message_desc">We don't have any positions open at the moment, but we're always interested in meeting talented people.</p>
+      <div class="highlight" data-i18n="message_highlight"> <span></span> No roles are currently open
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL ─── -->
+<section id="final">
+  <canvas id="final-canvas"></canvas>
+  <p class="final-tagline" data-i18n="final_eyebrow">Technology Holding Company</p>
+  <h2 class="final-wordmark">VOVEX</h2>
+  <p class="final-sub" data-i18n="final_quote">"The future is built quietly."</p>
+  <p class="final-founder" data-i18n="final_founder">— <span>Eyoel Mulugeta</span>, CEO and Founder of Vovex</p>
+  <div class="final-cta-row">
+    <a class="final-link" href="./About.html" data-i18n="final_cta1">Our story ›</a>
+    <a class="final-link" href="./ventures.html" data-i18n="final_cta2">Our ventures ›</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">VOVEX</span>
+    <span class="footer-copy" data-i18n="footer_copy">Copyright © 2026 VOVEX. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="./privacypolicy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="./legal.html" data-i18n="footer_legal">Legal</a>
+      <a href="./press.html" data-i18n="footer_press">Press</a>
+      <a href="./contact.html" data-i18n="footer_contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════
+   I18N
+════════════════════════════════ */
+const T = {
+  en:{
+    nav_about:"About",nav_ventures:"Ventures",nav_platforms:"Careers",
+    nav_principles:"Principles",nav_timeline:"Build/Create a website",nav_contact:"Contact",
+    careers_label:"● Careers",
+    careers_title:"Join the Team",
+    careers_sub:"We're always looking for passionate people to help us build the future.",
+    message_title:"No Open Roles Right Now",
+    message_desc:"We don't have any positions open at the moment, but we're always interested in meeting talented people.",
+    
+    final_eyebrow:"Technology Holding Company",final_quote:"“The future is built quietly.”",
+    final_founder:"— Eyoel Mulugeta, CEO and Founder of Vovex",
+    final_cta1:"Our story ›",final_cta2:"Our ventures ›",
+    footer_copy:"Copyright © 2026 VOVEX. All rights reserved.",
+    footer_privacy:"Privacy Policy",footer_legal:"Legal",footer_press:"Press",footer_contact:"Contact"
+  },
+  am:{
+    nav_about:"ስለ",nav_ventures:"ተቋሞች",nav_platforms:"ስራዎች",
+    nav_principles:"መርሆዎች",nav_timeline:"ድህረ ገጽ ግንባ/ፍጠር",nav_contact:"አግኙን",
+    careers_label:"● ስራዎች",
+    careers_title:"ቡድኑን ይቀላቀሉ",
+    careers_sub:"ወደፊት ለመገንባት ፍቅር ያላቸውን ሰዎች እየፈለግን ነው።",
+    message_title:"አሁን ክፍት የስራ ቦታዎች የሉም",
+    message_desc:"በአሁኑ ጊዜ ክፍት የስራ ቦታዎች የሉንም፣ ነገር ግን ተሰጥኦ ያላቸውን ሰዎች ለማግኘት ሁልጊዜ ፍላጎት አለን።",
+   
+    final_eyebrow:"የቴክኖሎጂ ሆልዲንግ ኩባንያ",final_quote:"“ወደፊቱ በጸጥታ ይሠራል።”",
+    final_founder:"— ኢየኤል ሙሉጌታ፣ የቮቬክስ ዋና ሥራ አስፈጻሚ እና መሥራች",
+    final_cta1:"ታሪካችን ›",final_cta2:"ተቋሞቻችን ›",
+    footer_copy:"© 2026 VOVEX. መብቱ በሕግ የተጠበቀ ነው።",
+    footer_privacy:"የግልነት ፖሊሲ",footer_legal:"ሕጋዊ",footer_press:"ፕሬስ",footer_contact:"አግኙን"
+  },
+  nl:{
+    nav_about:"Over",nav_ventures:"Activiteiten",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Website bouwen/maken",nav_contact:"Contact",
+    careers_label:"● Carrières",
+    careers_title:"Word Lid van het Team",
+    careers_sub:"We zijn altijd op zoek naar gepassioneerde mensen om de toekomst mee te bouwen.",
+    message_title:"Geen Openstaande Vacatures",
+    message_desc:"We hebben momenteel geen posities open, maar we zijn altijd geïnteresseerd in getalenteerde mensen.",
+
+    final_eyebrow:"Technologisch Holdingbedrijf",final_quote:"“De toekomst wordt stil gebouwd.”",
+    final_founder:"— Eyoel Mulugeta, CEO en Oprichter van Vovex",
+    final_cta1:"Ons verhaal ›",final_cta2:"Onze activiteiten ›",
+    footer_copy:"© 2026 VOVEX. Alle rechten voorbehouden.",
+    footer_privacy:"Privacybeleid",footer_legal:"Juridisch",footer_press:"Pers",footer_contact:"Contact"
+  },
+  om:{
+    nav_about:"Waa",nav_ventures:"Dhaabbilee",nav_platforms:"Hojiiwwan",
+    nav_principles:"Murtii",nav_timeline:"Marsaa ijaari/ummi",nav_contact:"Nu Quunnamaa",
+    careers_label:"● Hojiiwwan",
+    careers_title:"Garee Keessa Galii",
+    careers_sub:"Yeroo hundumaa namoota hawwii qaban fuuldurra ijaaruuf barbaadnaa jirra.",
+    message_title:"Bakkeewwan Hojii Banan Amma Hinjiran",
+    message_desc:"Amma bakkeewwan hojii banan hin qabnu, garuu namoota dandeettii qaban walarguuf yeroo hundumaa fedhii qabna.",
+    
+    final_eyebrow:"Dhaabbata Teeknoloojii Qabaa",final_quote:"“Fuuldurri tasgabbiin ijaarama.”",
+    final_founder:"— Eyoel Mulugeta, CEO fi Hundaa'aa Vovex",
+    final_cta1:"Seenaa keenya ›",final_cta2:"Dhaabbilee keenya ›",
+    footer_copy:"© 2026 VOVEX. Mirgi hundaa qabame.",
+    footer_privacy:"Iccitii Imaammata",footer_legal:"Seera",footer_press:"Pireesii",footer_contact:"Nu Quunnamaa"
+  },
+  ti:{
+    nav_about:"ብዛዕባ",nav_ventures:"ትካላት",nav_platforms:"ስራሕቲ",
+    nav_principles:"መትከላት",nav_timeline:"ድህረ ገጽ ህነጽ/ፍጠር",nav_contact:"ተወከሉና",
+    careers_label:"● ስራሕቲ",
+    careers_title:"ናብ ብድር ተቀላቀል",
+    careers_sub:"ንመጻኢ ንምስራት ፍቅር ዘለዎም ሰባት ክንደሊ ኢና።",
+    message_title:"ክፍቲ ስራሕቲ ኣይህልዉን",
+    message_desc:"ክፍቲ ስራሕቲ የለናን፣ ግን ንኽእለት ዘለዎም ሰባት ክንረኽብ ኩሉ ግዜ ፍቓድ ኣሎና።",
+  
+    final_eyebrow:"ናይ ቴክኖሎጂ ሆልዲንግ ትካል",final_quote:"“መጻኢ ብህድኣት ይሃነጽ።”",
+    final_founder:"— ኢዮኤል ሙሉጌታ፣ ሃላፊን መስራቲ ቮቬክስ",
+    final_cta1:"ታሪክና ›",final_cta2:"ትካላትና ›",
+    footer_copy:"© 2026 VOVEX. ኩሉ መሰላት ዝተሓዙ።",
+    footer_privacy:"ፕሮቶኮል ምስጢርነት",footer_legal:"ሕጊ",footer_press:"ፕሬስ",footer_contact:"ተወከሉና"
+  },
+  sw:{
+    nav_about:"Kuhusu",nav_ventures:"Biashara",nav_platforms:"Kazi",
+    nav_principles:"Kanuni",nav_timeline:"Jenga/Unda tovuti",nav_contact:"Wasiliana",
+    careers_label:"● Kazi",
+    careers_title:"Jiunge na Timu",
+    careers_sub:"Daima tunatafuta watu wenye shauku ya kutusaidia kujenga mustakabali.",
+    message_title:"Hakuna Nafasi Zilizo Wazi Sasa",
+    message_desc:"Hatuna nafasi zozote wazi kwa sasa, lakini tunavutiwa na watu wenye vipaji.",
+   
+    final_eyebrow:"Kampuni ya Teknolojia ya Kushikilia",final_quote:"“Mustakabali unajengwa kwa utulivu.”",
+    final_founder:"— Eyoel Mulugeta, Mkurugenzi Mtendaji na Mwanzilishi wa Vovex",
+    final_cta1:"Hadithi yetu ›",final_cta2:"Biashara zetu ›",
+    footer_copy:"© 2026 VOVEX. Haki zote zimehifadhiwa.",
+    footer_privacy:"Sera ya Faragha",footer_legal:"Kisheria",footer_press:"Habari",footer_contact:"Wasiliana"
+  },
+  fr:{
+    nav_about:"À propos",nav_ventures:"Activités",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Construire/Créer un site web",nav_contact:"Contact",
+    careers_label:"● Carrières",
+    careers_title:"Rejoignez l'Équipe",
+    careers_sub:"Nous sommes toujours à la recherche de personnes passionnées pour nous aider à construire l'avenir.",
+    message_title:"Aucun Poste Ouvert Actuellement",
+    message_desc:"Nous n'avons aucun poste ouvert pour le moment, mais nous sommes toujours intéressés par les personnes talentueuses.",
+  
+    final_eyebrow:"Société Holding Technologique",final_quote:"“L'avenir se construit en silence.”",
+    final_founder:"— Eyoel Mulugeta, PDG et Fondateur de Vovex",
+    final_cta1:"Notre histoire ›",final_cta2:"Nos activités ›",
+    footer_copy:"© 2026 VOVEX. Tous droits réservés.",
+    footer_privacy:"Politique de confidentialité",footer_legal:"Mentions légales",footer_press:"Presse",footer_contact:"Contact"
+  },
+  ar:{
+    nav_about:"عن الشركة",nav_ventures:"المشاريع",nav_platforms:"وظائف",
+    nav_principles:"المبادئ",nav_timeline:"بناء/إنشاء موقع",nav_contact:"تواصل",
+    careers_label:"● وظائف",
+    careers_title:"انضم إلى الفريق",
+    careers_sub:"نحن دائمًا نبحث عن أشخاص شغوفين لمساعدتنا في بناء المستقبل.",
+    message_title:"لا توجد وظائف شاغرة حالياً",
+    message_desc:"ليس لدينا أي وظائف شاغرة في الوقت الحالي، لكننا دائمًا مهتمون بالمتعلمين الموهوبين.",
+
+    final_eyebrow:"شركة تكنولوجيا قابضة",final_quote:"“المستقبل يُبنى في صمت.”",
+    final_founder:"— إيويل مولجيتا، الرئيس التنفيذي ومؤسس Vovex",
+    final_cta1:"قصتنا ›",final_cta2:"مشاريعنا ›",
+    footer_copy:"© 2026 VOVEX. جميع الحقوق محفوظة.",
+    footer_privacy:"سياسة الخصوصية",footer_legal:"القانونية",footer_press:"الصحافة",footer_contact:"تواصل"
+  },
+  zh:{
+    nav_about:"关于",nav_ventures:"业务",nav_platforms:"职业",
+    nav_principles:"原则",nav_timeline:"构建/创建网站",nav_contact:"联系",
+    careers_label:"● 职业",
+    careers_title:"加入团队",
+    careers_sub:"我们一直在寻找有热情的人来帮助我们建设未来。",
+    message_title:"目前没有空缺职位",
+    message_desc:"我们目前没有任何职位空缺，但我们一直对优秀人才感兴趣。",
+   
+    final_eyebrow:"科技控股集团",final_quote:"“未来，在寂静中构建。”",
+    final_founder:"— 埃约尔·穆卢格塔，Vovex 首席执行官兼创始人",
+    final_cta1:"我们的故事 ›",final_cta2:"我们的业务 ›",
+    footer_copy:"版权所有 © 2026 VOVEX。保留所有权利。",
+    footer_privacy:"隐私政策",footer_legal:"法律",footer_press:"新闻",footer_contact:"联系我们"
+  }
+};
+
+function setLang(lang) {
+  const d = T[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.textContent = d[k];
+  });
+  const rtl = lang === 'ar';
+  document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+  document.documentElement.setAttribute('lang', lang);
+  const eth = lang === 'am' || lang === 'ti';
+  const ara = lang === 'ar';
+  document.body.style.fontFamily = eth
+    ? "var(--font-ethiopic)"
+    : ara ? "var(--font-arabic)"
+    : "var(--font)";
+  document.querySelectorAll('.lbtn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+}
+
+/* ════════════════════════════════
+   FINAL CANVAS
+════════════════════════════════ */
+(function(){
+  const c = document.getElementById('final-canvas');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let W, H;
+  const PTS = Array.from({length:50}, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random()-.5)*.0004, vy: (Math.random()-.5)*.0004,
+    r: Math.random()*.8+.2, o: Math.random()*.1+.02
+  }));
+
+  function resize() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; }
+  resize();
+  new ResizeObserver(resize).observe(c);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    PTS.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+      if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${p.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+console.log('VOVEX Careers — Loaded.');
+</script>
+</body>
+</html>

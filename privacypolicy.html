@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VOVEX — Privacy Policy</title>
+<meta name="description" content="VOVEX is a global technology holding company building platforms, systems, and ventures across AI, media, infrastructure, commerce, and digital systems."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Noto+Sans+Ethiopic:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./Resources/logo.PNG">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #fff; }
+
+/* ─── TOKENS ─── */
+:root {
+  --white: #ffffff;
+  --off-white: #f5f5f7;
+  --section-dark: #1d1d1f;
+  --headline: #1d1d1f;
+  --body: #1d1d1f;
+  --secondary: #6e6e73;
+  --tertiary: #86868b;
+  --link: #0066cc;
+  --link-hover: #0077ed;
+  --divider: rgba(0,0,0,0.06);
+  --nav-bg: rgba(255,255,255,0.92);
+  --card-radius: 20px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-ethiopic: 'Noto Sans Ethiopic', 'Nyala', var(--font);
+  --font-arabic: 'Noto Sans Arabic', var(--font);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── LANGUAGE BAR ─── */
+#langbar {
+  background: var(--section-dark);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#langbar::-webkit-scrollbar { display: none; }
+
+.lbtn {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 14px;
+  height: 40px;
+  white-space: nowrap;
+  transition: color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  font-family: var(--font);
+  position: relative;
+}
+.lbtn:last-child { border-right: none; }
+.lbtn .ln { font-size: 8.5px; opacity: 0.5; margin-top: 1px; }
+.lbtn:hover { color: rgba(255,255,255,0.85); }
+.lbtn.active { color: #ffffff; }
+.lbtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 14px; right: 14px;
+  height: 2px;
+  background: #0066cc;
+  border-radius: 2px 2px 0 0;
+}
+
+/* ─── NAV ─── */
+#nav {
+  position: sticky;
+  top: 40px;
+  z-index: 999;
+  height: 44px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--divider);
+}
+.nav-inner {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--headline);
+  text-decoration: none;
+  justify-self: start;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0 10px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--headline); }
+.nav-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-contact {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-contact:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* ─── PRIVACY POLICY ─── */
+#privacy {
+  background: var(--white);
+  padding: 100px 20px 120px;
+  position: relative;
+}
+.privacy-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.privacy-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.privacy-header .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--link);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.privacy-header h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  color: var(--headline);
+}
+.privacy-header p {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--secondary);
+  max-width: 560px;
+  margin: 10px auto 0;
+  line-height: 1.5;
+}
+
+.privacy-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.privacy-section {
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 32px;
+}
+.privacy-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.privacy-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--headline);
+  margin-bottom: 12px;
+}
+.privacy-section p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+.privacy-section p:last-child {
+  margin-bottom: 0;
+}
+.privacy-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+.privacy-section ul li {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--secondary);
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+.privacy-section ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--link);
+}
+.privacy-section .last-updated {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--tertiary);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* ─── FINAL ─── */
+#final {
+  background: var(--section-dark);
+  text-align: center;
+  padding: 140px 20px 120px;
+  position: relative;
+  overflow: hidden;
+}
+#final-canvas {
+  position: absolute;
+  inset: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+}
+.final-tagline {
+  font-size: clamp(13px, 1.5vw, 17px);
+  font-weight: 400;
+  color: #a1a1a6;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  position: relative; z-index: 2;
+}
+.final-wordmark {
+  font-size: clamp(64px, 12vw, 148px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+  line-height: 1;
+  position: relative; z-index: 2;
+}
+.final-sub {
+  font-size: 19px;
+  font-weight: 400;
+  color: #6e6e73;
+  margin-top: 20px;
+  position: relative; z-index: 2;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.47;
+}
+.final-founder {
+  font-size: 14px;
+  font-weight: 300;
+  color: #6e6e73;
+  margin-top: 8px;
+  position: relative; z-index: 2;
+  letter-spacing: 0.02em;
+}
+.final-founder span {
+  color: #a1a1a6;
+  font-weight: 400;
+}
+.final-cta-row {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  position: relative; z-index: 2;
+}
+.final-link {
+  font-size: 17px;
+  font-weight: 400;
+  color: #2997ff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.final-link:hover { color: #47a9ff; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--off-white);
+  border-top: 1px solid var(--divider);
+  padding: 28px 20px;
+}
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-logo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary);
+  letter-spacing: -0.01em;
+}
+.footer-copy {
+  font-size: 12px;
+  color: var(--tertiary);
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--link); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-inner { grid-template-columns: auto 1fr; }
+  .nav-right { display: none; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  #langbar { justify-content: flex-start; }
+  #privacy { padding: 60px 16px 80px; }
+  .privacy-section h2 { font-size: 19px; }
+}
+@media (max-width: 480px) {
+  .privacy-section { padding-bottom: 24px; }
+  .privacy-section h2 { font-size: 17px; }
+  .privacy-section p, .privacy-section ul li { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── LANGUAGE BAR ─── -->
+<div id="langbar" role="navigation" aria-label="Language selection">
+  <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN<span class="ln">English</span></button>
+  <button class="lbtn" data-lang="am" onclick="setLang('am')">አማ<span class="ln">አማርኛ</span></button>
+  <button class="lbtn" data-lang="nl" onclick="setLang('nl')">NL<span class="ln">Nederlands</span></button>
+  <button class="lbtn" data-lang="om" onclick="setLang('om')">OM<span class="ln">Oromoo</span></button>
+  <button class="lbtn" data-lang="ti" onclick="setLang('ti')">ትግ<span class="ln">ትግርኛ</span></button>
+  <button class="lbtn" data-lang="sw" onclick="setLang('sw')">SW<span class="ln">Kiswahili</span></button>
+  <button class="lbtn" data-lang="fr" onclick="setLang('fr')">FR<span class="ln">Français</span></button>
+  <button class="lbtn" data-lang="ar" onclick="setLang('ar')">عر<span class="ln">العربية</span></button>
+  <button class="lbtn" data-lang="zh" onclick="setLang('zh')">中文<span class="ln">普通话</span></button>
+</div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="./index.html">VOVEX</a>
+    <ul class="nav-links" role="list">
+      <li><a href="./About.html" data-i18n="nav_about">About</a></li>
+      <li><a href="./ventures.html" data-i18n="nav_ventures">Ventures</a></li>
+      <li><a href="./careers.html" data-i18n="nav_platforms">Careers</a></li>
+      <li><a href="./principles.html" data-i18n="nav_principles">Principles</a></li>
+      <li><a href="./create-website.html" data-i18n="nav_timeline">Build/Create a website</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-contact" href="./contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── PRIVACY POLICY ─── -->
+<section id="privacy">
+  <div class="privacy-inner">
+    <div class="privacy-header">
+      <div class="label" data-i18n="privacy_label">● Privacy Policy</div>
+      <h1 data-i18n="privacy_title">Privacy Policy</h1>
+      <p data-i18n="privacy_sub">VOVEX is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information.</p>
+    </div>
+
+    <div class="privacy-content">
+      <!-- Section 1 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section1_title">1. Information We Collect</h2>
+        <p data-i18n="section1_text">We collect information you provide directly to us, such as when you fill out a contact form, request a website build, or communicate with us. This may include:</p>
+        <ul>
+          <li data-i18n="section1_item1">Your name, email address, phone number, and company name</li>
+          <li data-i18n="section1_item2">Information about your website needs and project requirements</li>
+          <li data-i18n="section1_item3">Any other information you choose to provide</li>
+        </ul>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section2_title">2. How We Use Your Information</h2>
+        <p data-i18n="section2_text">We use the information we collect to:</p>
+        <ul>
+          <li data-i18n="section2_item1">Provide and deliver our services</li>
+          <li data-i18n="section2_item2">Respond to your inquiries and requests</li>
+          <li data-i18n="section2_item3">Send you information about our products and services</li>
+          <li data-i18n="section2_item4">Improve our website and services</li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section3_title">3. Information Sharing</h2>
+        <p data-i18n="section3_text">We do not sell, trade, or rent your personal information to third parties. We may share information with trusted partners who assist us in operating our website and conducting our business, as long as they agree to keep this information confidential.</p>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section4_title">4. Data Security</h2>
+        <p data-i18n="section4_text">We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section5_title">5. Your Rights</h2>
+        <p data-i18n="section5_text">You have the right to:</p>
+        <ul>
+          <li data-i18n="section5_item1">Access the personal information we hold about you</li>
+          <li data-i18n="section5_item2">Request correction of inaccurate information</li>
+          <li data-i18n="section5_item3">Request deletion of your personal information</li>
+          <li data-i18n="section5_item4">Object to the processing of your information</li>
+        </ul>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section6_title">6. Cookies</h2>
+        <p data-i18n="section6_text">We use cookies to enhance your experience on our website. Cookies are small text files stored on your device that help us understand how you interact with our site. You can control cookie preferences through your browser settings.</p>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section7_title">7. Changes to This Policy</h2>
+        <p data-i18n="section7_text">We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page. We encourage you to review this policy periodically.</p>
+      </div>
+
+      <!-- Section 8 -->
+      <div class="privacy-section">
+        <h2 data-i18n="section8_title">8. Contact Us</h2>
+        <p data-i18n="section8_text">If you have any questions about this privacy policy or our data practices, please contact us at:</p>
+        <p style="margin-top: 8px; font-weight: 500; color: var(--headline);">VOVEX<br/>Addis Ababa, Ethiopia<br/>Email: <a href="mailto:privacy@vovex.com" style="color: var(--link); text-decoration: none;">privacy@vovex.com</a></p>
+        <p class="last-updated" data-i18n="last_updated">Last updated: June 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL ─── -->
+<section id="final">
+  <canvas id="final-canvas"></canvas>
+  <p class="final-tagline" data-i18n="final_eyebrow">Technology Holding Company</p>
+  <h2 class="final-wordmark">VOVEX</h2>
+  <p class="final-sub" data-i18n="final_quote">"The future is built quietly."</p>
+  <p class="final-founder" data-i18n="final_founder">— <span>Eyoel Mulugeta</span>, CEO and Founder of Vovex</p>
+  <div class="final-cta-row">
+    <a class="final-link" href="./About.html" data-i18n="final_cta1">Our story ›</a>
+    <a class="final-link" href="./ventures.html" data-i18n="final_cta2">Our ventures ›</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">VOVEX</span>
+    <span class="footer-copy" data-i18n="footer_copy">Copyright © 2026 VOVEX. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="./privacypolicy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="./legal.html" data-i18n="footer_legal">Legal</a>
+      <a href="./press.html" data-i18n="footer_press">Press</a>
+      <a href="./contact.html" data-i18n="footer_contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════
+   I18N - COMPLETE TRANSLATIONS FOR ALL LANGUAGES
+════════════════════════════════ */
+const T = {
+  en:{
+    nav_about:"About",nav_ventures:"Ventures",nav_platforms:"Careers",
+    nav_principles:"Principles",nav_timeline:"Build/Create a website",nav_contact:"Contact",
+    privacy_label:"● Privacy Policy",
+    privacy_title:"Privacy Policy",
+    privacy_sub:"VOVEX is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information.",
+    section1_title:"1. Information We Collect",
+    section1_text:"We collect information you provide directly to us, such as when you fill out a contact form, request a website build, or communicate with us. This may include:",
+    section1_item1:"Your name, email address, phone number, and company name",
+    section1_item2:"Information about your website needs and project requirements",
+    section1_item3:"Any other information you choose to provide",
+    section2_title:"2. How We Use Your Information",
+    section2_text:"We use the information we collect to:",
+    section2_item1:"Provide and deliver our services",
+    section2_item2:"Respond to your inquiries and requests",
+    section2_item3:"Send you information about our products and services",
+    section2_item4:"Improve our website and services",
+    section3_title:"3. Information Sharing",
+    section3_text:"We do not sell, trade, or rent your personal information to third parties. We may share information with trusted partners who assist us in operating our website and conducting our business, as long as they agree to keep this information confidential.",
+    section4_title:"4. Data Security",
+    section4_text:"We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.",
+    section5_title:"5. Your Rights",
+    section5_text:"You have the right to:",
+    section5_item1:"Access the personal information we hold about you",
+    section5_item2:"Request correction of inaccurate information",
+    section5_item3:"Request deletion of your personal information",
+    section5_item4:"Object to the processing of your information",
+    section6_title:"6. Cookies",
+    section6_text:"We use cookies to enhance your experience on our website. Cookies are small text files stored on your device that help us understand how you interact with our site. You can control cookie preferences through your browser settings.",
+    section7_title:"7. Changes to This Policy",
+    section7_text:"We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page. We encourage you to review this policy periodically.",
+    section8_title:"8. Contact Us",
+    section8_text:"If you have any questions about this privacy policy or our data practices, please contact us at:",
+    last_updated:"Last updated: June 2026",
+    final_eyebrow:"Technology Holding Company",final_quote:"“The future is built quietly.”",
+    final_founder:"— Eyoel Mulugeta, CEO and Founder of Vovex",
+    final_cta1:"Our story ›",final_cta2:"Our ventures ›",
+    footer_copy:"Copyright © 2026 VOVEX. All rights reserved.",
+    footer_privacy:"Privacy Policy",footer_legal:"Legal",footer_press:"Press",footer_contact:"Contact"
+  },
+  am:{
+    nav_about:"ስለ",nav_ventures:"ተቋሞች",nav_platforms:"ስራዎች",
+    nav_principles:"መርሆዎች",nav_timeline:"ድህረ ገጽ ግንባ/ፍጠር",nav_contact:"አግኙን",
+    privacy_label:"● የግላዊነት ፖሊሲ",
+    privacy_title:"የግላዊነት ፖሊሲ",
+    privacy_sub:"ቮቬክስ የግላዊነትዎን ለመጠበቅ ቁርጠኛ ነው። ይህ ፖሊሲ የግል መረጃዎን እንዴት እንደምንሰበስብ፣ እንደምንጠቀም እና እንደምንጠብቅ ያብራራል።",
+    section1_title:"1. የምንሰበስበው መረጃ",
+    section1_text:"በቀጥታ የምንሰበስበውን መረጃ እንሰበስባለን፣ ለምሳሌ የእውቂያ ቅጽ በሚሞሉበት ጊዜ፣ የድህረ ገጽ ግንባታ በሚጠይቁበት ጊዜ ወይም ከእኛ ጋር በሚነጋገሩበት ጊዜ። ይህ ሊያካትት ይችላል፡",
+    section1_item1:"ስምዎ፣ የኢሜይል አድራሻዎ፣ የስልክ ቁጥርዎ እና የኩባንያ ስም",
+    section1_item2:"ስለ ድህረ ገጽዎ ፍላጎቶች እና የፕሮጀክት መስፈርቶች መረጃ",
+    section1_item3:"ሊያቀርቡት የመረጡት ማንኛውም ሌላ መረጃ",
+    section2_title:"2. መረጃዎን እንዴት እንጠቀማለን",
+    section2_text:"የምንሰበስበውን መረጃ ለሚከተሉት ነገሮች እንጠቀማለን፡",
+    section2_item1:"አገልግሎቶቻችንን ለማቅረብ እና ለማድረስ",
+    section2_item2:"ለጥያቄዎችዎ እና ለጥያቄዎችዎ ምላሽ ለመስጠት",
+    section2_item3:"ስለ ምርቶቻችን እና አገልግሎቶቻችን መረጃ ለመላክ",
+    section2_item4:"ድህረ ገጻችንን እና አገልግሎቶቻችንን ለማሻሻል",
+    section3_title:"3. መረጃ መጋራት",
+    section3_text:"የግል መረጃዎን ለሶስተኛ ወገኖች አንሸጥም፣ አንገበያይም ወይም አንከራይም። ድህረ ገጻችንን በሚሰሩበት እና ንግዳችንን በሚያካሂዱበት ጊዜ ከሚረዱን አስተማማኝ አጋሮች ጋር መረጃ ልንጋራ እንችላለን፣ ይህን መረጃ ሚስጥራዊ አድርገው እስካስቀመጡ ድረስ።",
+    section4_title:"4. የውሂብ ደህንነት",
+    section4_text:"የግል መረጃዎን ያልተፈቀደ መዳረሻ፣ መለወጥ፣ መግለጥ ወይም መጥፋት ለመከላከል ተገቢ የቴክኒክ እና ድርጅታዊ እርምጃዎችን እንተገብራለን። ሆኖም በኢንተርኔት ላይ ማንኛውም የማስተላለፍ ዘዴ 100% ደህንነቱ የተጠበቀ አይደለም።",
+    section5_title:"5. መብቶችዎ",
+    section5_text:"የሚከተሉት መብቶች አሉዎት፡",
+    section5_item1:"ስለእርስዎ ያለንን የግል መረጃ መድረስ",
+    section5_item2:"የተሳሳተ መረጃ እንዲስተካከል መጠየቅ",
+    section5_item3:"የግል መረጃዎ እንዲሰረዝ መጠየቅ",
+    section5_item4:"መረጃዎ እንዳይቀነባበር መቃወም",
+    section6_title:"6. ኩኪዎች",
+    section6_text:"በድህረ ገጻችን ላይ ያለዎትን ተሞክሮ ለማሻሻል ኩኪዎችን እንጠቀማለን። ኩኪዎች በመሳሪያዎ ላይ የተከማቹ ትናንሽ የጽሑፍ ፋይሎች ሲሆኑ ከጣቢያችን ጋር እንዴት እንደሚገናኙ ለመረዳት ይረዱናል። የኩኪ ምርጫዎችን በአሳሽ ቅንብሮችዎ በኩል መቆጣጠር ይችላሉ።",
+    section7_title:"7. የዚህ ፖሊሲ ለውጦች",
+    section7_text:"ይህንን የግላዊነት ፖሊሲ ከጊዜ ወደ ጊዜ ልናዘምን እንችላለን። ማንኛውንም ለውጥ አዲሱን ፖሊሲ በዚህ ገጽ ላይ በመለጠፍ እናሳውቅዎታለን። ይህንን ፖሊሲ በየጊዜው እንዲገመግሙ እናበረታታለን።",
+    section8_title:"8. ያግኙን",
+    section8_text:"ስለዚህ የግላዊነት ፖሊሲ ወይም ስለ ውሂብ አሰራሮቻችን ማንኛውም ጥያቄ ካለዎት እባክዎ በሚከተለው ያግኙን፡",
+    last_updated:"የመጨረሻ ዘመን: ሰኔ 2026",
+    final_eyebrow:"የቴክኖሎጂ ሆልዲንግ ኩባንያ",final_quote:"“ወደፊቱ በጸጥታ ይሠራል።”",
+    final_founder:"— ኢየኤል ሙሉጌታ፣ የቮቬክስ ዋና ሥራ አስፈጻሚ እና መሥራች",
+    final_cta1:"ታሪካችን ›",final_cta2:"ተቋሞቻችን ›",
+    footer_copy:"© 2026 VOVEX. መብቱ በሕግ የተጠበቀ ነው።",
+    footer_privacy:"የግልነት ፖሊሲ",footer_legal:"ሕጋዊ",footer_press:"ፕሬስ",footer_contact:"አግኙን"
+  },
+  nl:{
+    nav_about:"Over",nav_ventures:"Activiteiten",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Website bouwen/maken",nav_contact:"Contact",
+    privacy_label:"● Privacybeleid",
+    privacy_title:"Privacybeleid",
+    privacy_sub:"VOVEX zet zich in voor de bescherming van uw privacy. Dit beleid legt uit hoe we uw persoonlijke gegevens verzamelen, gebruiken en beschermen.",
+    section1_title:"1. Informatie die we verzamelen",
+    section1_text:"We verzamelen informatie die u ons rechtstreeks verstrekt, zoals wanneer u een contactformulier invult, een websiteaanvraag indient of met ons communiceert. Dit kan omvatten:",
+    section1_item1:"Uw naam, e-mailadres, telefoonnummer en bedrijfsnaam",
+    section1_item2:"Informatie over uw websitebehoeften en projectvereisten",
+    section1_item3:"Alle andere informatie die u kiest te verstrekken",
+    section2_title:"2. Hoe we uw informatie gebruiken",
+    section2_text:"We gebruiken de informatie die we verzamelen om:",
+    section2_item1:"Onze diensten te leveren en te verlenen",
+    section2_item2:"Te reageren op uw vragen en verzoeken",
+    section2_item3:"U informatie te sturen over onze producten en diensten",
+    section2_item4:"Onze website en diensten te verbeteren",
+    section3_title:"3. Informatie delen",
+    section3_text:"We verkopen, verhandelen of verhuren uw persoonlijke informatie niet aan derden. We kunnen informatie delen met vertrouwde partners die ons helpen bij het exploiteren van onze website en het uitvoeren van onze bedrijfsactiviteiten, op voorwaarde dat zij deze informatie vertrouwelijk houden.",
+    section4_title:"4. Gegevensbeveiliging",
+    section4_text:"We passen passende technische en organisatorische maatregelen toe om uw persoonlijke gegevens te beschermen tegen ongeoorloofde toegang, wijziging, openbaarmaking of vernietiging. Echter, geen enkele verzendmethode via internet is 100% veilig.",
+    section5_title:"5. Uw rechten",
+    section5_text:"U heeft het recht om:",
+    section5_item1:"Toegang te krijgen tot de persoonlijke informatie die we over u hebben",
+    section5_item2:"Correctie van onjuiste informatie aan te vragen",
+    section5_item3:"Verwijdering van uw persoonlijke informatie aan te vragen",
+    section5_item4:"Bezwaar te maken tegen de verwerking van uw informatie",
+    section6_title:"6. Cookies",
+    section6_text:"We gebruiken cookies om uw ervaring op onze website te verbeteren. Cookies zijn kleine tekstbestanden die op uw apparaat worden opgeslagen en ons helpen begrijpen hoe u met onze site omgaat. U kunt cookievoorkeuren beheren via uw browserinstellingen.",
+    section7_title:"7. Wijzigingen in dit beleid",
+    section7_text:"We kunnen dit privacybeleid van tijd tot tijd bijwerken. We zullen u op de hoogte stellen van eventuele wijzigingen door het nieuwe beleid op deze pagina te plaatsen. We raden u aan dit beleid periodiek te bekijken.",
+    section8_title:"8. Neem contact met ons op",
+    section8_text:"Als u vragen heeft over dit privacybeleid of onze gegevenspraktijken, neem dan contact met ons op via:",
+    last_updated:"Laatst bijgewerkt: Juni 2026",
+    final_eyebrow:"Technologisch Holdingbedrijf",final_quote:"“De toekomst wordt stil gebouwd.”",
+    final_founder:"— Eyoel Mulugeta, CEO en Oprichter van Vovex",
+    final_cta1:"Ons verhaal ›",final_cta2:"Onze activiteiten ›",
+    footer_copy:"© 2026 VOVEX. Alle rechten voorbehouden.",
+    footer_privacy:"Privacybeleid",footer_legal:"Juridisch",footer_press:"Pers",footer_contact:"Contact"
+  },
+  om:{
+    nav_about:"Waa",nav_ventures:"Dhaabbilee",nav_platforms:"Hojiiwwan",
+    nav_principles:"Murtii",nav_timeline:"Marsaa ijaari/ummi",nav_contact:"Nu Quunnamaa",
+    privacy_label:"● Imaammata Iccitii",
+    privacy_title:"Imaammata Iccitii",
+    privacy_sub:"VOVEX iccitii keessan eeguuf mirkaneeffate. Imaammanni kun akkamitti odeeffannoo keessan walitti qabnu, fayyadamnu fi eegnu ibsa.",
+    section1_title:"1. Odeeffannoo Walitti Qabnu",
+    section1_text:"Odeeffannoo kallattiin nuuf kennitan walitti qabna, fakkeenyaaf yeroo foormii quunnamtii guuttan, marsaa ijaaruu kadhaddan ykn nu wajjin walqunnamtan. Kunis:",
+    section1_item1:"Maqaa keessan, teessoo imelii, lakkoobsa bilbilaa, fi maqaa dhaabbataa",
+    section1_item2:"Odeeffannoo waa'ee fedhii marsaa keessanii fi haala murtii",
+    section1_item3:"Odeeffannoo biraa isin kennuu filattan",
+    section2_title:"2. Akkamitti Odeeffannoo Keessan Fayyadanna",
+    section2_text:"Odeeffannoo walitti qabnu kanatti fayyadanna:",
+    section2_item1:"Tajaajila keenya kennuuf",
+    section2_item2:"Gaaffii keessanii fi kadhannaa keessanii deebisuuf",
+    section2_item3:"Odeeffannoo waa'ee oomishaa fi tajaajila keenyaa isinii erguuf",
+    section2_item4:"Marsaa web fi tajaajila keenya fooyyessuuf",
+    section3_title:"3. Odeeffannoo Qoodachuu",
+    section3_text:"Odeeffannoo dhuunfaa keessan warra sadaffaa hin gurgurru, hin gabbarsu ykn hin kiraarsu. Odeeffannoo warra amanamoo marsaa web keenya hoosisuu fi daldala keenya geeddachuuf nu gargaaran wajjin qoodachuu dandeenya, haala isaan odeeffannoo kana iccitiin qabachuu fudhatan.",
+    section4_title:"4. Nageenya Daataa",
+    section4_text:"Odeeffannoo dhuunfaa keessan akka hin tuqamne, hin geeddaramne, hin iftoomfanne ykn hin barbaadamneef tarkaanfii teeknikaa fi qindeessaa mijaawa ta'ee fudhanna. Garuu karaa dabarsaa interneetii 100% nageenya qabu hin jiru.",
+    section5_title:"5. Mirga Keessan",
+    section5_text:"Mirga kana qabdu:",
+    section5_item1:"Odeeffannoo dhuunfaa nutti waa'ee keessan qabnu argachuu",
+    section5_item2:"Odeeffannoo dogoggora ta'e sirreessuu kadhachuu",
+    section5_item3:"Odeeffannoo dhuunfaa keessan haquu kadhachuu",
+    section5_item4:"Odeeffannoo keessan too'achuuf mormuu",
+    section6_title:"6. Kuukii",
+    section6_text:"Muuxannoo keessan marsaa web keenya irratti fooyyessuuf kuukii fayyadanna. Kuukii faayiloota barreeffama xixiqqoo meeshaa keessan irratti kuusaman kan nuuf gargaaran akkamitti marsaa keenya wajjin walqunnamtan hubachuuf. Filannoo kuukii uwwisa biraawuzarii keessaniiin to'achuu dandeessu.",
+    section7_title:"7. Jijjiirama Imaammata Kanaa",
+    section7_text:"Imaammata iccitii kana yeroo fi yeroon odoofnu. Jijjiirama kamiyyuu imaammata haaraa fuula kana irratti maxxansuun isin beeksifna. Imaammata kana yeroo yeroon ilaaluu isin gorsina.",
+    section8_title:"8. Nu Quunnamaa",
+    section8_text:"Gaaffii waa'ee imaammata iccitii kanaa ykn akkaataa daataa keenyaa qabdu, karaa kanaan nu quunnamaa:",
+    last_updated:"Yeroo xumuraa: Waxabajjii 2026",
+    final_eyebrow:"Dhaabbata Teeknoloojii Qabaa",final_quote:"“Fuuldurri tasgabbiin ijaarama.”",
+    final_founder:"— Eyoel Mulugeta, CEO fi Hundaa'aa Vovex",
+    final_cta1:"Seenaa keenya ›",final_cta2:"Dhaabbilee keenya ›",
+    footer_copy:"© 2026 VOVEX. Mirgi hundaa qabame.",
+    footer_privacy:"Iccitii Imaammata",footer_legal:"Seera",footer_press:"Pireesii",footer_contact:"Nu Quunnamaa"
+  },
+  ti:{
+    nav_about:"ብዛዕባ",nav_ventures:"ትካላት",nav_platforms:"ስራሕቲ",
+    nav_principles:"መትከላት",nav_timeline:"ድህረ ገጽ ህነጽ/ፍጠር",nav_contact:"ተወከሉና",
+    privacy_label:"● ፖሊሲ ምስጢራዊነት",
+    privacy_title:"ፖሊሲ ምስጢራዊነት",
+    privacy_sub:"ቮቬክስ ምስጢራዊነትኩም ንምሕላው ተቐቢሉ ኣሎ። እዚ ፖሊሲ ሓበሬታ በይንኹም ብኸመይ ከም እንኣክብ፣ ከም እንጥቀምን ከም እንሓልውን ይገልጽ ኣሎ።",
+    section1_title:"1. እቲ እንኣክቦ ሓበሬታ",
+    section1_text:"ንስኻትኩም ብቐጥታ ዝትህቡና ሓበሬታ እንኣክብ ኢና፣ ለንጽሕና ነዚ ቅጽ ምውዳብ፣ ምስራት ድህረ ገጽ ምሕታት፣ ወይ ምሳና ምዝርራብ ከሎኹም። እዚ ዘጠቓልል ይኽእል ኢዩ፡",
+    section1_item1:"ስምኩም፣ ኣድራሻ ኢመይል፣ ቁጽሪ ተሌፎን፣ ስም ትካል",
+    section1_item2:"ብዛዕባ ናይ ድህረ ገጽ ድሌትኩምን ናይ ፕሮጀክት ኣድላይነታትን ሓበሬታ",
+    section1_item3:"ካልእ ሓበሬታ ክትህቡ እትምርጹ",
+    section2_title:"2. ሓበሬታኹም ብኸመይ ንጥቀመሉ",
+    section2_text:"ነቲ እንኣክቦ ሓበሬታ ንዚ ዝስዕብ ንጥቀመሉ ኢና፡",
+    section2_item1:"ኣገልግሎትና ንምሃብን ንምብጻሕን",
+    section2_item2:"ንሕቶኹምን ሕቶኹምን ምላሽ ንምሃብ",
+    section2_item3:"ብዛዕባ ናይ ምርትናን ኣገልግሎትናን ሓበሬታ ንምልኣኽ",
+    section2_item4:"ድህረ ገጽናን ኣገልግሎትናን ንምምሕያሽ",
+    section3_title:"3. ሓበሬታ ምክፋል",
+    section3_text:"ሓበሬታ በይንኹም ንሳልሳይ ወገናት ኣይንሸጥ፣ ኣይንልወጥን ኣይንኪራይን ኢና። ምስ እቶም ድህረ ገጽና ንምስራሕን ንግድና ንምክያድን ዝሕግዙና እሙናት ሽርክተኛታት ሓበሬታ ክንፈላለይ ንኽእል ኢና፣ እዚ ሓበሬታ ምስጢራዊ ክገብርዎ ብምስማምኦም ጥራይ።",
+    section4_title:"4. ደህንነት ዳታ",
+    section4_text:"ሓበሬታ በይንኹም ካብ ዘይተፈቐደ ምእታው፣ ምምሕያሽ፣ ምግላጽ፣ ወይ ምጥፋእ ንምክልኻል ተገቢ ቴክኒካዊን ክልላዊን መምርሒታት ንወስድ ኢና። ይኹን እምበር፡ ብኢንተርኔት ዝውድር ዘዴ 100% ደህንነቱ ዝተሓለወ ኣይኮነን።",
+    section5_title:"5. መሰላትኩም",
+    section5_text:"እዚ መሰላት ኣለኩም፡",
+    section5_item1:"ነቲ ብዛዕባኹም ዘሎና ሓበሬታ ምርካብ",
+    section5_item2:"ሓበሬታ ዘይትኽክል ኬስተኻኸል ምሕታት",
+    section5_item3:"ሓበሬታ በይንኹም ኪሰረዝ ምሕታት",
+    section5_item4:"ሓበሬታኹም ኣይምውዳብ ምቃወም",
+    section6_title:"6. ኩኪዎች",
+    section6_text:"በቲ ድህረ ገጽና ዘሎኹም ተመክሮ ንምምሕያሽ ኩኪ ንጥቀም ኢና። ኩኪ ኣብ መሳርሒኩም ዝተኽሰተ ንእሽቶ ፋይል ጽሑፍ ኮይኑ፣ ምስ ጣብያና ብኸመይ ከም እትራኸቡ ንምርዳእ ይሕግዘና። ምርጫ ኩኪ በቲ ቅንብራት ኣሳሽኹም ክትቆጻጸሩ ትኽእሉ ኢኹም።",
+    section7_title:"7. ለውጥታት እዚ ፖሊሲ",
+    section7_text:"ነዚ ፖሊሲ ምስጢራዊነት ጊዜ ብጊዜ ነሓድሶ ንኽእል ኢና። ለውጥታት እንተ ኣልዮም ፖሊሲ ሓድሽ ኣብዚ ገጽ ብምልጣፍ ንነግረኩም ኢና። ነዚ ፖሊሲ ጊዜ ብጊዜ ክትመርምርዎ ንምኽረኩም።",
+    section8_title:"8. ተወከሉና",
+    section8_text:"ብዛዕባ ፖሊሲ ምስጢራዊነት ወይ ናይ ዳታ አሰራርና ሕቶ እንተ ኣለኩም፡ በዚ ተወከሉና፡",
+    last_updated:"ዝሓለፈ ምዓርጎ: ሰነ 2026",
+    final_eyebrow:"ናይ ቴክኖሎጂ ሆልዲንግ ትካል",final_quote:"“መጻኢ ብህድኣት ይሃነጽ።”",
+    final_founder:"— ኢዮኤል ሙሉጌታ፣ ሃላፊን መስራቲ ቮቬክስ",
+    final_cta1:"ታሪክና ›",final_cta2:"ትካላትና ›",
+    footer_copy:"© 2026 VOVEX. ኩሉ መሰላት ዝተሓዙ።",
+    footer_privacy:"ፕሮቶኮል ምስጢርነት",footer_legal:"ሕጊ",footer_press:"ፕሬስ",footer_contact:"ተወከሉና"
+  },
+  sw:{
+    nav_about:"Kuhusu",nav_ventures:"Biashara",nav_platforms:"Kazi",
+    nav_principles:"Kanuni",nav_timeline:"Jenga/Unda tovuti",nav_contact:"Wasiliana",
+    privacy_label:"● Sera ya Faragha",
+    privacy_title:"Sera ya Faragha",
+    privacy_sub:"VOVEX imejitolea kulinda faragha yako. Sera hii inaelezea jinsi tunavyokusanya, kutumia, na kulinda taarifa zako za kibinafsi.",
+    section1_title:"1. Taarifa Tunazokusanya",
+    section1_text:"Tunakusanya taarifa unazotupa moja kwa moja, kama vile unapojaza fomu ya mawasiliano, kuomba ujenzi wa tovuti, au kuwasiliana nasi. Hii inaweza kujumuisha:",
+    section1_item1:"Jina lako, barua pepe, nambari ya simu, na jina la kampuni",
+    section1_item2:"Taarifa kuhusu mahitaji yako ya tovuti na mahitaji ya mradi",
+    section1_item3:"Taarifa nyingine yoyote unayochagua kutoa",
+    section2_title:"2. Jinsi Tunavyotumia Taarifa Zako",
+    section2_text:"Tunatumia taarifa tunazokusanya ili:",
+    section2_item1:"Kutoa na kuwasilisha huduma zetu",
+    section2_item2:"Kujibu maswali na maombi yako",
+    section2_item3:"Kukutumia taarifa kuhusu bidhaa na huduma zetu",
+    section2_item4:"Kuboresha tovuti na huduma zetu",
+    section3_title:"3. Kushiriki Taarifa",
+    section3_text:"Hatuziuwi, kubadilishana, au kukodisha taarifa zako za kibinafsi kwa wahusika wengine. Tunaweza kushiriki taarifa na washirika wa kuaminika wanaotusaidia kuendesha tovuti yetu na kuendesha biashara yetu, mradi tu wanakubali kuweka taarifa hizi kwa siri.",
+    section4_title:"4. Usalama wa Data",
+    section4_text:"Tunatekeleza hatua zinazofaa za kiufundi na kiushirika kulinda taarifa zako za kibinafsi dhidi ya ufikiaji usioidhinishwa, mabadiliko, ufichuzi, au uharibifu. Hata hivyo, hakuna njia ya usambazaji kupitia mtandao ambayo ni salama 100%.",
+    section5_title:"5. Haki Zako",
+    section5_text:"Una haki ya:",
+    section5_item1:"Kupata taarifa za kibinafsi tunazozihifadhi kukuhusu",
+    section5_item2:"Kuomba marekebisho ya taarifa zisizo sahihi",
+    section5_item3:"Kuomba ufutaji wa taarifa zako za kibinafsi",
+    section5_item4:"Kupinga usindikaji wa taarifa zako",
+    section6_title:"6. Vidakuzi",
+    section6_text:"Tunatumia vidakuzi ili kuboresha uzoefu wako kwenye tovuti yetu. Vidakuzi ni faili ndogo za maandishi zilizohifadhiwa kwenye kifaa chako zinazotusaidia kuelewa jinsi unavyoingiliana na tovuti yetu. Unaweza kudhibiti mapendeleo ya vidakuzi kupitia mipangilio ya kivinjari chako.",
+    section7_title:"7. Mabadiliko ya Sera Hii",
+    section7_text:"Tunaweza kusasisha sera hii ya faragha mara kwa mara. Tutakujulisha kuhusu mabadiliko yoyote kwa kuchapisha sera mpya kwenye ukurasa huu. Tunakuhimiza ukague sera hii mara kwa mara.",
+    section8_title:"8. Wasiliana Nasi",
+    section8_text:"Ikiwa una maswali yoyote kuhusu sera hii ya faragha au mazoea yetu ya data, tafadhali wasiliana nasi kupitia:",
+    last_updated:"Iliyosasishwa mwisho: Juni 2026",
+    final_eyebrow:"Kampuni ya Teknolojia ya Kushikilia",final_quote:"“Mustakabali unajengwa kwa utulivu.”",
+    final_founder:"— Eyoel Mulugeta, Mkurugenzi Mtendaji na Mwanzilishi wa Vovex",
+    final_cta1:"Hadithi yetu ›",final_cta2:"Biashara zetu ›",
+    footer_copy:"© 2026 VOVEX. Haki zote zimehifadhiwa.",
+    footer_privacy:"Sera ya Faragha",footer_legal:"Kisheria",footer_press:"Habari",footer_contact:"Wasiliana"
+  },
+  fr:{
+    nav_about:"À propos",nav_ventures:"Activités",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Construire/Créer un site web",nav_contact:"Contact",
+    privacy_label:"● Politique de Confidentialité",
+    privacy_title:"Politique de Confidentialité",
+    privacy_sub:"VOVEX s'engage à protéger votre vie privée. Cette politique explique comment nous collectons, utilisons et protégeons vos informations personnelles.",
+    section1_title:"1. Informations que nous collectons",
+    section1_text:"Nous collectons les informations que vous nous fournissez directement, comme lorsque vous remplissez un formulaire de contact, demandez la construction d'un site web ou communiquez avec nous. Cela peut inclure:",
+    section1_item1:"Votre nom, adresse email, numéro de téléphone et nom de l'entreprise",
+    section1_item2:"Des informations sur vos besoins en matière de site web et les exigences du projet",
+    section1_item3:"Toute autre information que vous choisissez de fournir",
+    section2_title:"2. Comment nous utilisons vos informations",
+    section2_text:"Nous utilisons les informations que nous collectons pour:",
+    section2_item1:"Fournir et délivrer nos services",
+    section2_item2:"Répondre à vos demandes et requêtes",
+    section2_item3:"Vous envoyer des informations sur nos produits et services",
+    section2_item4:"Améliorer notre site web et nos services",
+    section3_title:"3. Partage d'informations",
+    section3_text:"Nous ne vendons, n'échangeons ni ne louons vos informations personnelles à des tiers. Nous pouvons partager des informations avec des partenaires de confiance qui nous aident à exploiter notre site web et à mener nos activités, à condition qu'ils acceptent de garder ces informations confidentielles.",
+    section4_title:"4. Sécurité des données",
+    section4_text:"Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos informations personnelles contre tout accès non autorisé, toute modification, divulgation ou destruction. Cependant, aucune méthode de transmission sur Internet n'est sécurisée à 100%.",
+    section5_title:"5. Vos droits",
+    section5_text:"Vous avez le droit de:",
+    section5_item1:"Accéder aux informations personnelles que nous détenons sur vous",
+    section5_item2:"Demander la correction d'informations inexactes",
+    section5_item3:"Demander la suppression de vos informations personnelles",
+    section5_item4:"Vous opposer au traitement de vos informations",
+    section6_title:"6. Cookies",
+    section6_text:"Nous utilisons des cookies pour améliorer votre expérience sur notre site web. Les cookies sont de petits fichiers texte stockés sur votre appareil qui nous aident à comprendre comment vous interagissez avec notre site. Vous pouvez contrôler les préférences de cookies via les paramètres de votre navigateur.",
+    section7_title:"7. Modifications de cette politique",
+    section7_text:"Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle politique sur cette page. Nous vous encourageons à consulter cette politique périodiquement.",
+    section8_title:"8. Contactez-nous",
+    section8_text:"Si vous avez des questions concernant cette politique de confidentialité ou nos pratiques en matière de données, veuillez nous contacter à:",
+    last_updated:"Dernière mise à jour: Juin 2026",
+    final_eyebrow:"Société Holding Technologique",final_quote:"“L'avenir se construit en silence.”",
+    final_founder:"— Eyoel Mulugeta, PDG et Fondateur de Vovex",
+    final_cta1:"Notre histoire ›",final_cta2:"Nos activités ›",
+    footer_copy:"© 2026 VOVEX. Tous droits réservés.",
+    footer_privacy:"Politique de confidentialité",footer_legal:"Mentions légales",footer_press:"Presse",footer_contact:"Contact"
+  },
+  ar:{
+    nav_about:"عن الشركة",nav_ventures:"المشاريع",nav_platforms:"وظائف",
+    nav_principles:"المبادئ",nav_timeline:"بناء/إنشاء موقع",nav_contact:"تواصل",
+    privacy_label:"● سياسة الخصوصية",
+    privacy_title:"سياسة الخصوصية",
+    privacy_sub:"تلتزم VOVEX بحماية خصوصيتك. توضح هذه السياسة كيفية جمعنا واستخدامنا وحماية معلوماتك الشخصية.",
+    section1_title:"1. المعلومات التي نجمعها",
+    section1_text:"نجمع المعلومات التي تقدمها لنا مباشرة، مثل عند ملء نموذج اتصال، أو طلب بناء موقع، أو التواصل معنا. قد يشمل ذلك:",
+    section1_item1:"اسمك، عنوان بريدك الإلكتروني، رقم هاتفك، واسم الشركة",
+    section1_item2:"معلومات حول احتياجات موقعك ومتطلبات المشروع",
+    section1_item3:"أي معلومات أخرى تختار تقديمها",
+    section2_title:"2. كيف نستخدم معلوماتك",
+    section2_text:"نستخدم المعلومات التي نجمعها من أجل:",
+    section2_item1:"تقديم وتوصيل خدماتنا",
+    section2_item2:"الرد على استفساراتك وطلباتك",
+    section2_item3:"إرسال معلومات حول منتجاتنا وخدماتنا",
+    section2_item4:"تحسين موقعنا وخدماتنا",
+    section3_title:"3. مشاركة المعلومات",
+    section3_text:"لا نبيع أو نتاجر أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك المعلومات مع شركاء موثوقين يساعدوننا في تشغيل موقعنا وإدارة أعمالنا، بشرط أن يوافقوا على الحفاظ على سرية هذه المعلومات.",
+    section4_title:"4. أمن البيانات",
+    section4_text:"ننفذ تدابير تقنية وتنظيمية مناسبة لحماية معلوماتك الشخصية من الوصول غير المصرح به أو التعديل أو الكشف أو التدمير. ومع ذلك، لا توجد طريقة نقل عبر الإنترنت آمنة بنسبة 100٪.",
+    section5_title:"5. حقوقك",
+    section5_text:"لديك الحق في:",
+    section5_item1:"الوصول إلى المعلومات الشخصية التي نحتفظ بها عنك",
+    section5_item2:"طلب تصحيح المعلومات غير الدقيقة",
+    section5_item3:"طلب حذف معلوماتك الشخصية",
+    section5_item4:"الاعتراض على معالجة معلوماتك",
+    section6_title:"6. ملفات تعريف الارتباط",
+    section6_text:"نستخدم ملفات تعريف الارتباط لتحسين تجربتك على موقعنا. ملفات تعريف الارتباط هي ملفات نصية صغيرة يتم تخزينها على جهازك تساعدنا في فهم كيفية تفاعلك مع موقعنا. يمكنك التحكم في تفضيلات ملفات تعريف الارتباط من خلال إعدادات المتصفح الخاص بك.",
+    section7_title:"7. التغييرات في هذه السياسة",
+    section7_text:"قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنخطرك بأي تغييرات من خلال نشر السياسة الجديدة على هذه الصفحة. نشجعك على مراجعة هذه السياسة بشكل دوري.",
+    section8_title:"8. اتصل بنا",
+    section8_text:"إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه أو ممارساتنا في التعامل مع البيانات، يرجى الاتصال بنا على:",
+    last_updated:"آخر تحديث: يونيو 2026",
+    final_eyebrow:"شركة تكنولوجيا قابضة",final_quote:"“المستقبل يُبنى في صمت.”",
+    final_founder:"— إيويل مولجيتا، الرئيس التنفيذي ومؤسس Vovex",
+    final_cta1:"قصتنا ›",final_cta2:"مشاريعنا ›",
+    footer_copy:"© 2026 VOVEX. جميع الحقوق محفوظة.",
+    footer_privacy:"سياسة الخصوصية",footer_legal:"القانونية",footer_press:"الصحافة",footer_contact:"تواصل"
+  },
+  zh:{
+    nav_about:"关于",nav_ventures:"业务",nav_platforms:"职业",
+    nav_principles:"原则",nav_timeline:"构建/创建网站",nav_contact:"联系",
+    privacy_label:"● 隐私政策",
+    privacy_title:"隐私政策",
+    privacy_sub:"VOVEX 致力于保护您的隐私。本政策解释了我们如何收集、使用和保护您的个人信息。",
+    section1_title:"1. 我们收集的信息",
+    section1_text:"我们收集您直接提供给我们的信息，例如当您填写联系表格、请求网站构建或与我们沟通时。这可能包括：",
+    section1_item1:"您的姓名、电子邮件地址、电话号码和公司名称",
+    section1_item2:"关于您的网站需求和项目要求的信息",
+    section1_item3:"您选择提供的任何其他信息",
+    section2_title:"2. 我们如何使用您的信息",
+    section2_text:"我们使用收集的信息来：",
+    section2_item1:"提供和交付我们的服务",
+    section2_item2:"回复您的咨询和请求",
+    section2_item3:"向您发送有关我们产品和服务的信息",
+    section2_item4:"改进我们的网站和服务",
+    section3_title:"3. 信息共享",
+    section3_text:"我们不会将您的个人信息出售、交易或出租给第三方。我们可能会与协助我们运营网站和开展业务的值得信赖的合作伙伴共享信息，前提是他们同意对这些信息保密。",
+    section4_title:"4. 数据安全",
+    section4_text:"我们采取适当的技术和组织措施来保护您的个人信息免遭未经授权的访问、更改、披露或破坏。但是，没有任何一种通过互联网传输的方法是100%安全的。",
+    section5_title:"5. 您的权利",
+    section5_text:"您有权：",
+    section5_item1:"访问我们持有的关于您的个人信息",
+    section5_item2:"要求更正不准确的信息",
+    section5_item3:"要求删除您的个人信息",
+    section5_item4:"反对处理您的信息",
+    section6_title:"6. Cookie",
+    section6_text:"我们使用Cookie来增强您在我们网站上的体验。Cookie是存储在您设备上的小型文本文件，帮助我们了解您如何与我们的网站互动。您可以通过浏览器设置控制Cookie偏好。",
+    section7_title:"7. 本政策的变更",
+    section7_text:"我们可能会不时更新本隐私政策。我们将通过在本页面上发布新政策来通知您任何变更。我们鼓励您定期查看本政策。",
+    section8_title:"8. 联系我们",
+    section8_text:"如果您对本隐私政策或我们的数据实践有任何疑问，请通过以下方式联系我们：",
+    last_updated:"最后更新：2026年6月",
+    final_eyebrow:"科技控股集团",final_quote:"“未来，在寂静中构建。”",
+    final_founder:"— 埃约尔·穆卢格塔，Vovex 首席执行官兼创始人",
+    final_cta1:"我们的故事 ›",final_cta2:"我们的业务 ›",
+    footer_copy:"版权所有 © 2026 VOVEX。保留所有权利。",
+    footer_privacy:"隐私政策",footer_legal:"法律",footer_press:"新闻",footer_contact:"联系我们"
+  }
+};
+
+function setLang(lang) {
+  const d = T[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.textContent = d[k];
+  });
+  const rtl = lang === 'ar';
+  document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+  document.documentElement.setAttribute('lang', lang);
+  const eth = lang === 'am' || lang === 'ti';
+  const ara = lang === 'ar';
+  document.body.style.fontFamily = eth
+    ? "var(--font-ethiopic)"
+    : ara ? "var(--font-arabic)"
+    : "var(--font)";
+  document.querySelectorAll('.lbtn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+}
+
+/* ════════════════════════════════
+   FINAL CANVAS
+════════════════════════════════ */
+(function(){
+  const c = document.getElementById('final-canvas');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let W, H;
+  const PTS = Array.from({length:50}, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random()-.5)*.0004, vy: (Math.random()-.5)*.0004,
+    r: Math.random()*.8+.2, o: Math.random()*.1+.02
+  }));
+
+  function resize() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; }
+  resize();
+  new ResizeObserver(resize).observe(c);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    PTS.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+      if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${p.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+console.log('VOVEX Privacy Policy — Loaded.');
+</script>
+</body>
+</html>
