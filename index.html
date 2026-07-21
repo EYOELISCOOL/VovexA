@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VOVEX — Websites Built To Perform</title>
+<meta name="description" content="VOVEX designs, builds, and maintains websites and digital systems for businesses — from landing pages to full e-commerce and custom software."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+Ethiopic:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./Resources/logo.PNG">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #fff; }
+
+/* ─── TOKENS ─── */
+:root {
+  --white: #ffffff;
+  --off-white: #f5f5f7;
+  --section-dark: #1d1d1f;
+  --headline: #1d1d1f;
+  --body: #1d1d1f;
+  --secondary: #6e6e73;
+  --tertiary: #86868b;
+  --link: #0066cc;
+  --link-hover: #0077ed;
+  --divider: rgba(0,0,0,0.08);
+  --nav-bg: rgba(255,255,255,0.85);
+  --card-radius: 18px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-ethiopic: 'Noto Sans Ethiopic', 'Nyala', var(--font);
+  --font-arabic: 'Noto Sans Arabic', var(--font);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── LANGUAGE BAR ─── */
+#langbar {
+  background: var(--section-dark);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#langbar::-webkit-scrollbar { display: none; }
+
+.lbtn {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 14px;
+  height: 40px;
+  white-space: nowrap;
+  transition: color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  font-family: var(--font);
+  position: relative;
+}
+.lbtn:last-child { border-right: none; }
+.lbtn .ln { font-size: 8.5px; opacity: 0.5; margin-top: 1px; }
+.lbtn:hover { color: rgba(255,255,255,0.85); }
+.lbtn.active { color: #ffffff; }
+.lbtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 14px; right: 14px;
+  height: 2px;
+  background: #0066cc;
+  border-radius: 2px 2px 0 0;
+}
+
+/* ─── NAV ─── */
+#nav {
+  position: sticky;
+  top: 40px;
+  z-index: 999;
+  height: 44px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--divider);
+}
+.nav-inner {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--headline);
+  text-decoration: none;
+  justify-self: start;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0 10px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--headline); }
+.nav-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-contact {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-contact:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* ─── HERO ─── */
+#hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+  padding: 140px 20px 100px;
+}
+.hero-glow {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,102,204,0.22) 0%, transparent 70%);
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.hero-content-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+.hero-eyebrow {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2997ff;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.hero-headline {
+  font-size: clamp(40px, 7vw, 84px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.72);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cta-primary {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cta-primary:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(255,255,255,0.15); }
+.cta-secondary {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 13px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+.cta-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+
+/* ─── SECTION SHELL ─── */
+.section-white { background: var(--white); }
+.section-grey  { background: var(--off-white); }
+.section-dark  { background: var(--section-dark); color: #f5f5f7; }
+.section-pad { padding: 90px 20px; }
+.content-max { max-width: 980px; margin: 0 auto; }
+.content-tight { max-width: 680px; margin: 0 auto; text-align: center; }
+
+/* ─── TYPOGRAPHY ─── */
+.eyebrow-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--link);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.eyebrow-label.on-dark { color: #2997ff; }
+.section-headline {
+  font-size: clamp(30px, 4.5vw, 54px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: var(--headline);
+  margin-bottom: 16px;
+}
+.section-headline.on-dark { color: #f5f5f7; }
+.section-sub {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--secondary);
+  max-width: 620px;
+  margin: 0 auto;
+}
+.section-sub.on-dark { color: #a1a1a6; }
+
+/* ─── SERVICES GRID ─── */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 56px;
+}
+.svc-card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: var(--card-radius);
+  padding: 32px 28px;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1), border-color .3s;
+}
+.svc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  border-color: transparent;
+}
+.svc-card.featured { background: var(--section-dark); border-color: transparent; }
+.svc-name {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--headline);
+  margin-bottom: 8px;
+}
+.svc-card.featured .svc-name { color: #f5f5f7; }
+.svc-price {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--link);
+  background: rgba(0,102,204,0.08);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.svc-card.featured .svc-price { color: #2997ff; background: rgba(41,151,255,0.12); }
+.svc-desc {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--secondary);
+}
+.svc-card.featured .svc-desc { color: #a1a1a6; }
+
+/* ─── SEO BANNER ─── */
+.seo-banner {
+  max-width: 780px;
+  margin: 56px auto 0;
+  text-align: center;
+  padding: 26px 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0,102,204,0.06), rgba(0,102,204,0.02));
+  border: 1px solid rgba(0,102,204,0.12);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--headline);
+}
+.seo-banner strong { color: var(--link); }
+
+/* ─── MAINTENANCE ─── */
+.maint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 48px;
+}
+.maint-point {
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d1d1d6;
+}
+.maint-point b { color: #f5f5f7; display:block; margin-bottom:4px; font-size:15px; }
+
+/* ─── CUSTOM SYSTEMS ─── */
+.custom-box {
+  max-width: 760px;
+  margin: 40px auto 0;
+  text-align: center;
+  padding: 44px 36px;
+  border-radius: 24px;
+  background: var(--off-white);
+}
+
+/* ─── FAQ ─── */
+.faq-list { max-width: 760px; margin: 48px auto 0; }
+.faq-item {
+  border-bottom: 1px solid var(--divider);
+  padding: 22px 0;
+  cursor: pointer;
+}
+.faq-item:first-child { border-top: 1px solid var(--divider); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--headline);
+}
+.faq-plus { font-size: 20px; color: var(--tertiary); transition: transform 0.25s; flex-shrink:0; }
+.faq-item.open .faq-plus { transform: rotate(45deg); color: var(--link); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding-top 0.3s ease;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--secondary);
+}
+.faq-item.open .faq-a { max-height: 240px; padding-top: 14px; }
+
+/* ─── FINAL CTA ─── */
+#final {
+  background: var(--section-dark);
+  text-align: center;
+  padding: 140px 20px 120px;
+  position: relative;
+  overflow: hidden;
+}
+.final-tagline {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2997ff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  position: relative; z-index: 2;
+}
+.final-wordmark {
+  font-size: clamp(34px, 5.5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f5f5f7;
+  line-height: 1.1;
+  position: relative; z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.final-sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: #a1a1a6;
+  margin-top: 18px;
+  position: relative; z-index: 2;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+.final-cta-row {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  position: relative; z-index: 2;
+}
+.final-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  padding: 14px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.25s;
+}
+.final-link:hover { transform: scale(1.03); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--off-white);
+  border-top: 1px solid var(--divider);
+  padding: 28px 20px;
+}
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-logo {
+  font-size: 12px;
+  color: var(--secondary);
+  max-width: 640px;
+  line-height: 1.5;
+}
+.footer-copy { font-size: 12px; color: var(--tertiary); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a {
+  font-size: 12px;
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--link); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-inner { grid-template-columns: auto 1fr; }
+  .nav-right { display: none; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .maint-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  #langbar { justify-content: flex-start; }
+  #hero { padding: 110px 20px 80px; min-height: 82vh; }
+  .final-cta-row { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── LANGUAGE BAR ─── -->
+<div id="langbar" role="navigation" aria-label="Language selection">
+  <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN<span class="ln">English</span></button>
+  <button class="lbtn" data-lang="am" onclick="setLang('am')">አማ<span class="ln">አማርኛ</span></button>
+  <button class="lbtn" data-lang="nl" onclick="setLang('nl')">NL<span class="ln">Nederlands</span></button>
+  <button class="lbtn" data-lang="om" onclick="setLang('om')">OM<span class="ln">Oromoo</span></button>
+  <button class="lbtn" data-lang="ti" onclick="setLang('ti')">ትግ<span class="ln">ትግርኛ</span></button>
+  <button class="lbtn" data-lang="sw" onclick="setLang('sw')">SW<span class="ln">Kiswahili</span></button>
+  <button class="lbtn" data-lang="fr" onclick="setLang('fr')">FR<span class="ln">Français</span></button>
+  <button class="lbtn" data-lang="ar" onclick="setLang('ar')">عر<span class="ln">العربية</span></button>
+  <button class="lbtn" data-lang="zh" onclick="setLang('zh')">中文<span class="ln">普通话</span></button>
+</div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="./index.html">VOVEX</a>
+    <ul class="nav-links" role="list">
+      <li><a href="./About.html" data-i18n="nav_about">About</a></li>
+      <li><a href="./ventures.html" data-i18n="nav_ventures">Ventures</a></li>
+      <li><a href="./careers.html" data-i18n="nav_platforms">Careers</a></li>
+      <li><a href="./principles.html" data-i18n="nav_principles">Principles</a></li>
+      <li><a href="./create-website.html" data-i18n="nav_timeline">Build/Create a website</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-contact" href="./contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content-wrapper">
+    <p class="hero-eyebrow" data-i18n="h2_eyebrow">Digital Presence, Engineered</p>
+    <h1 class="hero-headline" data-i18n="h2_head">Websites built to perform.</h1>
+    <p class="hero-sub" data-i18n="h2_sub">From a single landing page to a full commerce platform — Vovex designs, builds, and looks after digital experiences that move your business forward.</p>
+    <div class="hero-ctas">
+      <a href="#services" class="cta-primary" data-i18n="h2_cta1">Explore Services</a>
+      <a href="./contact.html" class="cta-secondary" data-i18n="h2_cta2">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services" class="section-white section-pad">
+  <div class="content-max">
+    <div class="content-tight">
+      <p class="eyebrow-label" data-i18n="sv_eyebrow">What We Build</p>
+      <h2 class="section-headline" data-i18n="sv_head">Eight ways to launch.</h2>
+      <p class="section-sub" data-i18n="sv_sub">Every project starts from a proven foundation and scales to match your ambition. Prices below are starting points — your final quote reflects the real scope of your project.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-name" data-i18n="s1n">Landing Pages</div>
+        <div class="svc-price" data-i18n="s1p">Starting from 15,000 ETB</div>
+        <div class="svc-desc" data-i18n="s1d">A focused, high-converting single page built to turn visitors into leads — a working contact form and a mobile-first layout included.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name" data-i18n="s2n">Portfolio Websites</div>
+        <div class="svc-price" data-i18n="s2p">Starting from 10,000 ETB</div>
+        <div class="svc-desc" data-i18n="s2d">A clean showcase for your work — About, Projects, and Contact pages designed to make a strong first impression.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name" data-i18n="s3n">Business Websites</div>
+        <div class="svc-price" data-i18n="s3p">Starting from 20,000 ETB</div>
+        <div class="svc-desc" data-i18n="s3d">A four-to-five page presence covering your story, services, portfolio, and contact details — everything a growing business needs to be found online.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name" data-i18n="s4n">Restaurant Websites</div>
+        <div class="svc-price" data-i18n="s4p">Starting from 20,000 ETB</div>
+        <div class="svc-desc" data-i18n="s4d">A digital menu, photo gallery, and reservation details, presented in a layout as appetizing as the food.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name" data-i18n="s5n">Hotel Websites</div>
+        <div class="svc-price" data-i18n="s5p">Starting from 30,000 ETB</div>
+        <div class="svc-desc" data-i18n="s5d">Showcase rooms and amenities with a gallery and booking details guests can act on immediately.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name" data-i18n="s6n">School Websites</div>
+        <div class="svc-price" data-i18n="s6p">Starting from 30,000 ETB</div>
+        <div class="svc-desc" data-i18n="s6d">Admissions, programs, and faculty information organized clearly for parents and prospective students.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name" data-i18n="s7n">E-Commerce Websites</div>
+        <div class="svc-price" data-i18n="s7p">Starting from 50,000 ETB</div>
+        <div class="svc-desc" data-i18n="s7d">A full online store — product catalog, shopping cart, and secure checkout — ready to sell from day one.</div>
+      </div>
+      <div class="svc-card featured">
+        <div class="svc-name" data-i18n="s8n">Custom Business Systems</div>
+        <div class="svc-price" data-i18n="s8p">Starting from 100,000+ ETB</div>
+        <div class="svc-desc" data-i18n="s8d">CRMs, POS systems, inventory tools, HR platforms, and internal dashboards — software engineered around how your business actually runs.</div>
+      </div>
+    </div>
+
+    <div class="seo-banner" data-i18n="seo_banner">Search visibility isn't an add-on here — <strong>every website we build ships with SEO foundations included</strong>, at no extra cost.</div>
+  </div>
+</section>
+
+<!-- ─── MAINTENANCE ─── -->
+<section id="maintenance" class="section-dark section-pad">
+  <div class="content-max">
+    <div class="content-tight">
+      <p class="eyebrow-label on-dark" data-i18n="mt_eyebrow">Keep It Running</p>
+      <h2 class="section-headline on-dark" data-i18n="mt_head">A website is never really finished.</h2>
+      <p class="section-sub on-dark" data-i18n="mt_sub">Ongoing care keeps your site fast, secure, and current. Maintenance plans scale with your service — from 500 ETB/month for a portfolio up to 20,000 ETB/month for a custom system.</p>
+    </div>
+    <div class="maint-grid">
+      <div class="maint-point"><b data-i18n="mp1t">Updates</b><span data-i18n="mp1d">Software and platform updates applied before they become a problem.</span></div>
+      <div class="maint-point"><b data-i18n="mp2t">Security</b><span data-i18n="mp2d">Ongoing monitoring to keep your site and its data protected.</span></div>
+      <div class="maint-point"><b data-i18n="mp3t">Bug Fixes</b><span data-i18n="mp3d">Issues found and resolved quickly, before they affect visitors.</span></div>
+      <div class="maint-point"><b data-i18n="mp4t">Performance</b><span data-i18n="mp4d">Regular tuning so your site stays fast as it grows.</span></div>
+      <div class="maint-point"><b data-i18n="mp5t">Content Updates</b><span data-i18n="mp5d">Text, images, and offers refreshed whenever you need a change.</span></div>
+      <div class="maint-point"><b data-i18n="mp6t">Ongoing Support</b><span data-i18n="mp6d">A direct line to us whenever something needs attention.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CUSTOM SYSTEMS ─── -->
+<section id="custom" class="section-grey section-pad">
+  <div class="content-max content-tight">
+    <p class="eyebrow-label" data-i18n="cs_eyebrow">Built Around You</p>
+    <h2 class="section-headline" data-i18n="cs_head">No two businesses run the same way.</h2>
+    <div class="custom-box">
+      <p class="section-sub" data-i18n="cs_body">Custom platforms are quoted individually, once we understand your workflows, integrations, and goals. Rather than fitting your business into a template, we scope the system around it — so your investment reflects exactly what you need, and nothing you don't.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" class="section-white section-pad">
+  <div class="content-max">
+    <div class="content-tight">
+      <p class="eyebrow-label" data-i18n="faq_eyebrow">Good to Know</p>
+      <h2 class="section-headline" data-i18n="faq_head">Questions, answered.</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="q1">When does work actually start on my project?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a" data-i18n="a1">Once we've agreed on scope and received the initial deposit, we begin discovery and design right away — most projects kick off within days.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="q2">How is pricing determined, and how does payment work?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a" data-i18n="a2">Each service has a starting price covering the standard build. Your final number depends on pages, features, and complexity, and we walk you through it before anything is confirmed. Payment is typically split between an upfront deposit and completion.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="q3">Why are custom systems quoted separately?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a" data-i18n="a3">Software like CRMs, POS, or internal dashboards varies enormously in scope. We quote these individually so you only pay for what your business actually needs.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="q4">Is SEO really included, or is that extra?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a" data-i18n="a4">It's included. Every site we launch ships with core SEO groundwork already in place — no upsell required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="q5">What do I actually get with a maintenance plan?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a" data-i18n="a5">Updates, security monitoring, bug fixes, performance improvements, content edits, and direct support — so your site stays reliable without you having to think about it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="q6">Who owns the website once it's finished?</span><span class="faq-plus">+</span></div>
+        <div class="faq-a" data-i18n="a6">You do. Once the project is complete and paid in full, the site and its content belong to you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section id="final">
+  <p class="final-tagline" data-i18n="f2_eyebrow">Let's Build Something</p>
+  <h2 class="final-wordmark" data-i18n="f2_head">Your website starts with a conversation.</h2>
+  <p class="final-sub" data-i18n="f2_sub">Tell us what you're building — we'll turn it into a plan, a price, and a launch date.</p>
+  <div class="final-cta-row">
+    <a class="final-link" href="./contact.html" data-i18n="f2_cta">Start Your Project ›</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo" data-i18n="footer_bio">VOVEX designs, builds, and maintains modern, responsive websites and digital systems for businesses — helping brands establish a strong online presence and grow.</span>
+    <span class="footer-copy" data-i18n="footer_copy">Copyright © 2026 VOVEX. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="./privacypolicy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="./legal.html" data-i18n="footer_legal">Legal</a>
+      <a href="./press.html" data-i18n="footer_press">Press</a>
+      <a href="./contact.html" data-i18n="footer_contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════
+   FAQ ACCORDION
+════════════════════════════════ */
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+/* ════════════════════════════════
+   I18N
+════════════════════════════════ */
+const T = {
+  en:{
+    nav_about:"About",nav_ventures:"Ventures",nav_platforms:"Careers",
+    nav_principles:"Principles",nav_timeline:"Build/Create a website",nav_contact:"Contact",
+    h2_eyebrow:"Digital Presence, Engineered",
+    h2_head:"Websites built to perform.",
+    h2_sub:"From a single landing page to a full commerce platform — Vovex designs, builds, and looks after digital experiences that move your business forward.",
+    h2_cta1:"Explore Services",h2_cta2:"Request a Quote",
+    sv_eyebrow:"What We Build",sv_head:"Eight ways to launch.",
+    sv_sub:"Every project starts from a proven foundation and scales to match your ambition. Prices below are starting points — your final quote reflects the real scope of your project.",
+    s1n:"Landing Pages",s1p:"Starting from 15,000 ETB",s1d:"A focused, high-converting single page built to turn visitors into leads — a working contact form and a mobile-first layout included.",
+    s2n:"Portfolio Websites",s2p:"Starting from 10,000 ETB",s2d:"A clean showcase for your work — About, Projects, and Contact pages designed to make a strong first impression.",
+    s3n:"Business Websites",s3p:"Starting from 20,000 ETB",s3d:"A four-to-five page presence covering your story, services, portfolio, and contact details — everything a growing business needs to be found online.",
+    s4n:"Restaurant Websites",s4p:"Starting from 20,000 ETB",s4d:"A digital menu, photo gallery, and reservation details, presented in a layout as appetizing as the food.",
+    s5n:"Hotel Websites",s5p:"Starting from 30,000 ETB",s5d:"Showcase rooms and amenities with a gallery and booking details guests can act on immediately.",
+    s6n:"School Websites",s6p:"Starting from 30,000 ETB",s6d:"Admissions, programs, and faculty information organized clearly for parents and prospective students.",
+    s7n:"E-Commerce Websites",s7p:"Starting from 50,000 ETB",s7d:"A full online store — product catalog, shopping cart, and secure checkout — ready to sell from day one.",
+    s8n:"Custom Business Systems",s8p:"Starting from 100,000+ ETB",s8d:"CRMs, POS systems, inventory tools, HR platforms, and internal dashboards — software engineered around how your business actually runs.",
+    seo_banner:"Search visibility isn't an add-on here — <strong>every website we build ships with SEO foundations included</strong>, at no extra cost.",
+    mt_eyebrow:"Keep It Running",mt_head:"A website is never really finished.",
+    mt_sub:"Ongoing care keeps your site fast, secure, and current. Maintenance plans scale with your service — from 500 ETB/month for a portfolio up to 20,000 ETB/month for a custom system.",
+    mp1t:"Updates",mp1d:"Software and platform updates applied before they become a problem.",
+    mp2t:"Security",mp2d:"Ongoing monitoring to keep your site and its data protected.",
+    mp3t:"Bug Fixes",mp3d:"Issues found and resolved quickly, before they affect visitors.",
+    mp4t:"Performance",mp4d:"Regular tuning so your site stays fast as it grows.",
+    mp5t:"Content Updates",mp5d:"Text, images, and offers refreshed whenever you need a change.",
+    mp6t:"Ongoing Support",mp6d:"A direct line to us whenever something needs attention.",
+    cs_eyebrow:"Built Around You",cs_head:"No two businesses run the same way.",
+    cs_body:"Custom platforms are quoted individually, once we understand your workflows, integrations, and goals. Rather than fitting your business into a template, we scope the system around it — so your investment reflects exactly what you need, and nothing you don't.",
+    faq_eyebrow:"Good to Know",faq_head:"Questions, answered.",
+    q1:"When does work actually start on my project?",a1:"Once we've agreed on scope and received the initial deposit, we begin discovery and design right away — most projects kick off within days.",
+    q2:"How is pricing determined, and how does payment work?",a2:"Each service has a starting price covering the standard build. Your final number depends on pages, features, and complexity, and we walk you through it before anything is confirmed. Payment is typically split between an upfront deposit and completion.",
+    q3:"Why are custom systems quoted separately?",a3:"Software like CRMs, POS, or internal dashboards varies enormously in scope. We quote these individually so you only pay for what your business actually needs.",
+    q4:"Is SEO really included, or is that extra?",a4:"It's included. Every site we launch ships with core SEO groundwork already in place — no upsell required.",
+    q5:"What do I actually get with a maintenance plan?",a5:"Updates, security monitoring, bug fixes, performance improvements, content edits, and direct support — so your site stays reliable without you having to think about it.",
+    q6:"Who owns the website once it's finished?",a6:"You do. Once the project is complete and paid in full, the site and its content belong to you.",
+    f2_eyebrow:"Let's Build Something",f2_head:"Your website starts with a conversation.",
+    f2_sub:"Tell us what you're building — we'll turn it into a plan, a price, and a launch date.",f2_cta:"Start Your Project ›",
+    footer_bio:"VOVEX designs, builds, and maintains modern, responsive websites and digital systems for businesses — helping brands establish a strong online presence and grow.",
+    footer_copy:"Copyright © 2026 VOVEX. All rights reserved.",
+    footer_privacy:"Privacy Policy",footer_legal:"Legal",footer_press:"Press",footer_contact:"Contact"
+  },
+  am:{
+    nav_about:"ስለ",nav_ventures:"ተቋሞች",nav_platforms:"ስራዎች",
+    nav_principles:"መርሆዎች",nav_timeline:"ድህረ ገጽ ግንባ/ፍጠር",nav_contact:"አግኙን",
+    h2_eyebrow:"ዲጂታል መገኘት፣ በጥራት የተሰራ",
+    h2_head:"ውጤት የሚያመጡ ድህረ ገጾች።",
+    h2_sub:"ከአንድ የማረፊያ ገጽ እስከ ሙሉ የግብይት መድረክ — Vovex ንግድዎን ወደፊት የሚያራምዱ ዲጂታል ልምዶችን ይነድፋል፣ ይገነባል፣ ይንከባከባል።",
+    h2_cta1:"አገልግሎቶችን ይመልከቱ",h2_cta2:"ዋጋ ይጠይቁ",
+    sv_eyebrow:"የምንገነባው",sv_head:"ስምንት የመጀመሪያ አማራጮች።",
+    sv_sub:"እያንዳንዱ ፕሮጀክት ከተረጋገጠ መሰረት ይጀምርና ከምኞትዎ ጋር ያድጋል። ከታች ያሉት ዋጋዎች መነሻ ናቸው — የመጨረሻው ዋጋ የፕሮጀክቱን መጠን ያንፀባርቃል።",
+    s1n:"የማረፊያ ገጾች",s1p:"ከ15,000 ብር ጀምሮ",s1d:"ጎብኝዎችን ወደ ደንበኛ የሚቀይር ትኩረት ያለው ገጽ — የስራ የግንኙነት ቅጽ እና ለሞባይል ተስማሚ ንድፍ ያካትታል።",
+    s2n:"የፖርትፎሊዮ ድህረ ገጾች",s2p:"ከ10,000 ብር ጀምሮ",s2d:"ስራዎን የሚያሳይ ንፁህ ገጽ — ስለ እርስዎ፣ ፕሮጀክቶች እና የግንኙነት ገጾች ጠንካራ የመጀመሪያ ስሜት ይፈጥራሉ።",
+    s3n:"የንግድ ድህረ ገጾች",s3p:"ከ20,000 ብር ጀምሮ",s3d:"ታሪክዎን፣ አገልግሎቶችዎን፣ ፖርትፎሊዮዎን እና የግንኙነት መረጃዎን የሚሸፍን ከ4-5 ገጽ — በበይነመረብ እንዲታወቁ የሚያስፈልገው ሁሉ።",
+    s4n:"የምግብ ቤት ድህረ ገጾች",s4p:"ከ20,000 ብር ጀምሮ",s4d:"ዲጂታል ምናሌ፣ የፎቶ ማዕከለ-ስዕላት እና የቦታ ማስያዣ መረጃ፣ እንደ ምግቡ ማራኪ በሆነ ንድፍ።",
+    s5n:"የሆቴል ድህረ ገጾች",s5p:"ከ30,000 ብር ጀምሮ",s5d:"ክፍሎችን እና አገልግሎቶችን በማዕከለ-ስዕላት እና እንግዶች ወዲያውኑ ሊጠቀሙበት በሚችሉ የማስያዣ መረጃ ያሳዩ።",
+    s6n:"የትምህርት ቤት ድህረ ገጾች",s6p:"ከ30,000 ብር ጀምሮ",s6d:"ለወላጆች እና ለወደፊት ተማሪዎች በግልፅ የተደራጀ የመግቢያ፣ የፕሮግራም እና የመምህራን መረጃ።",
+    s7n:"የኢ-ኮሜርስ ድህረ ገጾች",s7p:"ከ50,000 ብር ጀምሮ",s7d:"ሙሉ የመስመር ላይ ሱቅ — የምርት ካታሎግ፣ የግዢ ጋሪ እና ደህንነቱ የተጠበቀ ክፍያ — ከመጀመሪያ ቀን ለሽያጭ ዝግጁ።",
+    s8n:"የተበጀ የንግድ ሲስተሞች",s8p:"ከ100,000+ ብር ጀምሮ",s8d:"CRM፣ POS ስርዓቶች፣ የክምችት መሳሪያዎች፣ HR መድረኮች እና የውስጥ ዳሽቦርዶች — ንግድዎ በትክክል እንዴት እንደሚሰራ ላይ የተመሰረተ ሶፍትዌር።",
+    seo_banner:"የፍለጋ ታይነት እዚህ ተጨማሪ አገልግሎት አይደለም — <strong>የምንገነባው እያንዳንዱ ድህረ ገጽ የSEO መሰረት ያካትታል</strong>፣ ያለ ተጨማሪ ክፍያ።",
+    mt_eyebrow:"ስራ ላይ ያድርጉት",mt_head:"ድህረ ገጽ ፈጽሞ አያልቅም።",
+    mt_sub:"ቀጣይነት ያለው እንክብካቤ ድህረ ገጽዎን ፈጣን፣ ደህንነቱ የተጠበቀ እና ወቅታዊ ያደርገዋል። የጥገና እቅዶች ከአገልግሎትዎ ጋር ይመጣጠናሉ — ከ500 ብር/ወር ለፖርትፎሊዮ እስከ 20,000 ብር/ወር ለተበጀ ሲስተም።",
+    mp1t:"ማሻሻያዎች",mp1d:"ችግር ከመሆናቸው በፊት የሚተገበሩ የሶፍትዌር እና የመድረክ ማሻሻያዎች።",
+    mp2t:"ደህንነት",mp2d:"ድህረ ገጽዎን እና መረጃውን ለመጠበቅ ቀጣይነት ያለው ክትትል።",
+    mp3t:"የስህተት እርማት",mp3d:"ጎብኝዎችን ከመንካቱ በፊት ችግሮች በፍጥነት ይገኙና ይስተካከላሉ።",
+    mp4t:"አፈጻጸም",mp4d:"ድህረ ገጽዎ ሲያድግ ፈጣን ሆኖ እንዲቆይ መደበኛ ማስተካከያ።",
+    mp5t:"የይዘት ማሻሻያዎች",mp5d:"ጽሑፎች፣ ምስሎች እና ቅናሾች ለውጥ በሚያስፈልግዎት ጊዜ ይሻሻላሉ።",
+    mp6t:"ቀጣይ ድጋፍ",mp6d:"ትኩረት የሚያስፈልገው ነገር ሲኖር ቀጥተኛ የግንኙነት መስመር።",
+    cs_eyebrow:"በእርስዎ ላይ የተመሰረተ",cs_head:"ሁለት ንግዶች በተመሳሳይ መንገድ አይሰሩም።",
+    cs_body:"የስራ ሂደትዎን፣ ውህደቶችዎን እና ግቦችዎን ከተረዳን በኋላ የተበጁ መድረኮች በተናጠል ይገመታሉ። ንግድዎን ወደ አብነት ከማስማማት ይልቅ ሲስተሙን በዙሪያው እናዘጋጃለን — ኢንቨስትመንትዎ በትክክል የሚያስፈልግዎትን ብቻ እንዲያንፀባርቅ።",
+    faq_eyebrow:"ጠቃሚ መረጃ",faq_head:"ጥያቄዎች፣ ተመልሰዋል።",
+    q1:"በፕሮጀክቴ ላይ ስራ መቼ ይጀምራል?",a1:"ወሰኑን ከተስማማን እና የመጀመሪያ ተቀማጭ ገንዘብ ከደረሰን በኋላ፣ ወዲያውኑ ፍለጋ እና ንድፍ እንጀምራለን — አብዛኞቹ ፕሮጀክቶች በቀናት ውስጥ ይጀምራሉ።",
+    q2:"ዋጋ እንዴት ይወሰናል፣ ክፍያስ እንዴት ይሰራል?",a2:"እያንዳንዱ አገልግሎት መደበኛ ግንባታን የሚሸፍን መነሻ ዋጋ አለው። የመጨረሻ ቁጥርዎ በገጾች፣ ባህሪያት እና ውስብስብነት ላይ የተመሰረተ ነው፣ ከመረጋገጡ በፊት እናብራራልዎታለን። ክፍያ በተለምዶ በቅድሚያ ተቀማጭ እና በማጠናቀቅ መካከል ይከፈላል።",
+    q3:"የተበጁ ሲስተሞች ለምን በተናጠል ይገመታሉ?",a3:"እንደ CRM፣ POS ወይም የውስጥ ዳሽቦርድ ያሉ ሶፍትዌሮች በስፋት ይለያያሉ። ንግድዎ በትክክል የሚያስፈልገውን ብቻ እንዲከፍሉ በተናጠል እንገምታቸዋለን።",
+    q4:"SEO በእውነት ይካተታል ወይስ ተጨማሪ ነው?",a4:"ይካተታል። የምናስጀምረው እያንዳንዱ ድህረ ገጽ የSEO መሰረት አስቀድሞ ተካቷል — ተጨማሪ ሽያጭ አያስፈልግም።",
+    q5:"ከጥገና እቅድ ጋር በትክክል ምን አገኛለሁ?",a5:"ማሻሻያዎች፣ የደህንነት ክትትል፣ የስህተት እርማት፣ የአፈጻጸም መሻሻል፣ የይዘት አርትዖት እና ቀጥተኛ ድጋፍ — ስለዚህ ድህረ ገጽዎ ሳያስቡበት አስተማማኝ ሆኖ ይቆያል።",
+    q6:"ድህረ ገጹ ከተጠናቀቀ በኋላ ባለቤትነቱ የማን ነው?",a6:"የእርስዎ ነው። ፕሮጀክቱ ተጠናቆ ሙሉ በሙሉ ከተከፈለ በኋላ፣ ገጹ እና ይዘቱ የእርስዎ ይሆናሉ።",
+    f2_eyebrow:"አንድ ነገር እንገንባ",f2_head:"ድህረ ገጽዎ በውይይት ይጀምራል።",
+    f2_sub:"የሚገነቡትን ይንገሩን — ወደ እቅድ፣ ዋጋ እና የመጀመሪያ ቀን እንለውጠዋለን።",f2_cta:"ፕሮጀክትዎን ይጀምሩ ›",
+    footer_bio:"VOVEX ዘመናዊ፣ ምላሽ ሰጪ ድህረ ገጾችን እና ዲጂታል ስርዓቶችን ለንግዶች ይነድፋል፣ ይገነባል፣ ይንከባከባል — ብራንዶች ጠንካራ የመስመር ላይ መገኘት እንዲኖራቸው እና እንዲያድጉ ይረዳል።",
+    footer_copy:"© 2026 VOVEX። መብቱ በሕግ የተጠበቀ ነው።",
+    footer_privacy:"የግልነት ፖሊሲ",footer_legal:"ሕጋዊ",footer_press:"ፕሬስ",footer_contact:"አግኙን"
+  },
+  nl:{
+    nav_about:"Over",nav_ventures:"Activiteiten",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Website bouwen/maken",nav_contact:"Contact",
+    h2_eyebrow:"Digitale Aanwezigheid, Vakkundig Gebouwd",
+    h2_head:"Websites die presteren.",
+    h2_sub:"Van een enkele landingspagina tot een volwaardig verkoopplatform — Vovex ontwerpt, bouwt en onderhoudt digitale ervaringen die uw bedrijf vooruit helpen.",
+    h2_cta1:"Bekijk Diensten",h2_cta2:"Vraag een Offerte",
+    sv_eyebrow:"Wat Wij Bouwen",sv_head:"Acht manieren om te lanceren.",
+    sv_sub:"Elk project begint vanuit een bewezen basis en groeit mee met uw ambitie. Onderstaande prijzen zijn startpunten — uw definitieve offerte weerspiegelt de werkelijke omvang van uw project.",
+    s1n:"Landingspagina's",s1p:"Vanaf 15.000 ETB",s1d:"Eén gerichte, converterende pagina die bezoekers omzet in leads — inclusief werkend contactformulier en mobielvriendelijke opmaak.",
+    s2n:"Portfoliowebsites",s2p:"Vanaf 10.000 ETB",s2d:"Een strakke etalage voor uw werk — Over, Projecten en Contact, ontworpen voor een sterke eerste indruk.",
+    s3n:"Bedrijfswebsites",s3p:"Vanaf 20.000 ETB",s3d:"Vier tot vijf pagina's met uw verhaal, diensten, portfolio en contactgegevens — alles wat een groeiend bedrijf nodig heeft om online gevonden te worden.",
+    s4n:"Restaurantwebsites",s4p:"Vanaf 20.000 ETB",s4d:"Een digitaal menu, fotogalerij en reserveringsinformatie, gepresenteerd in een even smakelijke opmaak.",
+    s5n:"Hotelwebsites",s5p:"Vanaf 30.000 ETB",s5d:"Toon kamers en voorzieningen met een galerij en boekingsinformatie waar gasten direct op kunnen handelen.",
+    s6n:"Schoolwebsites",s6p:"Vanaf 30.000 ETB",s6d:"Toelating, programma's en docentinformatie helder georganiseerd voor ouders en aspirant-leerlingen.",
+    s7n:"E-commercewebsites",s7p:"Vanaf 50.000 ETB",s7d:"Een complete webshop — productcatalogus, winkelwagen en veilig afrekenen — vanaf dag één verkoopklaar.",
+    s8n:"Maatwerk Bedrijfssystemen",s8p:"Vanaf 100.000+ ETB",s8d:"CRM's, kassasystemen, voorraadtools, HR-platformen en interne dashboards — software ontworpen rond hoe uw bedrijf écht werkt.",
+    seo_banner:"Vindbaarheid is hier geen extraatje — <strong>elke website die wij bouwen komt standaard met SEO-basis</strong>, zonder meerkosten.",
+    mt_eyebrow:"Blijf Draaien",mt_head:"Een website is nooit echt af.",
+    mt_sub:"Doorlopend onderhoud houdt uw site snel, veilig en actueel. Onderhoudsplannen schalen mee met uw dienst — van 500 ETB/maand voor een portfolio tot 20.000 ETB/maand voor een maatwerksysteem.",
+    mp1t:"Updates",mp1d:"Software- en platformupdates, doorgevoerd voordat ze een probleem worden.",
+    mp2t:"Beveiliging",mp2d:"Doorlopende monitoring om uw site en data te beschermen.",
+    mp3t:"Bugfixes",mp3d:"Problemen snel gevonden en opgelost, voordat bezoekers er last van hebben.",
+    mp4t:"Prestaties",mp4d:"Regelmatige optimalisatie zodat uw site snel blijft naarmate hij groeit.",
+    mp5t:"Content-updates",mp5d:"Tekst, beelden en aanbiedingen bijgewerkt wanneer u dat wilt.",
+    mp6t:"Doorlopende Ondersteuning",mp6d:"Een directe lijn naar ons wanneer er iets aandacht nodig heeft.",
+    cs_eyebrow:"Om U Heen Gebouwd",cs_head:"Geen twee bedrijven werken hetzelfde.",
+    cs_body:"Maatwerkplatformen worden afzonderlijk geoffreerd, zodra we uw workflows, integraties en doelen begrijpen. In plaats van uw bedrijf in een sjabloon te persen, bouwen we het systeem eromheen — zodat uw investering precies weerspiegelt wat u nodig heeft, en niets meer.",
+    faq_eyebrow:"Goed om te Weten",faq_head:"Vragen, beantwoord.",
+    q1:"Wanneer begint het werk daadwerkelijk aan mijn project?",a1:"Zodra we het overeens zijn over de omvang en de aanbetaling is ontvangen, starten we direct met onderzoek en ontwerp — de meeste projecten gaan binnen enkele dagen van start.",
+    q2:"Hoe wordt de prijs bepaald en hoe werkt de betaling?",a2:"Elke dienst heeft een startprijs die de standaardbouw dekt. Uw definitieve bedrag hangt af van pagina's, functies en complexiteit, en we lichten dit toe voordat iets wordt bevestigd. Betaling gebeurt doorgaans in een aanbetaling en een slottermijn.",
+    q3:"Waarom worden maatwerksystemen apart geoffreerd?",a3:"Software zoals CRM's, kassasystemen of interne dashboards verschilt enorm in omvang. We offreren deze apart zodat u alleen betaalt voor wat uw bedrijf echt nodig heeft.",
+    q4:"Is SEO echt inbegrepen, of is dat extra?",a4:"Het is inbegrepen. Elke site die wij lanceren heeft standaard de SEO-basis al op orde — geen upsell nodig.",
+    q5:"Wat krijg ik precies met een onderhoudsplan?",a5:"Updates, beveiligingsmonitoring, bugfixes, prestatieverbeteringen, contentwijzigingen en directe ondersteuning — zodat uw site betrouwbaar blijft zonder dat u erover hoeft na te denken.",
+    q6:"Wie is eigenaar van de website zodra deze klaar is?",a6:"U bent dat. Zodra het project is afgerond en volledig betaald, zijn de site en de inhoud van u.",
+    f2_eyebrow:"Laten We Iets Bouwen",f2_head:"Uw website begint met een gesprek.",
+    f2_sub:"Vertel ons wat u bouwt — wij maken er een plan, een prijs en een lanceerdatum van.",f2_cta:"Start Uw Project ›",
+    footer_bio:"VOVEX ontwerpt, bouwt en onderhoudt moderne, responsieve websites en digitale systemen voor bedrijven — en helpt merken aan een sterke online aanwezigheid en groei.",
+    footer_copy:"© 2026 VOVEX. Alle rechten voorbehouden.",
+    footer_privacy:"Privacybeleid",footer_legal:"Juridisch",footer_press:"Pers",footer_contact:"Contact"
+  },
+  om:{
+    nav_about:"Waa",nav_ventures:"Dhaabbilee",nav_platforms:"Hojiiwwan",
+    nav_principles:"Murtii",nav_timeline:"Marsaa ijaari/ummi",nav_contact:"Nu Quunnamaa",
+    h2_eyebrow:"Argamuu Dijitaalaa, Ogummaan Ijaarame",
+    h2_head:"Marsaalee bu'aa fidan.",
+    h2_sub:"Fuula tokko irraa hanga marsaa daldalaa guutuutti — Vovex muuxannoo dijitaalaa daldala keessan gara fuulduraatti fideessan ni tolcha, ni ijaara, ni eega.",
+    h2_cta1:"Tajaajilawwan Ilaali",h2_cta2:"Gatii Gaafadhu",
+    sv_eyebrow:"Waan Ijaarru",sv_head:"Karaawwan saddeet jalqabuuf.",
+    sv_sub:"Piroojaktiin hundi bu'uura mirkanaa'e irraa jalqabee hawwii keessaniin ni guddata. Gatiin gadii kaa'ame bu'uura — gatiin dhumaa hammaa dhugaa piroojaktichaa ni ibsa.",
+    s1n:"Fuulota Qubannaa",s1p:"Birrii 15,000 irraa jalqabee",s1d:"Fuula tokko xiyyeeffannoo qabu daawwattoota gara maamiltootaatti geessu — foormii walqunnamtii hojjetuu fi bocaa bilbila irratti mijataa dabalatee.",
+    s2n:"Marsaalee Poortfooliyoo",s2p:"Birrii 10,000 irraa jalqabee",s2d:"Hojii keessan agarsiisuu qulqulluu — fuulota Waa'ee, Piroojaktoota fi Quunnamtii miira jalqabaa cimaa uumuuf bocamaniiru.",
+    s3n:"Marsaalee Daldalaa",s3p:"Birrii 20,000 irraa jalqabee",s3d:"Fuula 4-5 kan seenaa, tajaajila, poortfooliyoo fi odeeffannoo quunnamtii keessan dabalatu — wanti daldalli guddachaa jiru interneetii irratti argamuuf barbaadu hunda.",
+    s4n:"Marsaalee Mana Nyaataa",s4p:"Birrii 20,000 irraa jalqabee",s4d:"Meenuu dijitaalaa, sagantaa suuraa fi odeeffannoo iddoo qabachiisuu, akkuma nyaataa hawwataa ta'een dhiyaate.",
+    s5n:"Marsaalee Hoteelaa",s5p:"Birrii 30,000 irraa jalqabee",s5d:"Kutaalee fi tajaajiloota sagantaa suuraa fi odeeffannoo qabachiisuu keessummoonni battalumatti fayyadamuu danda'aniin agarsiisi.",
+    s6n:"Marsaalee Mana Barumsaa",s6p:"Birrii 30,000 irraa jalqabee",s6d:"Galmee, sagantaalee fi odeeffannoo barsiisootaa haadholii fi warra baratuuf yaadamaniif ifatti tartiibsuu.",
+    s7n:"Marsaalee Daldala Interneetii",s7p:"Birrii 50,000 irraa jalqabee",s7d:"Suuqii interneetii guutuu — kaataloogii oomishaa, gaarii bittaa fi kaffaltii nageenya qabu — guyyaa jalqabaa irraa gurgurudhaaf qophaa'e.",
+    s8n:"Sirna Daldalaa Addaa",s8p:"Birrii 100,000+ irraa jalqabee",s8d:"CRM, sirna POS, meeshaalee kuusaa, marsaalee HR fi daashboordii keessaa — sooftiweeriin akkaataa daldalli keessan ittiin hojjetuun ijaarame.",
+    seo_banner:"Argamuun barbaacha tajaajila dabalataa miti — <strong>marsaan tokko tokkoo nu ijaarru bu'uura SEO dabalatee dhufa</strong>, kaffaltii dabalataa malee.",
+    mt_eyebrow:"Hojii Irra Ooluu",mt_head:"Marsaan tokko takkaa hin xumuramu.",
+    mt_sub:"Kunuunsi itti fufaa marsaa keessan saffisaa, nageenya qabu fi haaraa ta'ee akka turu godha. Karoorri kunuunsaa tajaajila keessaniin walsimee ni guddata — Birrii 500/ji'a poortfooliyoodhaaf hanga Birrii 20,000/ji'a sirna addaatiif.",
+    mp1t:"Haaromsa",mp1d:"Haaromsa sooftiweerii fi sarara rakkina ta'uu isaanii dura raawwatu.",
+    mp2t:"Nageenya",mp2d:"Marsaa keessan fi ragaa isaa eeguuf hordoffii itti fufaa.",
+    mp3t:"Sirreessa Dogoggora",mp3d:"Rakkoowwan daawwattoota mudaachuu dura saffisaan argamanii furamu.",
+    mp4t:"Raawwii",mp4d:"Marsaan keessan yeroo guddatu saffisaa akka ta'u qajeelfama yeroo hundaa.",
+    mp5t:"Haaromsa Qabiyyee",mp5d:"Barruu, suuraa fi kennaawwan yeroo jijjiiramni barbaachise haaromfamu.",
+    mp6t:"Deeggarsa Itti Fufaa",mp6d:"Wanti xiyyeeffannoo barbaadu yeroo jiraatu sarara nutti quunnamtan.",
+    cs_eyebrow:"Isin Irratti Hundaa'e",cs_head:"Daldalli lama akka waliigalaa hin hojjetan.",
+    cs_body:"Sirni addaa erga adeemsa hojii, walittii dhufeenya fi kaayyoo keessan hubannee booda dhuunfaadhaan gatii ni argata. Daldala keessan bifa tokko keessa galchuu mannaa, sirnicha naannoo isaatti ni bocna — invastimantiin keessan waan barbaachiseef qofa akka ibsu.",
+    faq_eyebrow:"Beekamuu Qabu",faq_head:"Gaaffilee, deebifaman.",
+    q1:"Hojiin piroojaktii koo yoom jalqaba?",a1:"Hammaa waliigallee sanbata jalqabaa erga argannee booda, qorannoo fi bocaa battalumatti jalqabna — piroojaktoonni baay'een guyyoota keessatti jalqabu.",
+    q2:"Gatiin akkamitti murtaa'a, kaffaltiinis akkam hojjeta?",a2:"Tajaajila tokko tokko gatii jalqabaa ijaarsa idilee haguugu qaba. Lakkoofsi keessan xumuraa fuulota, amaloota fi ulfaatina irratti hundaa'a, mirkaneessuu dura sirriitti isinii ibsina. Kaffaltiin yeroo baay'ee sanbata jalqabaa fi xumura gidduutti qoodama.",
+    q3:"Sirni addaa maaliif addatti gatii argata?",a3:"Sooftiweeriin akka CRM, POS ykn daashboordii keessaa hammaan isaanii akka malee garaagara. Waan daldalli keessan dhugumatti barbaaduuf qofa akka kafaltan addatti gatii isaaniif kennina.",
+    q4:"SEO dhugumatti dabalamaa jira, moo dabalataa?",a4:"Ni dabalama. Marsaan tokko tokkoo jalqabsiifnu bu'uura SEO duraan dursee dabalateera — gurgurtaa dabalataa hin barbaachisu.",
+    q5:"Karoora kunuunsaa waliin maal argadha?",a5:"Haaromsa, hordoffii nageenyaa, sirreessa dogoggoraa, fooyya'iinsa raawwii, gulaalcha qabiyyee fi deeggarsa kallattii — kanaafuu marsaan keessan yaadachuu keessan malee amanamaa ta'ee itti fufa.",
+    q6:"Erga marsaan xumurame booda eenyutu abbaa isaati?",a6:"Isin. Piroojaktichi xumuramee guutummaatti erga kaffalamee booda, marsaa fi qabiyyeen isaa kan keessanii ta'a.",
+    f2_eyebrow:"Waan Tokko Haa Ijaarru",f2_head:"Marsaan keessan haasaa waliin jalqaba.",
+    f2_sub:"Waan ijaaruu barbaaddan nutti himaa — gara karooraa, gatii fi guyyaa jalqabaatti isa geggeessina.",f2_cta:"Piroojaktii Keessan Jalqabaa ›",
+    footer_bio:"VOVEX marsaalee ammayyaa, bilbilaaf mijataa fi sirna dijitaalaa daldalootaaf ni tolcha, ni ijaara, ni eega — akka gabatoon argamuu interneetii cimaa qabaatanii guddataniif gargaara.",
+    footer_copy:"© 2026 VOVEX. Mirgi hundaa qabame.",
+    footer_privacy:"Iccitii Imaammata",footer_legal:"Seera",footer_press:"Pireesii",footer_contact:"Nu Quunnamaa"
+  },
+  ti:{
+    nav_about:"ብዛዕባ",nav_ventures:"ትካላት",nav_platforms:"ስራሕቲ",
+    nav_principles:"መትከላት",nav_timeline:"ድህረ ገጽ ህነጽ/ፍጠር",nav_contact:"ተወከሉና",
+    h2_eyebrow:"ዲጂታል ህላወ፣ ብጥበብ ዝተሰርሐ",
+    h2_head:"ውጽኢት ዘምጽኡ ድህረ ገጻት።",
+    h2_sub:"ካብ ሓንቲ መእተዊት ገጽ ክሳብ ምሉእ ናይ ንግዲ መድረኽ — Vovex ንግድኹም ንቕድሚት ዘሰጋገር ዲጂታል ተመክሮ ይሰርሕ፣ ይሃንጽ፣ ይከናኸን።",
+    h2_cta1:"አገልግሎታት ርአዩ",h2_cta2:"ዋጋ ሕተቱ",
+    sv_eyebrow:"እንታይ ንሃንጽ",sv_head:"ሸሞንተ መንገድታት ንምጅማር።",
+    sv_sub:"ነፍሲ ወከፍ ፕሮጀክት ካብ ዝተረጋገጸ መሰረት ይጅምርን ምስ ትምኒትኹም ይዓቢን። ኣብ ታሕቲ ዘለው ዋጋታት መጀመሪ ነጥቢ እዮም — መወዳእታ ዋጋ ናይ ፕሮጀክትኹም ትኽክለኛ መጠን ይንጸባረቕ።",
+    s1n:"መእተዊት ገጻት",s1p:"ካብ 15,000 ብር ጀሚሩ",s1d:"በጻሕቲ ናብ ዓሚል ዝቕይር ትኹረት ዝገበረ ገጽ — ናይ ስራሕ ናይ ርክብ ቅጥዕን ንሞባይል ዝሰማማዕ ዲዛይንን ዝሓቖፈ።",
+    s2n:"ናይ ፖርትፎሊዮ ድህረ ገጻት",s2p:"ካብ 10,000 ብር ጀሚሩ",s2d:"ንስራሕኹም ዘርኢ ጽሩይ ገጽ — ብዛዕባና፣ ፕሮጀክትታትን ርክብን ንመጀመርታ ናይ ሓያል ስምዒት ዝፈጥር ዲዛይን።",
+    s3n:"ናይ ንግዲ ድህረ ገጻት",s3p:"ካብ 20,000 ብር ጀሚሩ",s3d:"ታሪኽኩም፣ ኣገልግሎትኩም፣ ፖርትፎሊዮን ናይ ርክብ ሓበሬታን ዝሓቖፈ ካብ 4-5 ገጻት — ኣብ ኢንተርነት ንኽትርኣዩ ዘድሊ ኩሉ።",
+    s4n:"ናይ ምግቢ ቤት ድህረ ገጻት",s4p:"ካብ 20,000 ብር ጀሚሩ",s4d:"ዲጂታል ሜኑ፣ ናይ ስእሊ ጋለሪን ናይ ቦታ ምሓዝ ሓበሬታን፣ ልክዕ ከምቲ ምግቢ ዝማርኽ ዲዛይን።",
+    s5n:"ናይ ሆቴል ድህረ ገጻት",s5p:"ካብ 30,000 ብር ጀሚሩ",s5d:"ክፍልታትን ኣገልግሎትን ብጋለሪን ኣጋይሽ ብቕልጡፍ ክጥቀሙሉ ብዝኽእሉ ናይ ምሓዝ ሓበሬታን ኣርእዩ።",
+    s6n:"ናይ ቤት ትምህርቲ ድህረ ገጻት",s6p:"ካብ 30,000 ብር ጀሚሩ",s6d:"ንወለድን ንመጻእቲ ተመሃሮን ብንጹር ዝተወደበ ናይ መእተዊ፣ ፕሮግራምን መምህራንን ሓበሬታ።",
+    s7n:"ናይ ኢ-ኮመርስ ድህረ ገጻት",s7p:"ካብ 50,000 ብር ጀሚሩ",s7d:"ምሉእ ናይ መስመር ላዕሊ ድኳን — ካታሎግ ምርት፣ ጋሪ ግዢን ውሑስ ክፍሊትን — ካብ መጀመርታ መዓልቲ ንሽያጭ ዝተዳለወ።",
+    s8n:"ዝተመዓራረየ ናይ ንግዲ ስርዓታት",s8p:"ካብ 100,000+ ብር ጀሚሩ",s8d:"CRM፣ POS ስርዓታት፣ ናይ ክምችት መሳርሒታት፣ HR መድረኻትን ውሽጣዊ ዳሽቦርድን — ንግድኹም ብትኽክል ከመይ ገይሩ ከምዝሰርሕ ዝተመስረተ ሶፍትዌር።",
+    seo_banner:"ኣብዚ ራእይ ናይ ምድላይ ተወሳኺ ኣገልግሎት ኣይኮነን — <strong>ነፍሲ ወከፍ እንሃንጾ ድህረ ገጽ መሰረት SEO ሓቚፉ ይመጽእ</strong>፣ ብዘይ ተወሳኺ ክፍሊት።",
+    mt_eyebrow:"ስራሕ ኣብ ልዕሊ ይግበር",mt_head:"ድህረ ገጽ ፈጺሙ ኣይውዳእን።",
+    mt_sub:"ቀጻሊ ክንክን ድህረ ገጽኩም ቀልጣፋ፣ ውሑስን ወቅታውን ይገብሮ። ናይ ክንክን ውጥናት ምስ ኣገልግሎትኩም ይመጣጠን — ካብ 500 ብር/ወርሒ ንፖርትፎሊዮ ክሳብ 20,000 ብር/ወርሒ ንዝተመዓራረየ ስርዓት።",
+    mp1t:"ምሕዳስ",mp1d:"ጸገም ከይኮኑ ቅድሚ ምሕዳስ ዝግበሩ ናይ ሶፍትዌርን መድረኽን ምሕዳስ።",
+    mp2t:"ውሕስነት",mp2d:"ድህረ ገጽኩምን ዳታኡን ንምሕላው ቀጻሊ ክትትል።",
+    mp3t:"ናይ ጌጋ ምዕራይ",mp3d:"ንበጻሕቲ ከይጸለው ቅልጡፍ ምርካብን ምዕራይን ጸገማት።",
+    mp4t:"ኣፈጻጽማ",mp4d:"ድህረ ገጽኩም ክዓቢ ከሎ ቀልጣፋ ንኽኸውን ቀጻሊ ምምዓራይ።",
+    mp5t:"ናይ ትሕዝቶ ምሕዳስ",mp5d:"ጽሑፍ፣ ስእልታትን ቅናሽን ለውጢ ክድለ ከሎ ይሕደሱ።",
+    mp6t:"ቀጻሊ ደገፍ",mp6d:"ትኹረት ዘድልዮ ነገር ኣብ ዝህልወሉ ግዜ ቀጥታዊ ርክብ ምሳና።",
+    cs_eyebrow:"ብዛዕባኹም ዝተሃንጸ",cs_head:"ክልተ ንግድታት ብተመሳሳሊ መንገዲ ኣይሰርሑን።",
+    cs_body:"ናይ ስራሕ ፍሰትኩም፣ ውህደትኩምን ሸቶኹምን ድሕሪ ምርዳእና ዝተመዓራረየ መድረኽ ብንጻል ይግመት። ንግድኹም ናብ ኣብነት ካብ ምስማዕ ንላዕሊ፣ ስርዓቱ ኣብ ዙርያኡ ንሃንጽ — ወፍሪኹም ልክዕ ንዘድልየኩም ጥራይ ከንጸባርቕ።",
+    faq_eyebrow:"ክትፈልጡ ዘለኩም",faq_head:"ሕቶታት፣ ተመሊሶም።",
+    q1:"ስራሕ ኣብ ፕሮጀክተይ መዓስ ይጅምር?",a1:"ወሰን ተሰማሚዕና ናይ መጀመርታ ተቀማጢ ገንዘብ ምስ ተቐበልና፡ ብቕልጡፍ ምድላይን ዲዛይንን ንጅምር — መብዛሕትኦም ፕሮጀክትታት ኣብ ውሽጢ መዓልታት ይጅምሩ።",
+    q2:"ዋጋ ብኸመይ ይውሰን፣ ክፍሊት ከመይ ይሰርሕ?",a2:"ነፍሲ ወከፍ ኣገልግሎት መደበኛ ህንጻ ዝሽፍን መጀመሪ ዋጋ ኣለዎ። ናይ መወዳእታ ቁጽርኹም ኣብ ገጻት፣ ባህርያትን ውሕልነትን ዝተመርኮሰ እዩ፡ ቅድሚ ምርግጋጹ ብንጹር ክንገልጸልኩም ኢና። ክፍሊት ልሙድ ኣብ ቅድመ ተቀማጢን ኣብ መወዳእታን ይክፈል።",
+    q3:"ዝተመዓራረየ ስርዓት ስለምንታይ ብንጻል ይግመት?",a3:"ከም CRM፣ POS ወይ ውሽጣዊ ዳሽቦርድ ዝበሉ ሶፍትዌራት ብዓቐን ኣዝዮም ይፈላለዩ። ንግድኹም ብትኽክል ንዘድልዮ ጥራይ ክትከፍሉ ብንጻል ንግምቶም።",
+    q4:"SEO ብሓቂ ይሓቁፍ ድዩ፡ ወይስ ተወሳኺ ድዩ?",a4:"ይሓቁፍ እዩ። ነፍሲ ወከፍ እነጅምሮ ገጽ ቅድሚ ሕጂ SEO መሰረት ሓቚፉ ይመጽእ — ተወሳኺ ሽያጭ ኣየድልን።",
+    q5:"ብናይ ክንክን ውጥን ብትኽክል እንታይ አገኝ?",a5:"ምሕዳስ፣ ናይ ውሕስነት ክትትል፣ ናይ ጌጋ ምዕራይ፣ ምምዓራይ ኣፈጻጽማ፣ ናይ ትሕዝቶ ኣርትዖትን ቀጥታዊ ደገፍን — ስለዚ ድህረ ገጽኩም ብዘይ ብዙሕ ሓሳብ ኣተኣማማኒ ኮይኑ ይቕጽል።",
+    q6:"ድህረ ገጹ ምስ ተወድአ ንብረት ናይ መን ይኸውን?",a6:"ናትኩም እዩ። ፕሮጀክቱ ተወዲኡ ብምሉኡ ምስ ተኸፍለ፣ ገጹን ትሕዝቶኡን ናትኩም ይኸውን።",
+    f2_eyebrow:"ሓደ ነገር ንሃንጽ",f2_head:"ድህረ ገጽኩም ብዝርርብ ይጅምር።",
+    f2_sub:"እንታይ ትሃንጹ ከምዘለኹም ንገሩና — ናብ ውጥን፣ ዋጋን ናይ መጀመርታ ዕለትን ክንልውጦ ኢና።",f2_cta:"ፕሮጀክትኩም ጀምሩ ›",
+    footer_bio:"VOVEX ንዘመናዊን ምላሽ ዝህብን ድህረ ገጻትን ዲጂታል ስርዓታትን ንግድታት ይሰርሕ፣ ይሃንጽ፣ ይከናኸን — ብራንድታት ሓያል ናይ ኢንተርነት ህላወ ንኽህልዎምን ንኽዓብዩን ይሕግዝ።",
+    footer_copy:"© 2026 VOVEX። ኩሉ መሰላት ዝተሓዙ።",
+    footer_privacy:"ፕሮቶኮል ምስጢርነት",footer_legal:"ሕጊ",footer_press:"ፕሬስ",footer_contact:"ተወከሉና"
+  },
+  sw:{
+    nav_about:"Kuhusu",nav_ventures:"Biashara",nav_platforms:"Kazi",
+    nav_principles:"Kanuni",nav_timeline:"Jenga/Unda tovuti",nav_contact:"Wasiliana",
+    h2_eyebrow:"Uwepo wa Kidijitali, Uliobuniwa Kitaalamu",
+    h2_head:"Tovuti zilizojengwa kufanya kazi vizuri.",
+    h2_sub:"Kutoka ukurasa mmoja wa kutua hadi jukwaa kamili la biashara — Vovex hubuni, hujenga, na hutunza uzoefu wa kidijitali unaosukuma biashara yako mbele.",
+    h2_cta1:"Angalia Huduma",h2_cta2:"Omba Bei",
+    sv_eyebrow:"Tunachojenga",sv_head:"Njia nane za kuanza.",
+    sv_sub:"Kila mradi huanza kutoka msingi thibitisho na hukua kulingana na malengo yako. Bei zilizo hapa chini ni sehemu ya kuanzia — bei ya mwisho itaonyesha ukubwa halisi wa mradi wako.",
+    s1n:"Kurasa za Kutua",s1p:"Kuanzia ETB 15,000",s1d:"Ukurasa mmoja wenye lengo la kubadilisha wageni kuwa wateja — fomu ya mawasiliano inayofanya kazi na muundo unaofaa simu za mkononi.",
+    s2n:"Tovuti za Mkoba",s2p:"Kuanzia ETB 10,000",s2d:"Onyesho safi la kazi yako — kurasa za Kuhusu, Miradi, na Mawasiliano zilizoundwa kutoa hisia nzuri ya kwanza.",
+    s3n:"Tovuti za Biashara",s3p:"Kuanzia ETB 20,000",s3d:"Kurasa nne hadi tano zinazoeleza hadithi yako, huduma, kazi zako, na mawasiliano — kila kitu biashara inayokua inahitaji kupatikana mtandaoni.",
+    s4n:"Tovuti za Migahawa",s4p:"Kuanzia ETB 20,000",s4d:"Menyu ya kidijitali, picha za matukio, na maelezo ya kuweka nafasi, katika muundo unaovutia kama chakula chenyewe.",
+    s5n:"Tovuti za Hoteli",s5p:"Kuanzia ETB 30,000",s5d:"Onyesha vyumba na huduma kwa picha na maelezo ya kuweka nafasi wageni wanaweza kutumia mara moja.",
+    s6n:"Tovuti za Shule",s6p:"Kuanzia ETB 30,000",s6d:"Taarifa za uandikishaji, mipango, na walimu zilizopangwa wazi kwa wazazi na wanafunzi watarajiwa.",
+    s7n:"Tovuti za Biashara Mtandaoni",s7p:"Kuanzia ETB 50,000",s7d:"Duka kamili la mtandaoni — orodha ya bidhaa, kikapu cha ununuzi, na malipo salama — tayari kuuza tangu siku ya kwanza.",
+    s8n:"Mifumo Maalum ya Biashara",s8p:"Kuanzia ETB 100,000+",s8d:"Mifumo ya CRM, POS, zana za hesabu, majukwaa ya HR, na dashibodi za ndani — programu iliyoundwa kulingana na jinsi biashara yako inavyofanya kazi kihalisia.",
+    seo_banner:"Kuonekana kwenye utafutaji si nyongeza hapa — <strong>kila tovuti tunayojenga inakuja na misingi ya SEO tayari</strong>, bila gharama za ziada.",
+    mt_eyebrow:"Iendelee Kufanya Kazi",mt_head:"Tovuti haikamiliki kabisa kamwe.",
+    mt_sub:"Utunzaji endelevu huweka tovuti yako haraka, salama, na ya kisasa. Mipango ya matunzo hukua kulingana na huduma yako — kuanzia ETB 500/mwezi kwa mkoba hadi ETB 20,000/mwezi kwa mfumo maalum.",
+    mp1t:"Masasisho",mp1d:"Masasisho ya programu na jukwaa yanayofanywa kabla hayajawa tatizo.",
+    mp2t:"Usalama",mp2d:"Ufuatiliaji endelevu kulinda tovuti yako na data yake.",
+    mp3t:"Kurekebisha Hitilafu",mp3d:"Matatizo yanapatikana na kutatuliwa haraka, kabla ya kuathiri wageni.",
+    mp4t:"Utendaji",mp4d:"Uboreshaji wa mara kwa mara ili tovuti yako ibaki haraka inapokua.",
+    mp5t:"Masasisho ya Maudhui",mp5d:"Maandishi, picha, na matoleo yanaboreshwa wakati wowote unahitaji mabadiliko.",
+    mp6t:"Msaada Endelevu",mp6d:"Njia ya moja kwa moja kwetu wakati wowote kitu kinahitaji uangalizi.",
+    cs_eyebrow:"Imejengwa Kwa Ajili Yako",cs_head:"Hakuna biashara mbili zinazofanana.",
+    cs_body:"Mifumo maalum inapangiwa bei mmoja mmoja, baada ya kuelewa mtiririko wako wa kazi, muunganisho, na malengo yako. Badala ya kubana biashara yako kwenye kiolezo, tunaunda mfumo kulingana nayo — ili uwekezaji wako uonyeshe hasa unachohitaji, na si zaidi.",
+    faq_eyebrow:"Ni Vizuri Kujua",faq_head:"Maswali, yamejibiwa.",
+    q1:"Kazi kwenye mradi wangu huanza lini hasa?",a1:"Mara tu tunapokubaliana kuhusu ukubwa wa mradi na kupokea malipo ya awali, tunaanza utafiti na ubunifu mara moja — miradi mingi huanza ndani ya siku chache.",
+    q2:"Bei huamuliwaje, na malipo hufanya kazi vipi?",a2:"Kila huduma ina bei ya kuanzia inayofunika ujenzi wa kawaida. Kiasi cha mwisho hutegemea kurasa, vipengele, na uwiano, na tutakueleza kabla ya jambo lolote kuthibitishwa. Malipo kwa kawaida hugawanywa kati ya malipo ya awali na kukamilika.",
+    q3:"Kwa nini mifumo maalum inapangiwa bei kando?",a3:"Programu kama CRM, POS, au dashibodi za ndani hutofautiana sana kwa ukubwa. Tunazipangia bei mmoja mmoja ili ulipe tu kile biashara yako inahitaji kweli.",
+    q4:"Je, SEO inajumuishwa kweli, au ni ya ziada?",a4:"Inajumuishwa. Kila tovuti tunayozindua inakuja na msingi wa SEO tayari — hakuna mauzo ya ziada yanayohitajika.",
+    q5:"Ninapata nini hasa na mpango wa matunzo?",a5:"Masasisho, ufuatiliaji wa usalama, kurekebisha hitilafu, uboreshaji wa utendaji, mabadiliko ya maudhui, na msaada wa moja kwa moja — ili tovuti yako ibaki ya kuaminika bila wewe kuhangaika nayo.",
+    q6:"Nani anamiliki tovuti baada ya kukamilika?",a6:"Wewe. Mara mradi ukikamilika na kulipwa kikamilifu, tovuti na maudhui yake ni yako.",
+    f2_eyebrow:"Hebu Tujenge Kitu",f2_head:"Tovuti yako inaanza na mazungumzo.",
+    f2_sub:"Tuambie unachojenga — tutakigeuza kuwa mpango, bei, na tarehe ya uzinduzi.",f2_cta:"Anzisha Mradi Wako ›",
+    footer_bio:"VOVEX hubuni, hujenga, na hutunza tovuti za kisasa, zinazobadilika kulingana na kifaa, na mifumo ya kidijitali kwa biashara — ikisaidia chapa kuwa na uwepo imara mtandaoni na kukua.",
+    footer_copy:"© 2026 VOVEX. Haki zote zimehifadhiwa.",
+    footer_privacy:"Sera ya Faragha",footer_legal:"Kisheria",footer_press:"Habari",footer_contact:"Wasiliana"
+  },
+  fr:{
+    nav_about:"À propos",nav_ventures:"Activités",nav_platforms:"Carrières",
+    nav_principles:"Principes",nav_timeline:"Construire/Créer un site web",nav_contact:"Contact",
+    h2_eyebrow:"Présence Numérique, Conçue avec Soin",
+    h2_head:"Des sites conçus pour performer.",
+    h2_sub:"D'une simple page d'atterrissage à une plateforme e-commerce complète — Vovex conçoit, construit et entretient des expériences numériques qui font avancer votre entreprise.",
+    h2_cta1:"Découvrir les Services",h2_cta2:"Demander un Devis",
+    sv_eyebrow:"Ce Que Nous Construisons",sv_head:"Huit façons de démarrer.",
+    sv_sub:"Chaque projet part d'une base éprouvée et évolue avec votre ambition. Les prix ci-dessous sont des points de départ — votre devis final reflète l'ampleur réelle de votre projet.",
+    s1n:"Pages d'Atterrissage",s1p:"À partir de 15 000 ETB",s1d:"Une page unique et ciblée conçue pour convertir les visiteurs en prospects — formulaire de contact fonctionnel et mise en page mobile-first inclus.",
+    s2n:"Sites Portfolio",s2p:"À partir de 10 000 ETB",s2d:"Une vitrine épurée pour votre travail — pages À propos, Projets et Contact conçues pour une première impression forte.",
+    s3n:"Sites d'Entreprise",s3p:"À partir de 20 000 ETB",s3d:"Une présence de quatre à cinq pages couvrant votre histoire, vos services, votre portfolio et vos coordonnées — tout ce dont une entreprise en croissance a besoin pour être trouvée en ligne.",
+    s4n:"Sites de Restaurants",s4p:"À partir de 20 000 ETB",s4d:"Un menu numérique, une galerie photo et les informations de réservation, présentés dans une mise en page aussi appétissante que la cuisine.",
+    s5n:"Sites d'Hôtels",s5p:"À partir de 30 000 ETB",s5d:"Présentez chambres et équipements avec une galerie et des informations de réservation exploitables immédiatement.",
+    s6n:"Sites d'Écoles",s6p:"À partir de 30 000 ETB",s6d:"Admissions, programmes et informations sur le corps enseignant, organisés clairement pour les parents et futurs élèves.",
+    s7n:"Sites E-Commerce",s7p:"À partir de 50 000 ETB",s7d:"Une boutique en ligne complète — catalogue produits, panier d'achat et paiement sécurisé — prête à vendre dès le premier jour.",
+    s8n:"Systèmes d'Entreprise Sur Mesure",s8p:"À partir de 100 000+ ETB",s8d:"CRM, systèmes de caisse, outils d'inventaire, plateformes RH et tableaux de bord internes — des logiciels conçus autour du fonctionnement réel de votre entreprise.",
+    seo_banner:"La visibilité dans les moteurs de recherche n'est pas une option ici — <strong>chaque site que nous construisons inclut les bases du SEO</strong>, sans frais supplémentaires.",
+    mt_eyebrow:"Le Maintenir en Marche",mt_head:"Un site web n'est jamais vraiment terminé.",
+    mt_sub:"Un entretien continu garde votre site rapide, sécurisé et à jour. Les forfaits de maintenance évoluent avec votre service — de 500 ETB/mois pour un portfolio à 20 000 ETB/mois pour un système sur mesure.",
+    mp1t:"Mises à Jour",mp1d:"Mises à jour logicielles et de plateforme appliquées avant qu'elles ne deviennent un problème.",
+    mp2t:"Sécurité",mp2d:"Surveillance continue pour protéger votre site et ses données.",
+    mp3t:"Correction de Bugs",mp3d:"Problèmes détectés et résolus rapidement, avant qu'ils n'affectent les visiteurs.",
+    mp4t:"Performance",mp4d:"Optimisation régulière pour que votre site reste rapide en grandissant.",
+    mp5t:"Mises à Jour de Contenu",mp5d:"Textes, images et offres actualisés dès que vous en avez besoin.",
+    mp6t:"Support Continu",mp6d:"Une ligne directe avec nous dès que quelque chose nécessite votre attention.",
+    cs_eyebrow:"Conçu Autour de Vous",cs_head:"Deux entreprises ne fonctionnent jamais de la même façon.",
+    cs_body:"Les plateformes sur mesure sont chiffrées individuellement, une fois que nous comprenons vos processus, vos intégrations et vos objectifs. Plutôt que de faire entrer votre entreprise dans un modèle, nous concevons le système autour d'elle — pour que votre investissement reflète exactement ce dont vous avez besoin, rien de plus.",
+    faq_eyebrow:"Bon à Savoir",faq_head:"Questions fréquentes.",
+    q1:"Quand le travail commence-t-il réellement sur mon projet ?",a1:"Une fois que nous avons convenu du périmètre et reçu l'acompte initial, nous entamons immédiatement la découverte et la conception — la plupart des projets démarrent en quelques jours.",
+    q2:"Comment le prix est-il fixé et comment fonctionne le paiement ?",a2:"Chaque service a un prix de départ couvrant la construction standard. Votre montant final dépend des pages, des fonctionnalités et de la complexité, et nous vous l'expliquons avant toute confirmation. Le paiement se répartit généralement entre un acompte et le solde final.",
+    q3:"Pourquoi les systèmes sur mesure sont-ils chiffrés séparément ?",a3:"Les logiciels comme les CRM, systèmes de caisse ou tableaux de bord internes varient énormément en portée. Nous les chiffrons individuellement pour que vous ne payiez que ce dont votre entreprise a réellement besoin.",
+    q4:"Le SEO est-il vraiment inclus, ou est-ce en supplément ?",a4:"Il est inclus. Chaque site que nous lançons intègre déjà les bases essentielles du SEO — aucune vente additionnelle requise.",
+    q5:"Qu'obtient-on concrètement avec un forfait de maintenance ?",a5:"Mises à jour, surveillance de la sécurité, corrections de bugs, améliorations de performance, modifications de contenu et support direct — pour que votre site reste fiable sans que vous ayez à y penser.",
+    q6:"Qui est propriétaire du site une fois terminé ?",a6:"Vous. Une fois le projet achevé et intégralement payé, le site et son contenu vous appartiennent.",
+    f2_eyebrow:"Construisons Quelque Chose",f2_head:"Votre site commence par une conversation.",
+    f2_sub:"Dites-nous ce que vous construisez — nous en ferons un plan, un prix et une date de lancement.",f2_cta:"Démarrer Votre Projet ›",
+    footer_bio:"VOVEX conçoit, construit et entretient des sites web modernes et réactifs ainsi que des systèmes numériques pour les entreprises — aidant les marques à établir une forte présence en ligne et à se développer.",
+    footer_copy:"© 2026 VOVEX. Tous droits réservés.",
+    footer_privacy:"Politique de confidentialité",footer_legal:"Mentions légales",footer_press:"Presse",footer_contact:"Contact"
+  },
+  ar:{
+    nav_about:"عن الشركة",nav_ventures:"المشاريع",nav_platforms:"وظائف",
+    nav_principles:"المبادئ",nav_timeline:"بناء/إنشاء موقع",nav_contact:"تواصل",
+    h2_eyebrow:"حضور رقمي، مصمم باحتراف",
+    h2_head:"مواقع مصممة لتحقيق النتائج.",
+    h2_sub:"من صفحة هبوط واحدة إلى منصة تجارية متكاملة — تصمم VOVEX وتبني وتعتني بتجارب رقمية تدفع عملك إلى الأمام.",
+    h2_cta1:"استكشف الخدمات",h2_cta2:"اطلب عرض سعر",
+    sv_eyebrow:"ما نبنيه",sv_head:"ثمانية طرق للانطلاق.",
+    sv_sub:"يبدأ كل مشروع من أساس مُثبت وينمو ليواكب طموحك. الأسعار أدناه هي نقطة بداية — يعكس عرض السعر النهائي النطاق الحقيقي لمشروعك.",
+    s1n:"صفحات الهبوط",s1p:"تبدأ من 15,000 بر",s1d:"صفحة واحدة مركزة مصممة لتحويل الزوار إلى عملاء محتملين — تشمل نموذج تواصل فعّال وتصميمًا يراعي الجوال أولاً.",
+    s2n:"مواقع المحفظة",s2p:"تبدأ من 10,000 بر",s2d:"عرض أنيق لأعمالك — صفحات عن الشركة والمشاريع والتواصل مصممة لترك انطباع أول قوي.",
+    s3n:"مواقع الأعمال",s3p:"تبدأ من 20,000 بر",s3d:"حضور من أربع إلى خمس صفحات يغطي قصتك وخدماتك ومحفظتك وبيانات التواصل — كل ما تحتاجه شركة نامية لتُكتشف عبر الإنترنت.",
+    s4n:"مواقع المطاعم",s4p:"تبدأ من 20,000 بر",s4d:"قائمة طعام رقمية ومعرض صور وتفاصيل الحجز، معروضة بتصميم شهي كالطعام نفسه.",
+    s5n:"مواقع الفنادق",s5p:"تبدأ من 30,000 بر",s5d:"اعرض الغرف والمرافق عبر معرض صور وتفاصيل حجز يمكن للضيوف التصرف بناءً عليها فورًا.",
+    s6n:"مواقع المدارس",s6p:"تبدأ من 30,000 بر",s6d:"معلومات القبول والبرامج وأعضاء هيئة التدريس منظمة بوضوح لأولياء الأمور والطلاب المحتملين.",
+    s7n:"مواقع التجارة الإلكترونية",s7p:"تبدأ من 50,000 بر",s7d:"متجر إلكتروني متكامل — كتالوج منتجات وسلة تسوق ودفع آمن — جاهز للبيع من اليوم الأول.",
+    s8n:"أنظمة الأعمال المخصصة",s8p:"تبدأ من 100,000+ بر",s8d:"أنظمة CRM ونقاط بيع وأدوات مخزون ومنصات موارد بشرية ولوحات تحكم داخلية — برمجيات مصممة حول طريقة عمل شركتك الفعلية.",
+    seo_banner:"الظهور في نتائج البحث ليس خدمة إضافية هنا — <strong>كل موقع نبنيه يأتي مع أساسيات تحسين محركات البحث مضمّنة</strong>، دون أي تكلفة إضافية.",
+    mt_eyebrow:"حافظ عليه يعمل",mt_head:"الموقع لا يكتمل أبدًا حقًا.",
+    mt_sub:"العناية المستمرة تُبقي موقعك سريعًا وآمنًا ومحدّثًا. تتناسب خطط الصيانة مع خدمتك — من 500 بر شهريًا للمحفظة إلى 20,000 بر شهريًا للنظام المخصص.",
+    mp1t:"التحديثات",mp1d:"تحديثات البرامج والمنصة تُطبّق قبل أن تتحول إلى مشكلة.",
+    mp2t:"الأمان",mp2d:"مراقبة مستمرة لحماية موقعك وبياناته.",
+    mp3t:"إصلاح الأخطاء",mp3d:"اكتشاف المشكلات وحلها بسرعة قبل أن تؤثر على الزوار.",
+    mp4t:"الأداء",mp4d:"ضبط دوري ليبقى موقعك سريعًا مع نموه.",
+    mp5t:"تحديثات المحتوى",mp5d:"تحديث النصوص والصور والعروض كلما احتجت لتغيير.",
+    mp6t:"دعم مستمر",mp6d:"خط تواصل مباشر معنا كلما احتاج شيء إلى اهتمام.",
+    cs_eyebrow:"مصمم حولك",cs_head:"لا توجد شركتان تعملان بنفس الطريقة.",
+    cs_body:"تُسعَّر الأنظمة المخصصة بشكل فردي، بعد أن نفهم سير عملك وتكاملاتك وأهدافك. بدلاً من إدخال شركتك في قالب جاهز، نصمم النظام حولها — بحيث يعكس استثمارك بالضبط ما تحتاجه، ولا شيء أكثر.",
+    faq_eyebrow:"من المفيد معرفته",faq_head:"أسئلة، وأجوبتها.",
+    q1:"متى يبدأ العمل فعليًا على مشروعي؟",a1:"بمجرد الاتفاق على النطاق واستلام الدفعة المقدمة، نبدأ فورًا في الاستكشاف والتصميم — تنطلق معظم المشاريع خلال أيام قليلة.",
+    q2:"كيف يُحدد السعر، وكيف تتم عملية الدفع؟",a2:"لكل خدمة سعر بداية يغطي البناء القياسي. يعتمد الرقم النهائي على عدد الصفحات والميزات والتعقيد، ونوضح لك ذلك قبل أي تأكيد. عادة ما يُقسّم الدفع بين دفعة مقدمة ودفعة عند الإنجاز.",
+    q3:"لماذا تُسعَّر الأنظمة المخصصة بشكل منفصل؟",a3:"تختلف برمجيات مثل أنظمة CRM أو نقاط البيع أو لوحات التحكم الداخلية اختلافًا كبيرًا في نطاقها. نسعّرها بشكل فردي حتى تدفع فقط مقابل ما تحتاجه شركتك فعليًا.",
+    q4:"هل تحسين محركات البحث مشمول فعلًا أم أنه إضافي؟",a4:"إنه مشمول. كل موقع نطلقه يأتي بأساسيات تحسين محركات البحث جاهزة مسبقًا — دون الحاجة لبيع إضافي.",
+    q5:"ماذا أحصل بالضبط مع خطة الصيانة؟",a5:"تحديثات ومراقبة أمنية وإصلاح أخطاء وتحسينات في الأداء وتعديلات على المحتوى ودعم مباشر — ليبقى موقعك موثوقًا دون أن تقلق بشأنه.",
+    q6:"من يملك الموقع بعد اكتماله؟",a6:"أنت. بمجرد اكتمال المشروع وسداد كامل المبلغ، يصبح الموقع ومحتواه ملكًا لك.",
+    f2_eyebrow:"لنبنِ شيئًا معًا",f2_head:"موقعك يبدأ بمحادثة.",
+    f2_sub:"أخبرنا بما تريد بناءه — سنحوّله إلى خطة وسعر وموعد إطلاق.",f2_cta:"ابدأ مشروعك ›",
+    footer_bio:"تصمم VOVEX وتبني وتعتني بمواقع إلكترونية حديثة ومتجاوبة وأنظمة رقمية للشركات — مساعدةً العلامات التجارية على بناء حضور قوي عبر الإنترنت والنمو.",
+    footer_copy:"© 2026 VOVEX. جميع الحقوق محفوظة.",
+    footer_privacy:"سياسة الخصوصية",footer_legal:"القانونية",footer_press:"الصحافة",footer_contact:"تواصل"
+  },
+  zh:{
+    nav_about:"关于",nav_ventures:"业务",nav_platforms:"职业",
+    nav_principles:"原则",nav_timeline:"构建/创建网站",nav_contact:"联系",
+    h2_eyebrow:"精心打造的数字形象",
+    h2_head:"专为实效而生的网站。",
+    h2_sub:"从单页落地页到完整的电商平台——VOVEX 为您设计、构建并维护能够推动业务发展的数字体验。",
+    h2_cta1:"浏览服务",h2_cta2:"获取报价",
+    sv_eyebrow:"我们能做什么",sv_head:"八种启动方式。",
+    sv_sub:"每个项目都从成熟的基础起步，并随您的目标不断扩展。以下价格为起始价——最终报价将反映项目的真实规模。",
+    s1n:"落地页",s1p:"起价 15,000 埃塞比尔",s1d:"专注的单页设计，将访客转化为潜在客户——包含可用的联系表单和移动优先布局。",
+    s2n:"作品集网站",s2p:"起价 10,000 埃塞比尔",s2d:"简洁展示您的作品——关于、项目与联系页面，专为留下深刻第一印象而设计。",
+    s3n:"企业网站",s3p:"起价 20,000 埃塞比尔",s3d:"四到五页的完整展示，涵盖企业故事、服务、作品集与联系方式——成长型企业在线曝光所需的一切。",
+    s4n:"餐厅网站",s4p:"起价 20,000 埃塞比尔",s4d:"数字菜单、图片画廊与预订信息，呈现方式与美食本身一样诱人。",
+    s5n:"酒店网站",s5p:"起价 30,000 埃塞比尔",s5d:"通过图片画廊与预订信息展示客房与设施，让宾客即可行动。",
+    s6n:"学校网站",s6p:"起价 30,000 埃塞比尔",s6d:"招生、课程与师资信息清晰呈现，方便家长与准学生查阅。",
+    s7n:"电商网站",s7p:"起价 50,000 埃塞比尔",s7d:"完整的在线商店——产品目录、购物车与安全结账——从第一天起即可销售。",
+    s8n:"定制业务系统",s8p:"起价 100,000+ 埃塞比尔",s8d:"CRM、POS 系统、库存工具、人力资源平台与内部仪表盘——围绕您企业真实运作方式打造的软件。",
+    seo_banner:"搜索可见性在这里从不是附加项——<strong>我们打造的每个网站都已内置 SEO 基础</strong>，不收取额外费用。",
+    mt_eyebrow:"持续运转",mt_head:"网站从来都不是真正完成的。",
+    mt_sub:"持续的维护让您的网站保持快速、安全与最新。维护方案根据您的服务而定——从作品集网站的每月 500 埃塞比尔到定制系统的每月 20,000 埃塞比尔不等。",
+    mp1t:"更新",mp1d:"在软件与平台问题出现之前完成更新。",
+    mp2t:"安全",mp2d:"持续监控，保护您的网站与数据安全。",
+    mp3t:"漏洞修复",mp3d:"在问题影响访客之前快速发现并解决。",
+    mp4t:"性能优化",mp4d:"定期调优，确保网站在成长中依然保持快速。",
+    mp5t:"内容更新",mp5d:"文字、图片与优惠内容随需更新。",
+    mp6t:"持续支持",mp6d:"有任何需要处理的问题，可直接联系我们。",
+    cs_eyebrow:"围绕您而设计",cs_head:"没有两家企业的运作方式完全相同。",
+    cs_body:"了解您的工作流程、系统集成与目标后，定制平台将单独报价。我们不会把您的业务硬塞进模板，而是围绕它设计系统——让您的投入恰好对应您真正需要的部分，不多也不少。",
+    faq_eyebrow:"值得了解",faq_head:"常见问题解答。",
+    q1:"我的项目具体什么时候开始？",a1:"一旦确定项目范围并收到首付款，我们会立即开始需求梳理与设计——大多数项目会在几天内启动。",
+    q2:"价格如何确定？付款方式是怎样的？",a2:"每项服务都有覆盖标准建设的起始价格，最终金额取决于页面数量、功能与复杂度，我们会在确认前详细说明。付款通常分为首付款与完工款两部分。",
+    q3:"为什么定制系统要单独报价？",a3:"CRM、POS 或内部仪表盘等软件在规模上差异极大，我们逐一评估报价，确保您只为企业真正需要的部分付费。",
+    q4:"SEO 真的包含在内吗，还是额外收费？",a4:"是包含的。我们上线的每个网站都已具备核心 SEO 基础——无需额外购买。",
+    q5:"维护方案具体能获得什么？",a5:"更新、安全监控、漏洞修复、性能优化、内容修改与直接支持——让您的网站始终稳定可靠，无需操心。",
+    q6:"网站完成后归谁所有？",a6:"归您所有。项目完成并全额付款后，网站及其内容即归您所有。",
+    f2_eyebrow:"让我们开始创造",f2_head:"您的网站，从一次对话开始。",
+    f2_sub:"告诉我们您想打造什么——我们会将其转化为方案、报价与上线日期。",f2_cta:"启动您的项目 ›",
+    footer_bio:"VOVEX 为企业设计、构建并维护现代化、响应式的网站与数字系统——帮助品牌建立强大的在线形象并持续成长。",
+    footer_copy:"版权所有 © 2026 VOVEX。保留所有权利。",
+    footer_privacy:"隐私政策",footer_legal:"法律",footer_press:"新闻",footer_contact:"联系我们"
+  }
+};
+
+function setLang(lang) {
+  const d = T[lang]; if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  const rtl = lang === 'ar';
+  document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+  document.documentElement.setAttribute('lang', lang);
+  const eth = lang === 'am' || lang === 'ti';
+  const ara = lang === 'ar';
+  document.body.style.fontFamily = eth
+    ? "var(--font-ethiopic)"
+    : ara ? "var(--font-arabic)"
+    : "var(--font)";
+  document.querySelectorAll('.lbtn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+}
+</script>
+
+</body>
+</html>
