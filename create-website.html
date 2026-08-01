@@ -488,6 +488,12 @@ body {
   transform: scale(1.02);
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
+.wizard-footer .btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
 .wizard-footer .step-counter {
   font-size: 13px;
   color: var(--tertiary);
@@ -517,6 +523,19 @@ body {
   max-width: 400px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+/* ─── ERROR BANNER ─── */
+#formError {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #fdecea;
+  border: 1px solid #f5c2bd;
+  color: #a12b1f;
+  font-size: 13.5px;
+  line-height: 1.5;
 }
 
 /* ─── FINAL ─── */
@@ -656,6 +675,93 @@ footer {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
+}
+
+/* ─── BILL / ESTIMATE ─── */
+.bill-box {
+  margin-top: 22px;
+  border: 1.5px solid var(--divider);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--off-white);
+}
+.bill-box .bill-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--divider);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bill-box .bill-head .t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--headline);
+  letter-spacing: -0.01em;
+}
+.bill-box .bill-head .s {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.bill-lines {
+  padding: 4px 20px;
+}
+.bill-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--divider);
+  gap: 16px;
+}
+.bill-line:last-child { border-bottom: none; }
+.bill-line .li-label {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--body);
+}
+.bill-line .li-label .sub {
+  display: block;
+  font-size: 11.5px;
+  color: var(--tertiary);
+  margin-top: 1px;
+}
+.bill-line .li-amt {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--headline);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.bill-line .li-amt.neg { color: #1a8c3f; }
+.bill-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 18px 20px;
+  background: #fff;
+  border-top: 1.5px solid var(--divider);
+}
+.bill-total .tl-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--headline);
+}
+.bill-total .tl-amt {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--headline);
+  font-variant-numeric: tabular-nums;
+}
+.bill-note {
+  padding: 12px 20px 18px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--tertiary);
+  background: #fff;
 }
 </style>
 </head>
@@ -863,41 +969,11 @@ footer {
           <div style="margin-top:14px; font-size:13px; color:var(--tertiary);" data-i18n="step3_note">Don't worry if you're not sure — we'll help you decide later.</div>
         </div>
 
-        <!-- Step 4: Budget & Timeline -->
+        <!-- Step 4: Timeline & Estimate -->
         <div class="wizard-step" data-step="3">
           <div class="step-number" data-i18n="step4_number">Step 4 of 5</div>
-          <div class="step-title" data-i18n="step4_title">Budget & Timeline</div>
-          <div class="step-sub" data-i18n="step4_sub">This helps us create a proposal that fits your needs.</div>
-          
-          <div style="margin-bottom:18px;">
-            <label style="font-size:13px; font-weight:500; display:block; margin-bottom:6px; color:var(--headline);" data-i18n="label_budget">Budget Range (ETB) <span style="color:#e74c3c;">*</span></label>
-            <div class="step-options" id="step4Budget" style="grid-template-columns:1fr 1fr 1fr;">
-              <div class="option" data-value="<10000" onclick="selectOption(this, 'step4budget')">
-                <div class="label" data-i18n="opt_budget_1">Under 10,000</div>
-                <div class="check"></div>
-              </div>
-              <div class="option" data-value="10000-25000" onclick="selectOption(this, 'step4budget')">
-                <div class="label" data-i18n="opt_budget_2">10k – 25k</div>
-                <div class="check"></div>
-              </div>
-              <div class="option" data-value="25000-50000" onclick="selectOption(this, 'step4budget')">
-                <div class="label" data-i18n="opt_budget_3">25k – 50k</div>
-                <div class="check"></div>
-              </div>
-              <div class="option" data-value="50000-100000" onclick="selectOption(this, 'step4budget')">
-                <div class="label" data-i18n="opt_budget_4">50k – 100k</div>
-                <div class="check"></div>
-              </div>
-              <div class="option" data-value="100000-250000" onclick="selectOption(this, 'step4budget')">
-                <div class="label" data-i18n="opt_budget_5">100k – 250k</div>
-                <div class="check"></div>
-              </div>
-              <div class="option" data-value="250000+" onclick="selectOption(this, 'step4budget')">
-                <div class="label" data-i18n="opt_budget_6">250,000+</div>
-                <div class="check"></div>
-              </div>
-            </div>
-          </div>
+          <div class="step-title" data-i18n="step4_title">Timeline & Your Estimate</div>
+          <div class="step-sub" data-i18n="step4_sub">Pick a timeline and we'll generate a price estimate based on your answers.</div>
 
           <div>
             <label style="font-size:13px; font-weight:500; display:block; margin-bottom:6px; color:var(--headline);" data-i18n="label_timeline">Expected Timeline <span style="color:#e74c3c;">*</span></label>
@@ -923,6 +999,19 @@ footer {
                 <div class="check"></div>
               </div>
             </div>
+          </div>
+
+          <div class="bill-box" id="billBox">
+            <div class="bill-head">
+              <span class="t" data-i18n="bill_title">Estimated Bill</span>
+              <span class="s" data-i18n="bill_currency">ETB</span>
+            </div>
+            <div class="bill-lines" id="billLines"></div>
+            <div class="bill-total">
+              <span class="tl-label" data-i18n="bill_total_label">Total Estimate</span>
+              <span class="tl-amt" id="billTotalAmt">0 ETB</span>
+            </div>
+            <div class="bill-note" data-i18n="bill_note">This is an automatic estimate based on your selections. Your final proposal may vary slightly after we review your project details.</div>
           </div>
         </div>
 
@@ -958,6 +1047,7 @@ footer {
               <label for="privacyAgree" style="font-size:13px; font-weight:400; color:var(--secondary); cursor:pointer; line-height:1.5;" data-i18n="label_privacy">I have read and agree to the <a href="./privacypolicy.html" target="_blank" style="color:var(--link); text-decoration:none; font-weight:500;">Privacy Policy</a> <span style="color:#e74c3c;">*</span></label>
             </div>
           </div>
+          <div id="formError" role="alert"></div>
         </div>
       </div>
 
@@ -1031,13 +1121,17 @@ const T = {
     opt_design_corporate:"Corporate",opt_design_luxury:"Luxury & Premium",opt_design_playful:"Playful & Fun",
     opt_pages_1:"Single page",opt_pages_2:"Pages",opt_pages_3:"Pages",opt_pages_4:"Pages",opt_pages_5:"Pages",
     step3_number:"Step 3 of 5",step3_title:"What features do you need?",step3_sub:"Select all that apply to your project.",step3_note:"Don't worry if you're not sure — we'll help you decide later.",
-    step4_number:"Step 4 of 5",step4_title:"Budget & Timeline",step4_sub:"This helps us create a proposal that fits your needs.",
+    step4_number:"Step 4 of 5",step4_title:"Timeline & Your Estimate",step4_sub:"Pick a timeline and we'll generate a price estimate based on your answers.",
     label_budget:"Budget Range (ETB)",label_timeline:"Expected Timeline",
     opt_budget_1:"Under 10,000",opt_budget_2:"10k – 25k",opt_budget_3:"25k – 50k",opt_budget_4:"50k – 100k",opt_budget_5:"100k – 250k",opt_budget_6:"250,000+",
     opt_timeline_urgent:"Urgent",opt_timeline_urgent_desc:"1-2 weeks",
     opt_timeline_soon:"Soon",opt_timeline_soon_desc:"3-4 weeks",
     opt_timeline_standard:"Standard",opt_timeline_standard_desc:"1-2 months",
     opt_timeline_flexible:"Flexible",opt_timeline_flexible_desc:"2-3 months",
+    bill_title:"Estimated Bill",bill_currency:"ETB",bill_total_label:"Total Estimate",
+    bill_note:"This is an automatic estimate based on your selections. Your final proposal may vary slightly after we review your project details.",
+    bill_base:"Base build",bill_pages:"Pages",bill_design:"Design style",bill_features:"Features",bill_timeline_adj:"Timeline adjustment",
+    bill_select_prompt:"Select a website type, design and pages in earlier steps to see your estimate build here.",
     step5_number:"Step 5 of 5",step5_title:"Almost done. Who are you?",step5_sub:"We'll use this to send you your custom proposal.",
     label_name:"Full Name",label_email:"Email Address",label_phone:"Phone Number",
     label_company:"Company / Organization",label_details:"Additional Details",
@@ -1048,7 +1142,9 @@ const T = {
     final_founder:"— Eyoel Mulugeta, CEO and Founder of Vovex",
     final_cta1:"Our story ›",final_cta2:"Our ventures ›",
     footer_copy:"Copyright © 2026 VOVEX. All rights reserved.",
-    footer_privacy:"Privacy Policy",footer_legal:"Legal",footer_press:"Press",footer_contact:"Contact"
+    footer_privacy:"Privacy Policy",footer_legal:"Legal",footer_press:"Press",footer_contact:"Contact",
+    form_error_generic:"Sorry, something went wrong sending your request. Please check your internet connection and try again, or email us directly.",
+    form_error_validation:"Please double-check the highlighted fields and try again."
   },
   am:{
     nav_about:"ስለ",nav_ventures:"ተቋሞች",nav_platforms:"ስራዎች",
@@ -1069,13 +1165,17 @@ const T = {
     opt_design_corporate:"ኮርፖሬት",opt_design_luxury:"የቅንጦት እና ፕሪሚየም",opt_design_playful:"አስቂኝ እና አስደሳች",
     opt_pages_1:"ነጠላ ገጽ",opt_pages_2:"ገጾች",opt_pages_3:"ገጾች",opt_pages_4:"ገጾች",opt_pages_5:"ገጾች",
     step3_number:"ደረጃ 3 ከ 5",step3_title:"ምን ባህሪያት ያስፈልግዎታል?",step3_sub:"በፕሮጀክትዎ ላይ የሚሰሩትን ሁሉ ይምረጡ።",step3_note:"እርግጠኛ ካልሆኑ አይጨነቁ — በኋላ ለመወሰን እንረዳዎታለን።",
-    step4_number:"ደረጃ 4 ከ 5",step4_title:"በጀት እና የጊዜ ሰሌዳ",step4_sub:"ይህ ፍላጎቶችዎን የሚያሟላ ሀሳብ ለመፍጠር ይረዳናል።",
+    step4_number:"ደረጃ 4 ከ 5",step4_title:"የጊዜ ሰሌዳ እና ግምትዎ",step4_sub:"የጊዜ ሰሌዳ ይምረጡ እና በመልሶችዎ ላይ በመመስረት የዋጋ ግምት እናዘጋጃለን።",
     label_budget:"የበጀት ክልል (ብር)",label_timeline:"የሚጠበቀው ጊዜ",
     opt_budget_1:"ከ10,000 በታች",opt_budget_2:"10k – 25k",opt_budget_3:"25k – 50k",opt_budget_4:"50k – 100k",opt_budget_5:"100k – 250k",opt_budget_6:"250,000+",
     opt_timeline_urgent:"አስቸኳይ",opt_timeline_urgent_desc:"1-2 ሳምንታት",
     opt_timeline_soon:"በቅርቡ",opt_timeline_soon_desc:"3-4 ሳምንታት",
     opt_timeline_standard:"መደበኛ",opt_timeline_standard_desc:"1-2 ወራት",
     opt_timeline_flexible:"ተለዋዋጭ",opt_timeline_flexible_desc:"2-3 ወራት",
+    bill_title:"የተገመተ ክፍያ",bill_currency:"ብር",bill_total_label:"አጠቃላይ ግምት",
+    bill_note:"ይህ በምርጫዎችዎ ላይ የተመሰረተ ራስ-ሰር ግምት ነው። የፕሮጀክትዎን ዝርዝሮች ከገመገምን በኋላ የመጨረሻው ሀሳብ ትንሽ ሊለያይ ይችላል።",
+    bill_base:"መሠረታዊ ግንባታ",bill_pages:"ገጾች",bill_design:"የዲዛይን ዘይቤ",bill_features:"ባህሪያት",bill_timeline_adj:"የጊዜ ሰሌዳ ማስተካከያ",
+    bill_select_prompt:"ግምትዎን እዚህ ለማየት በቀደሙት ደረጃዎች የድህረ ገጽ አይነት፣ ዲዛይን እና ገጾችን ይምረጡ።",
     step5_number:"ደረጃ 5 ከ 5",step5_title:"ሊጨርስ ተቃርቧል። እርስዎ ማን ናቸው?",step5_sub:"ይህንን ለእርስዎ ብጁ ሀሳብ ለመላክ እንጠቀማለን።",
     label_name:"ሙሉ ስም",label_email:"ኢሜይል አድራሻ",label_phone:"ስልክ ቁጥር",
     label_company:"ኩባንያ / ድርጅት",label_details:"ተጨማሪ ዝርዝሮች",
@@ -1086,7 +1186,9 @@ const T = {
     final_founder:"— ኢየኤል ሙሉጌታ፣ የቮቬክስ ዋና ሥራ አስፈጻሚ እና መሥራች",
     final_cta1:"ታሪካችን ›",final_cta2:"ተቋሞቻችን ›",
     footer_copy:"© 2026 VOVEX. መብቱ በሕግ የተጠበቀ ነው።",
-    footer_privacy:"የግልነት ፖሊሲ",footer_legal:"ሕጋዊ",footer_press:"ፕሬስ",footer_contact:"አግኙን"
+    footer_privacy:"የግልነት ፖሊሲ",footer_legal:"ሕጋዊ",footer_press:"ፕሬስ",footer_contact:"አግኙን",
+    form_error_generic:"ይቅርታ፣ ጥያቄዎን ለመላክ ችግር ተፈጥሯል። እባክዎ የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ፣ ወይም በቀጥታ ኢሜይል ይላኩልን።",
+    form_error_validation:"እባክዎ ምልክት የተደረገባቸውን መስኮች እንደገና ያረጋግጡ እና እንደገና ይሞክሩ።"
   },
   nl:{
     nav_about:"Over",nav_ventures:"Activiteiten",nav_platforms:"Carrières",
@@ -1107,13 +1209,17 @@ const T = {
     opt_design_corporate:"Zakelijk",opt_design_luxury:"Luxe & Premium",opt_design_playful:"Speels & Leuk",
     opt_pages_1:"Enkele pagina",opt_pages_2:"Pagina's",opt_pages_3:"Pagina's",opt_pages_4:"Pagina's",opt_pages_5:"Pagina's",
     step3_number:"Stap 3 van 5",step3_title:"Welke functies heeft u nodig?",step3_sub:"Selecteer alles wat van toepassing is op uw project.",step3_note:"Maak u geen zorgen als u niet zeker bent — we helpen u later beslissen.",
-    step4_number:"Stap 4 van 5",step4_title:"Budget & Tijdspad",step4_sub:"Dit helpt ons een voorstel te maken dat bij uw behoeften past.",
+    step4_number:"Stap 4 van 5",step4_title:"Tijdspad & Uw Schatting",step4_sub:"Kies een tijdspad en we genereren een prijsschatting op basis van uw antwoorden.",
     label_budget:"Budgetbereik (ETB)",label_timeline:"Verwacht Tijdspad",
     opt_budget_1:"Onder 10,000",opt_budget_2:"10k – 25k",opt_budget_3:"25k – 50k",opt_budget_4:"50k – 100k",opt_budget_5:"100k – 250k",opt_budget_6:"250,000+",
     opt_timeline_urgent:"Dringend",opt_timeline_urgent_desc:"1-2 weken",
     opt_timeline_soon:"Binnenkort",opt_timeline_soon_desc:"3-4 weken",
     opt_timeline_standard:"Standaard",opt_timeline_standard_desc:"1-2 maanden",
     opt_timeline_flexible:"Flexibel",opt_timeline_flexible_desc:"2-3 maanden",
+    bill_title:"Geschatte Rekening",bill_currency:"ETB",bill_total_label:"Totale Schatting",
+    bill_note:"Dit is een automatische schatting op basis van uw selecties. Uw definitieve voorstel kan enigszins afwijken nadat we uw projectdetails hebben beoordeeld.",
+    bill_base:"Basisopbouw",bill_pages:"Pagina's",bill_design:"Ontwerpstijl",bill_features:"Functies",bill_timeline_adj:"Tijdspad aanpassing",
+    bill_select_prompt:"Selecteer een websitetype, ontwerp en pagina's in eerdere stappen om hier uw schatting te zien.",
     step5_number:"Stap 5 van 5",step5_title:"Bijna klaar. Wie bent u?",step5_sub:"We gebruiken dit om u uw voorstel te sturen.",
     label_name:"Volledige Naam",label_email:"E-mailadres",label_phone:"Telefoonnummer",
     label_company:"Bedrijf / Organisatie",label_details:"Aanvullende Details",
@@ -1124,7 +1230,9 @@ const T = {
     final_founder:"— Eyoel Mulugeta, CEO en Oprichter van Vovex",
     final_cta1:"Ons verhaal ›",final_cta2:"Onze activiteiten ›",
     footer_copy:"© 2026 VOVEX. Alle rechten voorbehouden.",
-    footer_privacy:"Privacybeleid",footer_legal:"Juridisch",footer_press:"Pers",footer_contact:"Contact"
+    footer_privacy:"Privacybeleid",footer_legal:"Juridisch",footer_press:"Pers",footer_contact:"Contact",
+    form_error_generic:"Sorry, er is iets misgegaan bij het verzenden van uw aanvraag. Controleer uw internetverbinding en probeer het opnieuw, of e-mail ons rechtstreeks.",
+    form_error_validation:"Controleer de gemarkeerde velden en probeer het opnieuw."
   },
   fr:{
     nav_about:"À propos",nav_ventures:"Activités",nav_platforms:"Carrières",
@@ -1145,13 +1253,17 @@ const T = {
     opt_design_corporate:"Corporate",opt_design_luxury:"Luxe & Premium",opt_design_playful:"Ludique & Amusant",
     opt_pages_1:"Page unique",opt_pages_2:"Pages",opt_pages_3:"Pages",opt_pages_4:"Pages",opt_pages_5:"Pages",
     step3_number:"Étape 3 sur 5",step3_title:"De quelles fonctionnalités avez-vous besoin?",step3_sub:"Sélectionnez tout ce qui s'applique à votre projet.",step3_note:"Ne vous inquiétez pas si vous n'êtes pas sûr — nous vous aiderons à décider plus tard.",
-    step4_number:"Étape 4 sur 5",step4_title:"Budget & Calendrier",step4_sub:"Cela nous aide à créer une proposition qui correspond à vos besoins.",
+    step4_number:"Étape 4 sur 5",step4_title:"Calendrier & Votre Estimation",step4_sub:"Choisissez un calendrier et nous générerons une estimation de prix selon vos réponses.",
     label_budget:"Fourchette de Budget (ETB)",label_timeline:"Calendrier Prévu",
     opt_budget_1:"Moins de 10,000",opt_budget_2:"10k – 25k",opt_budget_3:"25k – 50k",opt_budget_4:"50k – 100k",opt_budget_5:"100k – 250k",opt_budget_6:"250,000+",
     opt_timeline_urgent:"Urgent",opt_timeline_urgent_desc:"1-2 semaines",
     opt_timeline_soon:"Bientôt",opt_timeline_soon_desc:"3-4 semaines",
     opt_timeline_standard:"Standard",opt_timeline_standard_desc:"1-2 mois",
     opt_timeline_flexible:"Flexible",opt_timeline_flexible_desc:"2-3 mois",
+    bill_title:"Facture Estimée",bill_currency:"ETB",bill_total_label:"Estimation Totale",
+    bill_note:"Ceci est une estimation automatique basée sur vos sélections. Votre proposition finale peut varier légèrement après examen des détails de votre projet.",
+    bill_base:"Construction de base",bill_pages:"Pages",bill_design:"Style de design",bill_features:"Fonctionnalités",bill_timeline_adj:"Ajustement du calendrier",
+    bill_select_prompt:"Sélectionnez un type de site, un design et des pages dans les étapes précédentes pour voir votre estimation ici.",
     step5_number:"Étape 5 sur 5",step5_title:"Presque fini. Qui êtes-vous?",step5_sub:"Nous utiliserons ces informations pour vous envoyer votre proposition.",
     label_name:"Nom Complet",label_email:"Adresse Email",label_phone:"Numéro de Téléphone",
     label_company:"Entreprise / Organisation",label_details:"Détails Supplémentaires",
@@ -1162,7 +1274,9 @@ const T = {
     final_founder:"— Eyoel Mulugeta, PDG et Fondateur de Vovex",
     final_cta1:"Notre histoire ›",final_cta2:"Nos activités ›",
     footer_copy:"© 2026 VOVEX. Tous droits réservés.",
-    footer_privacy:"Politique de confidentialité",footer_legal:"Mentions légales",footer_press:"Presse",footer_contact:"Contact"
+    footer_privacy:"Politique de confidentialité",footer_legal:"Mentions légales",footer_press:"Presse",footer_contact:"Contact",
+    form_error_generic:"Désolé, une erreur s'est produite lors de l'envoi de votre demande. Vérifiez votre connexion internet et réessayez, ou contactez-nous directement par e-mail.",
+    form_error_validation:"Veuillez vérifier les champs surlignés et réessayer."
   },
   ar:{
     nav_about:"عن الشركة",nav_ventures:"المشاريع",nav_platforms:"وظائف",
@@ -1183,13 +1297,17 @@ const T = {
     opt_design_corporate:"شركات",opt_design_luxury:"فاخر ومتميز",opt_design_playful:"مرح وممتع",
     opt_pages_1:"صفحة واحدة",opt_pages_2:"صفحات",opt_pages_3:"صفحات",opt_pages_4:"صفحات",opt_pages_5:"صفحات",
     step3_number:"الخطوة 3 من 5",step3_title:"ما الميزات التي تحتاجها؟",step3_sub:"اختر كل ما ينطبق على مشروعك.",step3_note:"لا تقلق إذا لم تكن متأكداً — سنساعدك في اتخاذ القرار لاحقاً.",
-    step4_number:"الخطوة 4 من 5",step4_title:"الميزانية والجدول الزمني",step4_sub:"هذا يساعدنا في إنشاء عرض يناسب احتياجاتك.",
+    step4_number:"الخطوة 4 من 5",step4_title:"الجدول الزمني وتقديرك",step4_sub:"اختر جدولاً زمنياً وسننشئ تقدير سعر بناءً على إجاباتك.",
     label_budget:"نطاق الميزانية (ETB)",label_timeline:"الإطار الزمني المتوقع",
     opt_budget_1:"أقل من 10,000",opt_budget_2:"10k – 25k",opt_budget_3:"25k – 50k",opt_budget_4:"50k – 100k",opt_budget_5:"100k – 250k",opt_budget_6:"250,000+",
     opt_timeline_urgent:"عاجل",opt_timeline_urgent_desc:"1-2 أسبوع",
     opt_timeline_soon:"قريباً",opt_timeline_soon_desc:"3-4 أسابيع",
     opt_timeline_standard:"قياسي",opt_timeline_standard_desc:"1-2 شهر",
     opt_timeline_flexible:"مرن",opt_timeline_flexible_desc:"2-3 شهر",
+    bill_title:"الفاتورة المقدرة",bill_currency:"ETB",bill_total_label:"إجمالي التقدير",
+    bill_note:"هذا تقدير تلقائي بناءً على اختياراتك. قد يختلف عرضك النهائي قليلاً بعد مراجعتنا لتفاصيل مشروعك.",
+    bill_base:"البناء الأساسي",bill_pages:"الصفحات",bill_design:"نمط التصميم",bill_features:"الميزات",bill_timeline_adj:"تعديل الجدول الزمني",
+    bill_select_prompt:"اختر نوع الموقع والتصميم وعدد الصفحات في الخطوات السابقة لرؤية تقديرك هنا.",
     step5_number:"الخطوة 5 من 5",step5_title:"كدنا ننتهي. من أنت؟",step5_sub:"سنستخدم هذه المعلومات لإرسال عرضك المخصص لك.",
     label_name:"الاسم الكامل",label_email:"البريد الإلكتروني",label_phone:"رقم الهاتف",
     label_company:"الشركة / المؤسسة",label_details:"تفاصيل إضافية",
@@ -1200,7 +1318,9 @@ const T = {
     final_founder:"— إيويل مولجيتا، الرئيس التنفيذي ومؤسس Vovex",
     final_cta1:"قصتنا ›",final_cta2:"مشاريعنا ›",
     footer_copy:"© 2026 VOVEX. جميع الحقوق محفوظة.",
-    footer_privacy:"سياسة الخصوصية",footer_legal:"القانونية",footer_press:"الصحافة",footer_contact:"تواصل"
+    footer_privacy:"سياسة الخصوصية",footer_legal:"القانونية",footer_press:"الصحافة",footer_contact:"تواصل",
+    form_error_generic:"عذراً، حدث خطأ أثناء إرسال طلبك. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى، أو مراسلتنا مباشرة عبر البريد الإلكتروني.",
+    form_error_validation:"يرجى التحقق من الحقول المميزة والمحاولة مرة أخرى."
   },
   zh:{
     nav_about:"关于",nav_ventures:"业务",nav_platforms:"职业",
@@ -1221,13 +1341,17 @@ const T = {
     opt_design_corporate:"商务专业",opt_design_luxury:"高端奢华",opt_design_playful:"有趣活泼",
     opt_pages_1:"单页",opt_pages_2:"页面",opt_pages_3:"页面",opt_pages_4:"页面",opt_pages_5:"页面",
     step3_number:"第3步，共5步",step3_title:"您需要什么功能？",step3_sub:"选择所有适用于您项目的功能。",step3_note:"如果不确定也没关系 — 我们稍后会帮助您决定。",
-    step4_number:"第4步，共5步",step4_title:"预算和时间线",step4_sub:"这有助于我们创建符合您需求的方案。",
+    step4_number:"第4步，共5步",step4_title:"时间线和您的估价",step4_sub:"选择一个时间线，我们将根据您的答案生成价格估算。",
     label_budget:"预算范围 (ETB)",label_timeline:"期望时间",
     opt_budget_1:"低于10,000",opt_budget_2:"10k – 25k",opt_budget_3:"25k – 50k",opt_budget_4:"50k – 100k",opt_budget_5:"100k – 250k",opt_budget_6:"250,000+",
     opt_timeline_urgent:"紧急",opt_timeline_urgent_desc:"1-2周",
     opt_timeline_soon:"近期",opt_timeline_soon_desc:"3-4周",
     opt_timeline_standard:"标准",opt_timeline_standard_desc:"1-2月",
     opt_timeline_flexible:"灵活",opt_timeline_flexible_desc:"2-3月",
+    bill_title:"预估账单",bill_currency:"ETB",bill_total_label:"预估总额",
+    bill_note:"这是根据您的选择自动生成的估算。我们审核您的项目详情后，最终方案可能会略有不同。",
+    bill_base:"基础建设",bill_pages:"页面",bill_design:"设计风格",bill_features:"功能",bill_timeline_adj:"时间线调整",
+    bill_select_prompt:"请在前面的步骤中选择网站类型、设计和页面数量，以在此处查看您的估算。",
     step5_number:"第5步，共5步",step5_title:"快完成了。您是谁？",step5_sub:"我们将用这些信息向您发送定制方案。",
     label_name:"全名",label_email:"电子邮箱",label_phone:"电话号码",
     label_company:"公司/组织",label_details:"补充详情",
@@ -1238,7 +1362,9 @@ const T = {
     final_founder:"— 埃约尔·穆卢格塔，Vovex 首席执行官兼创始人",
     final_cta1:"我们的故事 ›",final_cta2:"我们的业务 ›",
     footer_copy:"版权所有 © 2026 VOVEX。保留所有权利。",
-    footer_privacy:"隐私政策",footer_legal:"法律",footer_press:"新闻",footer_contact:"联系我们"
+    footer_privacy:"隐私政策",footer_legal:"法律",footer_press:"新闻",footer_contact:"联系我们",
+    form_error_generic:"抱歉，发送请求时出现问题。请检查您的网络连接并重试，或直接给我们发邮件。",
+    form_error_validation:"请检查高亮显示的字段并重试。"
   }
 };
 
@@ -1260,6 +1386,121 @@ function setLang(lang) {
   document.querySelectorAll('.lbtn').forEach(b =>
     b.classList.toggle('active', b.dataset.lang === lang)
   );
+  currentLang = lang;
+  if (typeof renderBill === 'function') renderBill();
+}
+
+let currentLang = 'en';
+
+/* ════════════════════════════════
+   PRICING MODEL (ETB)
+════════════════════════════════ */
+const PRICING = {
+  base: {
+    business: 5000, ecommerce: 5000, portfolio: 5000, blog: 5000,
+    landing: 5000, webapp: 5000, nonprofit: 5000, other: 5000
+  },
+  baseLabel: {
+    business:{en:"Business / Corporate site",am:"የንግድ ገጽ",nl:"Zakelijke site",fr:"Site professionnel",ar:"موقع أعمال",zh:"企业网站"},
+    ecommerce:{en:"E-commerce store",am:"የመስመር ላይ መደብር",nl:"Webshop",fr:"Boutique en ligne",ar:"متجر إلكتروني",zh:"电商商店"},
+    portfolio:{en:"Portfolio site",am:"ፖርትፎሊዮ ገጽ",nl:"Portfoliosite",fr:"Site portfolio",ar:"موقع محفظة",zh:"作品集网站"},
+    blog:{en:"Blog / Magazine site",am:"ብሎግ ገጽ",nl:"Blogsite",fr:"Site blog",ar:"موقع مدونة",zh:"博客网站"},
+    landing:{en:"Landing page",am:"የማረፊያ ገጽ",nl:"Landingspagina",fr:"Page d'atterrissage",ar:"صفحة هبوط",zh:"着陆页"},
+    webapp:{en:"Web application",am:"የድር መተግበሪያ",nl:"Webapplicatie",fr:"Application web",ar:"تطبيق ويب",zh:"Web应用"},
+    nonprofit:{en:"Non-profit site",am:"ለትርፍ ያልተቋቋመ ገጽ",nl:"Non-profit site",fr:"Site associatif",ar:"موقع غير ربحي",zh:"非营利网站"},
+    other:{en:"Custom site",am:"ብጁ ገጽ",nl:"Aangepaste site",fr:"Site personnalisé",ar:"موقع مخصص",zh:"定制网站"}
+  },
+  pages: { "1": 0, "2-5": 1500, "6-10": 4000, "11-20": 8000, "20+": 15000 },
+  design: { modern: 1.0, minimal: 0.9, creative: 1.08, corporate: 1.0, luxury: 1.15, playful: 1.02 },
+  designLabel: {
+    modern:{en:"Modern & Clean",am:"ዘመናዊ እና ንጹህ",nl:"Modern & Schoon",fr:"Moderne & Propre",ar:"حديث ونظيف",zh:"现代简洁"},
+    minimal:{en:"Minimalist",am:"አነስተኛ",nl:"Minimalistisch",fr:"Minimaliste",ar:"بسيط",zh:"极简主义"},
+    creative:{en:"Creative & Bold",am:"ፈጠራ እና ደፋር",nl:"Creatief & Gedurfd",fr:"Créatif & Audacieux",ar:"إبداعي وجريء",zh:"创意大胆"},
+    corporate:{en:"Corporate",am:"ኮርፖሬት",nl:"Zakelijk",fr:"Corporate",ar:"شركات",zh:"商务专业"},
+    luxury:{en:"Luxury & Premium",am:"የቅንጦት እና ፕሪሚየም",nl:"Luxe & Premium",fr:"Luxe & Premium",ar:"فاخر ومتميز",zh:"高端奢华"},
+    playful:{en:"Playful & Fun",am:"አስቂኝ እና አስደሳች",nl:"Speels & Leuk",fr:"Ludique & Amusant",ar:"مرح وممتع",zh:"有趣活泼"}
+  },
+  features: {
+    "contact-form": 300, "blog": 1500, "ecommerce": 6000, "booking": 3000,
+    "membership": 4000, "analytics": 800, "seo": 0, "multilingual": 2500,
+    "social": 500, "custom": 4000
+  },
+  featureLabel: {
+    "contact-form":{en:"Contact Form",am:"የመገናኛ ቅጽ",nl:"Contactformulier",fr:"Formulaire de contact",ar:"نموذج تواصل",zh:"联系表单"},
+    "blog":{en:"Blog / News",am:"ብሎግ / ዜና",nl:"Blog / Nieuws",fr:"Blog / Actualités",ar:"مدونة / أخبار",zh:"博客/新闻"},
+    "ecommerce":{en:"E-commerce / Payments",am:"ኢ-ኮሜርስ / ክፍያ",nl:"E-commerce / Betalingen",fr:"E-commerce / Paiements",ar:"تجارة إلكترونية / مدفوعات",zh:"电商/支付"},
+    "booking":{en:"Booking / Appointment",am:"ቀጠሮ",nl:"Boeking / Afspraak",fr:"Réservation / Rendez-vous",ar:"حجز / موعد",zh:"预订/预约"},
+    "membership":{en:"Membership / Login",am:"አባልነት / መግቢያ",nl:"Lidmaatschap / Login",fr:"Adhésion / Connexion",ar:"عضوية / تسجيل دخول",zh:"会员/登录"},
+    "analytics":{en:"Analytics / Tracking",am:"ትንታኔ",nl:"Analytics / Tracking",fr:"Analytique / Suivi",ar:"تحليلات / تتبع",zh:"分析/追踪"},
+    "seo":{en:"SEO Optimization",am:"SEO ማሻሻያ",nl:"SEO Optimalisatie",fr:"Optimisation SEO",ar:"تحسين محركات البحث",zh:"SEO优化"},
+    "multilingual":{en:"Multilingual",am:"ብዙ ቋንቋ",nl:"Meertalig",fr:"Multilingue",ar:"متعدد اللغات",zh:"多语言"},
+    "social":{en:"Social Media Integration",am:"ማህበራዊ ሚዲያ ውህደት",nl:"Social Media Integratie",fr:"Intégration réseaux sociaux",ar:"دمج وسائل التواصل",zh:"社交媒体集成"},
+    "custom":{en:"Custom Features",am:"ብጁ ባህሪያት",nl:"Aangepaste Functies",fr:"Fonctionnalités personnalisées",ar:"ميزات مخصصة",zh:"定制功能"}
+  },
+  timeline: { urgent: 0.15, soon: 0.05, standard: 0, flexible: -0.08 },
+  timelineLabel: {
+    urgent:{en:"Urgent (1-2 weeks) rush fee",am:"አስቸኳይ (1-2 ሳምንት) ተጨማሪ ክፍያ",nl:"Spoed (1-2 weken) toeslag",fr:"Urgent (1-2 sem.) supplément",ar:"عاجل (1-2 أسبوع) رسوم استعجال",zh:"紧急（1-2周）加急费"},
+    soon:{en:"Soon (3-4 weeks) priority fee",am:"በቅርቡ (3-4 ሳምንት) ቅድሚያ ክፍያ",nl:"Binnenkort (3-4 weken) prioriteitstoeslag",fr:"Bientôt (3-4 sem.) supplément",ar:"قريباً (3-4 أسابيع) رسوم أولوية",zh:"近期（3-4周）优先费"},
+    standard:{en:"Standard (1-2 months)",am:"መደበኛ (1-2 ወር)",nl:"Standaard (1-2 maanden)",fr:"Standard (1-2 mois)",ar:"قياسي (1-2 شهر)",zh:"标准（1-2月）"},
+    flexible:{en:"Flexible (2-3 months) discount",am:"ተለዋዋጭ (2-3 ወር) ቅናሽ",nl:"Flexibel (2-3 maanden) korting",fr:"Flexible (2-3 mois) remise",ar:"مرن (2-3 شهر) خصم",zh:"灵活（2-3月）折扣"}
+  }
+};
+
+function fmtETB(n) {
+  const rounded = Math.round(n / 50) * 50;
+  return rounded.toLocaleString('en-US') + ' ETB';
+}
+
+function t(dict, key, lang) {
+  return (dict[key] && (dict[key][lang] || dict[key].en)) || '';
+}
+
+function renderBill() {
+  const linesEl = document.getElementById('billLines');
+  const totalEl = document.getElementById('billTotalAmt');
+  if (!linesEl || !totalEl) return;
+  const lang = currentLang;
+  const d = T[lang] || T.en;
+
+  if (!stepData.websiteType || !stepData.designStyle || !stepData.pages) {
+    linesEl.innerHTML = `<div class="bill-line"><span class="li-label">${d.bill_select_prompt}</span></div>`;
+    totalEl.textContent = fmtETB(0);
+    return;
+  }
+
+  const base = PRICING.base[stepData.websiteType] || 0;
+  const pagesAdd = PRICING.pages[stepData.pages] || 0;
+  const designMult = PRICING.design[stepData.designStyle] ?? 1;
+  const features = stepData.features || [];
+  const featuresTotal = features.reduce((sum, f) => sum + (PRICING.features[f] || 0), 0);
+
+  const subtotalBeforeDesign = base + pagesAdd + featuresTotal;
+  const designAdjustedTotal = subtotalBeforeDesign * designMult;
+  const designDelta = designAdjustedTotal - subtotalBeforeDesign;
+
+  const timelineRate = stepData.timeline ? (PRICING.timeline[stepData.timeline] || 0) : 0;
+  const timelineDelta = designAdjustedTotal * timelineRate;
+  const finalTotal = designAdjustedTotal + timelineDelta;
+
+  let html = '';
+  html += `<div class="bill-line"><span class="li-label">${t(PRICING.baseLabel, stepData.websiteType, lang)}<span class="sub">${d.bill_base}</span></span><span class="li-amt">${fmtETB(base)}</span></div>`;
+  html += `<div class="bill-line"><span class="li-label">${stepData.pages} ${d.bill_pages}</span><span class="li-amt">${pagesAdd > 0 ? '+' + fmtETB(pagesAdd) : fmtETB(0)}</span></div>`;
+
+  if (features.length) {
+    features.forEach(f => {
+      html += `<div class="bill-line"><span class="li-label">${t(PRICING.featureLabel, f, lang)}</span><span class="li-amt">+${fmtETB(PRICING.features[f] || 0)}</span></div>`;
+    });
+  }
+
+  html += `<div class="bill-line"><span class="li-label">${t(PRICING.designLabel, stepData.designStyle, lang)}<span class="sub">${d.bill_design}</span></span><span class="li-amt ${designDelta < 0 ? 'neg' : ''}">${designDelta >= 0 ? '+' : ''}${fmtETB(designDelta)}</span></div>`;
+
+  if (stepData.timeline) {
+    html += `<div class="bill-line"><span class="li-label">${t(PRICING.timelineLabel, stepData.timeline, lang)}</span><span class="li-amt ${timelineDelta < 0 ? 'neg' : ''}">${timelineDelta >= 0 ? '+' : ''}${fmtETB(timelineDelta)}</span></div>`;
+  }
+
+  linesEl.innerHTML = html;
+  totalEl.textContent = fmtETB(Math.max(finalTotal, 0));
+  stepData.estimatedPrice = Math.round(Math.max(finalTotal, 0) / 50) * 50;
 }
 
 /* ════════════════════════════════
@@ -1301,6 +1542,8 @@ function updateWizard() {
   
   const stepLabels = ['', '', '', '', ''];
   counter.textContent = `Step ${currentStep + 1} of ${totalSteps}`;
+
+  if (currentStep === 3) renderBill();
 }
 
 function selectOption(el, group) {
@@ -1311,8 +1554,7 @@ function selectOption(el, group) {
   if (group === 'step1') stepData.websiteType = el.dataset.value;
   else if (group === 'step2') stepData.designStyle = el.dataset.value;
   else if (group === 'step2pages') stepData.pages = el.dataset.value;
-  else if (group === 'step4budget') stepData.budget = el.dataset.value;
-  else if (group === 'step4timeline') stepData.timeline = el.dataset.value;
+  else if (group === 'step4timeline') { stepData.timeline = el.dataset.value; renderBill(); }
 }
 
 function nextStep() {
@@ -1333,8 +1575,8 @@ function nextStep() {
     }
     stepData.features = Array.from(checked).map(cb => cb.value);
   }
-  if (currentStep === 3 && (!stepData.budget || !stepData.timeline)) {
-    alert('Please select both a budget range and timeline.');
+  if (currentStep === 3 && !stepData.timeline) {
+    alert('Please select a timeline so we can finish your estimate.');
     return;
   }
   
@@ -1363,25 +1605,42 @@ function canSubmit() {
   return name && email && privacy;
 }
 
+function showFormError(message) {
+  const el = document.getElementById('formError');
+  if (!el) { alert(message); return; }
+  el.textContent = message;
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function clearFormError() {
+  const el = document.getElementById('formError');
+  if (el) { el.style.display = 'none'; el.textContent = ''; }
+}
+
 function submitForm() {
+  clearFormError();
+
   const name = document.getElementById('fullName').value.trim();
   const email = document.getElementById('email').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const company = document.getElementById('company').value.trim();
   const details = document.getElementById('details').value.trim();
   const privacy = document.getElementById('privacyAgree').checked;
-  
+
+  const d = T[currentLang] || T.en;
+
   if (!name || !email || !privacy) {
-    alert('Please fill in all required fields and agree to the Privacy Policy.');
+    showFormError(d.form_error_validation || 'Please fill in all required fields and agree to the Privacy Policy.');
     return;
   }
-  
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    alert('Please enter a valid email address.');
+    showFormError(d.form_error_validation || 'Please enter a valid email address.');
     return;
   }
-  
+
   const formData = {
     ...stepData,
     fullName: name,
@@ -1391,8 +1650,6 @@ function submitForm() {
     details: details,
     privacyAgreed: privacy
   };
-  
-  console.log('Form Data:', formData);
 
   // Disable the submit button and show a sending state
   const nextBtn = document.getElementById('nextBtn');
@@ -1400,9 +1657,13 @@ function submitForm() {
   nextBtn.disabled = true;
   nextBtn.textContent = 'Sending...';
 
-  // Send the form details to joelrepacksyt@gmail.com via Formspree
-  // IMPORTANT: Replace YOUR_FORM_ID below with your actual Formspree form ID
-  // (get it by creating a form at https://formspree.io pointed at joelrepacksyt@gmail.com)
+  // Send the form details to the VOVEX inbox via Formspree.
+  // NOTE: 'mvzjyeyp' must be a real, verified Formspree form ID connected to
+  // the destination inbox. Formspree requires the FIRST submission to a new
+  // form ID to be confirmed by clicking a link in an email sent to the
+  // inbox owner — until that confirmation happens, submissions will appear
+  // to fail (or silently not arrive) even though this code is correct.
+  // Verify the form at https://formspree.io/forms before relying on this.
   fetch('https://formspree.io/f/xvzedorv', {
     method: 'POST',
     headers: {
@@ -1419,14 +1680,26 @@ function submitForm() {
       'Design Style': formData.designStyle || 'Not specified',
       'Number of Pages': formData.pages || 'Not specified',
       'Features': (formData.features && formData.features.length) ? formData.features.join(', ') : 'Not specified',
-      'Budget Range (ETB)': formData.budget || 'Not specified',
       'Timeline': formData.timeline || 'Not specified',
+      'Estimated Bill (ETB)': (formData.estimatedPrice != null) ? formData.estimatedPrice.toLocaleString('en-US') + ' ETB' : 'Not calculated',
       'Additional Details': formData.details || 'Not provided',
       'Privacy Policy Agreed': formData.privacyAgreed ? 'Yes' : 'No'
     })
   })
-  .then(response => response.json())
-  .then(() => {
+  .then(async response => {
+    // fetch() only rejects on network failure — a 4xx/5xx from Formspree
+    // still resolves here, so status must be checked explicitly or a
+    // rejected/unverified form silently reports "success" to the user.
+    let payload = null;
+    try { payload = await response.json(); } catch (e) { /* non-JSON body */ }
+
+    if (!response.ok) {
+      const serverMessage = payload && Array.isArray(payload.errors) && payload.errors.length
+        ? payload.errors.map(e => e.message).join(' ')
+        : (payload && payload.error) || `Request failed with status ${response.status}`;
+      throw new Error(serverMessage);
+    }
+
     // Show success
     document.getElementById('wizard').style.display = 'none';
     document.getElementById('success').style.display = 'block';
@@ -1436,7 +1709,7 @@ function submitForm() {
     console.error('Error sending form:', error);
     nextBtn.disabled = false;
     nextBtn.textContent = originalBtnText;
-    alert('Sorry, something went wrong sending your request. Please check your internet connection and try again.');
+    showFormError((d.form_error_generic || 'Sorry, something went wrong sending your request. Please check your internet connection and try again.') + (error && error.message ? ' (' + error.message + ')' : ''));
   });
 }
 
