@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>VOVEX — Careers</title>
-<meta name="description" content="VOVEX is a global technology holding company building platforms, systems, and ventures across AI, media, infrastructure, commerce, and digital systems."/>
+<title>VOVEX — Referral Program</title>
+<meta name="description" content="Join the Vovex commission-based referral program and earn money by connecting us with clients who need websites, branding, or digital solutions."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Noto+Sans+Ethiopic:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -28,6 +28,9 @@ html { scroll-behavior: smooth; background: #fff; }
   --divider: rgba(0,0,0,0.06);
   --nav-bg: rgba(255,255,255,0.92);
   --card-radius: 20px;
+  --green: #00875a;
+  --green-bg: #e8f6f0;
+  --red: #d9412e;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --font-ethiopic: 'Noto Sans Ethiopic', 'Nyala', var(--font);
   --font-arabic: 'Noto Sans Arabic', var(--font);
@@ -156,26 +159,14 @@ body {
 }
 .nav-contact:hover { color: var(--link-hover); text-decoration: underline; }
 
-/* ─── CAREERS ─── */
-#careers {
+/* ─── HERO ─── */
+#hero {
   background: var(--white);
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 20px 120px;
-}
-.careers-inner {
-  max-width: 720px;
-  margin: 0 auto;
+  padding: 80px 20px 40px;
   text-align: center;
 }
-.careers-inner .icon {
-  font-size: 64px;
-  margin-bottom: 24px;
-  opacity: 0.3;
-}
-.careers-inner .label {
+.hero-inner { max-width: 720px; margin: 0 auto; }
+.hero-inner .label {
   font-size: 12px;
   font-weight: 600;
   color: var(--link);
@@ -183,65 +174,252 @@ body {
   text-transform: uppercase;
   margin-bottom: 8px;
 }
-.careers-inner h1 {
-  font-size: clamp(36px, 5vw, 52px);
+.hero-inner h1 {
+  font-size: clamp(32px, 5vw, 48px);
   font-weight: 800;
   letter-spacing: -0.025em;
-  line-height: 1.04;
+  line-height: 1.06;
   color: var(--headline);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
-.careers-inner .sub {
-  font-size: 18px;
+.hero-inner .sub {
+  font-size: 17px;
   font-weight: 400;
   color: var(--secondary);
   line-height: 1.6;
-  max-width: 480px;
-  margin: 0 auto 8px;
+  max-width: 540px;
+  margin: 0 auto;
 }
-.careers-inner .message {
+
+/* ─── FORM ─── */
+#form-section {
+  background: var(--white);
+  padding: 20px 20px 120px;
+  display: flex;
+  justify-content: center;
+}
+.form-card {
+  width: 100%;
+  max-width: 640px;
   background: var(--off-white);
-  border-radius: var(--card-radius);
-  padding: 48px 40px;
-  margin-top: 32px;
   border: 1px solid var(--divider);
+  border-radius: var(--card-radius);
+  padding: 44px 40px;
 }
-.careers-inner .message .emoji {
-  font-size: 48px;
+.field {
+  margin-bottom: 28px;
+}
+.field:last-of-type { margin-bottom: 0; }
+.field label {
   display: block;
-  margin-bottom: 16px;
-}
-.careers-inner .message h3 {
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 600;
+  color: var(--headline);
+  margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+.field .hint {
+  font-size: 12.5px;
+  color: var(--tertiary);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field select,
+.field textarea {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--body);
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236e6e73' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+html[dir="rtl"] .field select {
+  background-position: left 14px center;
+  padding-right: 14px;
+  padding-left: 36px;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--link);
+  box-shadow: 0 0 0 3px rgba(0,102,204,0.12);
+}
+.field textarea {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.choice-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.choice-option:hover { border-color: rgba(0,102,204,0.4); }
+.choice-option input {
+  accent-color: var(--link);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.choice-option span {
+  font-size: 14.5px;
+  color: var(--body);
+}
+.choice-option.checked {
+  border-color: var(--link);
+  background: rgba(0,102,204,0.05);
+}
+.section-divider {
+  height: 1px;
+  background: var(--divider);
+  margin: 36px 0;
+}
+.agreement-box {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 20px 20px;
+}
+.agreement-box ul {
+  list-style: none;
+  margin: 10px 0 16px;
+}
+.agreement-box ul li {
+  font-size: 13.5px;
+  color: var(--secondary);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.agreement-box ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--tertiary);
+}
+.agreement-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+.agreement-check input {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--link);
+  flex-shrink: 0;
+}
+.agreement-check span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--headline);
+  line-height: 1.5;
+}
+.submit-row {
+  margin-top: 32px;
+}
+.btn-submit {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--link);
+  border: none;
+  border-radius: 12px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-submit:hover { background: var(--link-hover); }
+.btn-submit:active { transform: scale(0.99); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.submit-note {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--tertiary);
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.field-error {
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 6px;
+  display: none;
+}
+.field-error.show { display: block; }
+
+/* ─── SUCCESS STATE ─── */
+#success-card {
+  display: none;
+  width: 100%;
+  max-width: 640px;
+  background: var(--off-white);
+  border: 1px solid var(--divider);
+  border-radius: var(--card-radius);
+  padding: 60px 40px;
+  text-align: center;
+}
+#success-card .check {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--green-bg);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 26px;
+}
+#success-card h3 {
+  font-size: 22px;
+  font-weight: 700;
   color: var(--headline);
   margin-bottom: 8px;
 }
-.careers-inner .message p {
+#success-card p {
   font-size: 15px;
-  font-weight: 400;
   color: var(--secondary);
   line-height: 1.6;
-  max-width: 400px;
+  max-width: 420px;
   margin: 0 auto;
-}
-.careers-inner .message .highlight {
-  display: inline-block;
-  margin-top: 16px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--tertiary);
-  letter-spacing: 0.02em;
-}
-.careers-inner .message .highlight span {
-  color: var(--link);
 }
 
 /* ─── FINAL ─── */
 #final {
   background: var(--section-dark);
   text-align: center;
-  padding: 140px 20px 120px;
+  padding: 100px 20px 100px;
   position: relative;
   overflow: hidden;
 }
@@ -260,7 +438,7 @@ body {
   position: relative; z-index: 2;
 }
 .final-wordmark {
-  font-size: clamp(64px, 12vw, 148px);
+  font-size: clamp(56px, 10vw, 120px);
   font-weight: 700;
   letter-spacing: -0.03em;
   color: #f5f5f7;
@@ -346,6 +524,12 @@ footer {
 }
 .footer-links a:hover { color: var(--link); }
 
+/* ─── RTL ─── */
+html[dir="rtl"] .choice-option { flex-direction: row-reverse; justify-content: flex-end; }
+html[dir="rtl"] .agreement-check { flex-direction: row-reverse; }
+html[dir="rtl"] .agreement-box ul li { padding-left: 0; padding-right: 16px; }
+html[dir="rtl"] .agreement-box ul li::before { left: auto; right: 0; }
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -354,12 +538,8 @@ footer {
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
   #langbar { justify-content: flex-start; }
-  #careers { padding: 60px 20px 80px; min-height: 60vh; }
-  .careers-inner .message { padding: 32px 24px; }
-}
-@media (max-width: 480px) {
-  .careers-inner .icon { font-size: 48px; }
-  .careers-inner .message .emoji { font-size: 36px; }
+  #hero { padding: 50px 20px 24px; }
+  .form-card, #success-card { padding: 30px 22px; border-radius: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -401,20 +581,189 @@ footer {
   </div>
 </nav>
 
-<!-- ─── CAREERS ─── -->
-<section id="careers">
-  <div class="careers-inner">
-    <div class="icon"></div>
-    <div class="label" data-i18n="careers_label">● Careers</div>
-    <h1 data-i18n="careers_title">Join the Team</h1>
-    <p class="sub" data-i18n="careers_sub">We're always looking for passionate people to help us build the future.</p>
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="label" data-i18n="ref_label">● Referral Program</div>
+    <h1 data-i18n="ref_title">Refer clients. Earn commission.</h1>
+    <p class="sub" data-i18n="ref_sub">Join the Vovex referral program and earn money by connecting us with clients who need websites, branding, or digital solutions.</p>
+  </div>
+</section>
 
-    <div class="message">
-      <span class="emoji"></span>
-      <h3 data-i18n="message_title">No Open Roles Right Now</h3>
-      <p data-i18n="message_desc">We don't have any positions open at the moment, but we're always interested in meeting talented people.</p>
-      <div class="highlight" data-i18n="message_highlight"> <span></span> No roles are currently open
+<!-- ─── FORM ─── -->
+<section id="form-section">
+  <form class="form-card" id="referral-form" action="https://formspree.io/f/xvzedorv" method="POST">
+    <input type="hidden" name="form_name" value="Vovex Referral Program Application">
+
+    <div class="field">
+      <label data-i18n="f_name">Full Name</label>
+      <input type="text" name="Full Name" required>
     </div>
+
+    <div class="field">
+      <label data-i18n="f_email">Email Address</label>
+      <input type="email" name="Email Address" required>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_phone">Phone Number / WhatsApp</label>
+      <input type="tel" name="Phone / WhatsApp" required>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_age">Age</label>
+      <input type="text" inputmode="numeric" pattern="[0-9]*" name="Age" required>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_location">City</label>
+      <select name="City" required>
+        <option value="" data-i18n="f_location_placeholder">Select your city</option>
+        <option value="Addis Ababa">Addis Ababa</option>
+        <option value="Adama (Nazret)">Adama (Nazret)</option>
+        <option value="Adigrat">Adigrat</option>
+        <option value="Adwa">Adwa</option>
+        <option value="Agaro">Agaro</option>
+        <option value="Alaba Kulito">Alaba Kulito</option>
+        <option value="Alamata">Alamata</option>
+        <option value="Arba Minch">Arba Minch</option>
+        <option value="Areka">Areka</option>
+        <option value="Asayita">Asayita</option>
+        <option value="Asosa">Asosa</option>
+        <option value="Assela">Assela</option>
+        <option value="Axum (Aksum)">Axum (Aksum)</option>
+        <option value="Bahir Dar">Bahir Dar</option>
+        <option value="Bale Robe">Bale Robe</option>
+        <option value="Bedessa">Bedessa</option>
+        <option value="Bishoftu (Debre Zeit)">Bishoftu (Debre Zeit)</option>
+        <option value="Bonga">Bonga</option>
+        <option value="Bule Hora">Bule Hora</option>
+        <option value="Butajira">Butajira</option>
+        <option value="Chiro (Asebe Teferi)">Chiro (Asebe Teferi)</option>
+        <option value="Debre Berhan">Debre Berhan</option>
+        <option value="Debre Markos">Debre Markos</option>
+        <option value="Debre Tabor">Debre Tabor</option>
+        <option value="Dembi Dolo">Dembi Dolo</option>
+        <option value="Dessie">Dessie</option>
+        <option value="Dilla">Dilla</option>
+        <option value="Dire Dawa">Dire Dawa</option>
+        <option value="Durame">Durame</option>
+        <option value="Fiche">Fiche</option>
+        <option value="Finote Selam">Finote Selam</option>
+        <option value="Gambela">Gambela</option>
+        <option value="Ginir">Ginir</option>
+        <option value="Goba">Goba</option>
+        <option value="Gode">Gode</option>
+        <option value="Gondar">Gondar</option>
+        <option value="Gore">Gore</option>
+        <option value="Harar">Harar</option>
+        <option value="Hawassa">Hawassa</option>
+        <option value="Hosaena">Hosaena</option>
+        <option value="Jigjiga">Jigjiga</option>
+        <option value="Jimma">Jimma</option>
+        <option value="Jinka">Jinka</option>
+        <option value="Kombolcha">Kombolcha</option>
+        <option value="Mekelle">Mekelle</option>
+        <option value="Metu">Metu</option>
+        <option value="Mizan Teferi">Mizan Teferi</option>
+        <option value="Mojo (Modjo)">Mojo (Modjo)</option>
+        <option value="Nekemte">Nekemte</option>
+        <option value="Negele Borana">Negele Borana</option>
+        <option value="Robe">Robe</option>
+        <option value="Sebeta">Sebeta</option>
+        <option value="Sekota">Sekota</option>
+        <option value="Semera">Semera</option>
+        <option value="Shashamane">Shashamane</option>
+        <option value="Shire (Inda Selassie)">Shire (Inda Selassie)</option>
+        <option value="Sodo (Wolaita Sodo)">Sodo (Wolaita Sodo)</option>
+        <option value="Tepi">Tepi</option>
+        <option value="Waliso">Waliso</option>
+        <option value="Weldiya">Weldiya</option>
+        <option value="Wolkite">Wolkite</option>
+        <option value="Wukro">Wukro</option>
+        <option value="Yabelo">Yabelo</option>
+        <option value="Ziway (Batu)">Ziway (Batu)</option>
+        <option value="Other" data-i18n="f_location_other">Other (outside Ethiopia)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_heard">How did you hear about Vovex?</label>
+      <div class="choice-group" data-name="Heard About Vovex">
+        <label class="choice-option"><input type="radio" name="Heard About Vovex" value="Instagram" required><span data-i18n="f_heard_ig">Instagram</span></label>
+        <label class="choice-option"><input type="radio" name="Heard About Vovex" value="LinkedIn"><span data-i18n="f_heard_li">LinkedIn</span></label>
+        <label class="choice-option"><input type="radio" name="Heard About Vovex" value="Friend"><span data-i18n="f_heard_friend">Friend</span></label>
+        <label class="choice-option"><input type="radio" name="Heard About Vovex" value="Website"><span data-i18n="f_heard_site">Website</span></label>
+        <label class="choice-option"><input type="radio" name="Heard About Vovex" value="Other"><span data-i18n="f_heard_other">Other</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_exp">Do you have experience in referrals, sales, or marketing?</label>
+      <div class="choice-group" data-name="Has Experience">
+        <label class="choice-option"><input type="radio" name="Has Experience" value="Yes" required><span data-i18n="f_yes">Yes</span></label>
+        <label class="choice-option"><input type="radio" name="Has Experience" value="No"><span data-i18n="f_no">No</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_exp_detail">If yes, briefly explain your experience</label>
+      <textarea name="Experience Details"></textarea>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_findclients">How do you plan to find clients?</label>
+      <textarea name="How They Plan To Find Clients" required></textarea>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_clienttype">What type of clients can you bring?</label>
+      <div class="choice-group" data-name="Client Types">
+        <label class="choice-option"><input type="radio" name="Client Types" value="Small businesses" required><span data-i18n="f_ct_small">Small businesses</span></label>
+        <label class="choice-option"><input type="radio" name="Client Types" value="Personal brands"><span data-i18n="f_ct_personal">Personal brands</span></label>
+        <label class="choice-option"><input type="radio" name="Client Types" value="Startups"><span data-i18n="f_ct_startups">Startups</span></label>
+        <label class="choice-option"><input type="radio" name="Client Types" value="All of the above"><span data-i18n="f_ct_all">All of the above</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_estimate">Estimated number of clients you can refer per month</label>
+      <input type="text" name="Estimated Clients Per Month" required>
+    </div>
+
+    <div class="field">
+      <label data-i18n="f_why">Why do you want to join the Vovex referral program?</label>
+      <textarea name="Why They Want To Join" required></textarea>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="field">
+      <label data-i18n="f_agreement_title">Agreement</label>
+      <div class="hint" data-i18n="f_agreement_sub">By submitting this form, you agree that:</div>
+      <div class="agreement-box">
+        <ul>
+          <li data-i18n="f_agreement_1">Commission is only paid after the client successfully pays Vovex</li>
+          <li data-i18n="f_agreement_2">Fake or self-referrals are not allowed</li>
+          <li data-i18n="f_agreement_3">Commission rates and payment terms will be discussed after approval</li>
+        </ul>
+        <label class="agreement-check">
+          <input type="checkbox" name="Agreed To Terms" value="Yes" required>
+          <span data-i18n="f_agreement_check">I agree to the terms above</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-submit" data-i18n="f_submit">Submit Application</button>
+      <p class="submit-note" data-i18n="f_submit_note">Submit your application and we'll get back to you shortly.</p>
+    </div>
+  </form>
+
+  <div class="form-card" id="success-card">
+    <div class="check">✓</div>
+    <h3 data-i18n="f_success_title">Application Received</h3>
+    <p data-i18n="f_success_desc">Thanks for applying to the Vovex referral program. We'll review your application and get back to you shortly.</p>
   </div>
 </section>
 
@@ -453,12 +802,39 @@ const T = {
   en:{
     nav_about:"About",nav_ventures:"Ventures",nav_platforms:"Careers",
     nav_principles:"Principles",nav_timeline:"Build/Create a website",nav_contact:"Contact",
-    careers_label:"● Careers",
-    careers_title:"Join the Team",
-    careers_sub:"We're always looking for passionate people to help us build the future.",
-    message_title:"No Open Roles Right Now",
-    message_desc:"We don't have any positions open at the moment, but we're always interested in meeting talented people.",
-    
+
+    ref_label:"● Referral Program",
+    ref_title:"Refer clients. Earn commission.",
+    ref_sub:"Join the Vovex referral program and earn money by connecting us with clients who need websites, branding, or digital solutions.",
+
+    f_name:"Full Name",
+    f_email:"Email Address",
+    f_phone:"Phone Number / WhatsApp",
+    f_age:"Age",
+    f_location:"City",
+    f_location_placeholder:"Select your city",
+    f_location_other:"Other (outside Ethiopia)",
+    f_heard:"How did you hear about Vovex?",
+    f_heard_ig:"Instagram", f_heard_li:"LinkedIn", f_heard_friend:"Friend", f_heard_site:"Website", f_heard_other:"Other",
+    f_exp:"Do you have experience in referrals, sales, or marketing?",
+    f_yes:"Yes", f_no:"No",
+    f_exp_detail:"If yes, briefly explain your experience",
+    f_findclients:"How do you plan to find clients?",
+    f_clienttype:"What type of clients can you bring?",
+    f_ct_small:"Small businesses", f_ct_personal:"Personal brands", f_ct_startups:"Startups", f_ct_all:"All of the above",
+    f_estimate:"Estimated number of clients you can refer per month",
+    f_why:"Why do you want to join the Vovex referral program?",
+    f_agreement_title:"Agreement",
+    f_agreement_sub:"By submitting this form, you agree that:",
+    f_agreement_1:"Commission is only paid after the client successfully pays Vovex",
+    f_agreement_2:"Fake or self-referrals are not allowed",
+    f_agreement_3:"Commission rates and payment terms will be discussed after approval",
+    f_agreement_check:"I agree to the terms above",
+    f_submit:"Submit Application",
+    f_submit_note:"Submit your application and we'll get back to you shortly.",
+    f_success_title:"Application Received",
+    f_success_desc:"Thanks for applying to the Vovex referral program. We'll review your application and get back to you shortly.",
+
     final_eyebrow:"Technology Holding Company",final_quote:"“The future is built quietly.”",
     final_founder:"— Eyoel Mulugeta, CEO and Founder of Vovex",
     final_cta1:"Our story ›",final_cta2:"Our ventures ›",
@@ -468,12 +844,39 @@ const T = {
   am:{
     nav_about:"ስለ",nav_ventures:"ተቋሞች",nav_platforms:"ስራዎች",
     nav_principles:"መርሆዎች",nav_timeline:"ድህረ ገጽ ግንባ/ፍጠር",nav_contact:"አግኙን",
-    careers_label:"● ስራዎች",
-    careers_title:"ቡድኑን ይቀላቀሉ",
-    careers_sub:"ወደፊት ለመገንባት ፍቅር ያላቸውን ሰዎች እየፈለግን ነው።",
-    message_title:"አሁን ክፍት የስራ ቦታዎች የሉም",
-    message_desc:"በአሁኑ ጊዜ ክፍት የስራ ቦታዎች የሉንም፣ ነገር ግን ተሰጥኦ ያላቸውን ሰዎች ለማግኘት ሁልጊዜ ፍላጎት አለን።",
-   
+
+    ref_label:"● የሪፈራል ፕሮግራም",
+    ref_title:"ደንበኞችን ምከሩ። ኮሚሽን ያግኙ።",
+    ref_sub:"ድህረ ገጾች፣ ብራንዲንግ ወይም ዲጂታል መፍትሄዎች የሚያስፈልጋቸውን ደንበኞች ከቮቬክስ ጋር በማገናኘት ገንዘብ ያግኙ።",
+
+    f_name:"ሙሉ ስም",
+    f_email:"የኢሜይል አድራሻ",
+    f_phone:"ስልክ ቁጥር / ዋትስአፕ",
+    f_age:"እድሜ",
+    f_location:"ከተማ",
+    f_location_placeholder:"ከተማዎን ይምረጡ",
+    f_location_other:"ሌላ (ከኢትዮጵያ ውጪ)",
+    f_heard:"ስለ ቮቬክስ እንዴት ሰሙ?",
+    f_heard_ig:"ኢንስታግራም", f_heard_li:"ሊንክድኢን", f_heard_friend:"ጓደኛ", f_heard_site:"ድህረ ገጽ", f_heard_other:"ሌላ",
+    f_exp:"በሪፈራል፣ ሽያጭ ወይም ግብይት ልምድ አለዎት?",
+    f_yes:"አዎ", f_no:"አይ",
+    f_exp_detail:"አዎ ከሆነ፣ ልምድዎን በአጭሩ ያብራሩ",
+    f_findclients:"ደንበኞችን እንዴት ለማግኘት ያቅዳሉ?",
+    f_clienttype:"ምን አይነት ደንበኞችን ማምጣት ይችላሉ?",
+    f_ct_small:"ትናንሽ ንግዶች", f_ct_personal:"የግል ብራንዶች", f_ct_startups:"ስታርትአፖች", f_ct_all:"ሁሉንም",
+    f_estimate:"በወር ማምጣት የሚችሉት የደንበኞች ቁጥር ግምት",
+    f_why:"ለምን የቮቬክስ ሪፈራል ፕሮግራምን መቀላቀል ይፈልጋሉ?",
+    f_agreement_title:"ስምምነት",
+    f_agreement_sub:"ይህን ቅጽ በማስገባት እርስዎ ይስማማሉ፦",
+    f_agreement_1:"ኮሚሽን የሚከፈለው ደንበኛው ለቮቬክስ በተሳካ ሁኔታ ከከፈለ በኋላ ብቻ ነው",
+    f_agreement_2:"ሀሰተኛ ወይም ራስ-ሪፈራል አይፈቀድም",
+    f_agreement_3:"የኮሚሽን መጠን እና የክፍያ ውሎች ከተፈቀደ በኋላ ይወያያሉ",
+    f_agreement_check:"ከላይ ያሉትን ውሎች እስማማለሁ",
+    f_submit:"ማመልከቻ ያስገቡ",
+    f_submit_note:"ማመልከቻዎን ያስገቡ እና በቅርቡ እናገኝዎታለን።",
+    f_success_title:"ማመልከቻ ደርሷል",
+    f_success_desc:"ለቮቬክስ ሪፈራል ፕሮግራም ስላመለከቱ እናመሰግናለን። ማመልከቻዎን እንገመግማለን እና በቅርቡ እናገኝዎታለን።",
+
     final_eyebrow:"የቴክኖሎጂ ሆልዲንግ ኩባንያ",final_quote:"“ወደፊቱ በጸጥታ ይሠራል።”",
     final_founder:"— ኢየኤል ሙሉጌታ፣ የቮቬክስ ዋና ሥራ አስፈጻሚ እና መሥራች",
     final_cta1:"ታሪካችን ›",final_cta2:"ተቋሞቻችን ›",
@@ -483,11 +886,38 @@ const T = {
   nl:{
     nav_about:"Over",nav_ventures:"Activiteiten",nav_platforms:"Carrières",
     nav_principles:"Principes",nav_timeline:"Website bouwen/maken",nav_contact:"Contact",
-    careers_label:"● Carrières",
-    careers_title:"Word Lid van het Team",
-    careers_sub:"We zijn altijd op zoek naar gepassioneerde mensen om de toekomst mee te bouwen.",
-    message_title:"Geen Openstaande Vacatures",
-    message_desc:"We hebben momenteel geen posities open, maar we zijn altijd geïnteresseerd in getalenteerde mensen.",
+
+    ref_label:"● Doorverwijzingsprogramma",
+    ref_title:"Verwijs klanten door. Verdien commissie.",
+    ref_sub:"Doe mee aan het Vovex-doorverwijzingsprogramma en verdien geld door ons in contact te brengen met klanten die websites, branding of digitale oplossingen nodig hebben.",
+
+    f_name:"Volledige Naam",
+    f_email:"E-mailadres",
+    f_phone:"Telefoonnummer / WhatsApp",
+    f_age:"Leeftijd",
+    f_location:"Stad",
+    f_location_placeholder:"Selecteer uw stad",
+    f_location_other:"Anders (buiten Ethiopië)",
+    f_heard:"Hoe heeft u over Vovex gehoord?",
+    f_heard_ig:"Instagram", f_heard_li:"LinkedIn", f_heard_friend:"Vriend(in)", f_heard_site:"Website", f_heard_other:"Anders",
+    f_exp:"Heeft u ervaring met doorverwijzingen, verkoop of marketing?",
+    f_yes:"Ja", f_no:"Nee",
+    f_exp_detail:"Zo ja, licht uw ervaring kort toe",
+    f_findclients:"Hoe bent u van plan klanten te vinden?",
+    f_clienttype:"Wat voor klanten kunt u aanbrengen?",
+    f_ct_small:"Kleine bedrijven", f_ct_personal:"Persoonlijke merken", f_ct_startups:"Startups", f_ct_all:"Allemaal",
+    f_estimate:"Geschat aantal klanten dat u per maand kunt doorverwijzen",
+    f_why:"Waarom wilt u deelnemen aan het Vovex-doorverwijzingsprogramma?",
+    f_agreement_title:"Overeenkomst",
+    f_agreement_sub:"Door dit formulier in te dienen, gaat u ermee akkoord dat:",
+    f_agreement_1:"Commissie wordt pas uitbetaald nadat de klant Vovex succesvol heeft betaald",
+    f_agreement_2:"Nep- of zelfdoorverwijzingen niet zijn toegestaan",
+    f_agreement_3:"Commissietarieven en betalingsvoorwaarden na goedkeuring worden besproken",
+    f_agreement_check:"Ik ga akkoord met bovenstaande voorwaarden",
+    f_submit:"Aanvraag Indienen",
+    f_submit_note:"Dien uw aanvraag in en we nemen spoedig contact met u op.",
+    f_success_title:"Aanvraag Ontvangen",
+    f_success_desc:"Bedankt voor uw aanmelding voor het Vovex-doorverwijzingsprogramma. We beoordelen uw aanvraag en nemen spoedig contact met u op.",
 
     final_eyebrow:"Technologisch Holdingbedrijf",final_quote:"“De toekomst wordt stil gebouwd.”",
     final_founder:"— Eyoel Mulugeta, CEO en Oprichter van Vovex",
@@ -498,12 +928,39 @@ const T = {
   om:{
     nav_about:"Waa",nav_ventures:"Dhaabbilee",nav_platforms:"Hojiiwwan",
     nav_principles:"Murtii",nav_timeline:"Marsaa ijaari/ummi",nav_contact:"Nu Quunnamaa",
-    careers_label:"● Hojiiwwan",
-    careers_title:"Garee Keessa Galii",
-    careers_sub:"Yeroo hundumaa namoota hawwii qaban fuuldurra ijaaruuf barbaadnaa jirra.",
-    message_title:"Bakkeewwan Hojii Banan Amma Hinjiran",
-    message_desc:"Amma bakkeewwan hojii banan hin qabnu, garuu namoota dandeettii qaban walarguuf yeroo hundumaa fedhii qabna.",
-    
+
+    ref_label:"● Sagantaa Ergaa",
+    ref_title:"Maamiltoota ergaa. Komishinii argadhu.",
+    ref_sub:"Sagantaa ergaa Vovex keessatti hirmaadhaa maamiltoota marsaa interneetii, brandingii, ykn furmaata dijiitaalaa barbaadan Vovex waliin walqunnamsiisuudhaan maallaqa argadhaa.",
+
+    f_name:"Maqaa Guutuu",
+    f_email:"Teessoo Imeelii",
+    f_phone:"Lakkoofsa Bilbilaa / WhatsApp",
+    f_age:"Umurii",
+    f_location:"Magaalaa",
+    f_location_placeholder:"Magaalaa keessan filadhaa",
+    f_location_other:"Kan Biraa (Itoophiyaan alatti)",
+    f_heard:"Waa'ee Vovex akkamitti dhageessan?",
+    f_heard_ig:"Instagram", f_heard_li:"LinkedIn", f_heard_friend:"Michuu", f_heard_site:"Marsariitii", f_heard_other:"Kan Biraa",
+    f_exp:"Muuxannoo ergaa, gurgurtaa, ykn gabaa keessatti qabduu?",
+    f_yes:"Eeyyee", f_no:"Lakki",
+    f_exp_detail:"Eeyyee yoo ta'e, muuxannoo keessan gabaabsitanii ibsaa",
+    f_findclients:"Maamiltoota argachuuf akkamitti karoorfattu?",
+    f_clienttype:"Maamiltoota akkamii fiduu dandeessu?",
+    f_ct_small:"Daldala xixiqqaa", f_ct_personal:"Barandaa dhuunfaa", f_ct_startups:"Startuppii", f_ct_all:"Hunda",
+    f_estimate:"Lakkoofsa maamiltoota ji'a ji'aan ergisiisuu dandeessan tilmaama",
+    f_why:"Maaliif sagantaa ergaa Vovex hirmaachuu barbaaddu?",
+    f_agreement_title:"Waliigaltee",
+    f_agreement_sub:"Fooramii kana galchuudhaan, kan armaan gadii waliigaltan:",
+    f_agreement_1:"Komishiniin kan kaffalamu erga maamilli Vovex milkaa'inaan kaffalee booda qofa",
+    f_agreement_2:"Ergaan sobaa ykn ofii ergaa hin eyyamamu",
+    f_agreement_3:"Sadarkaan komishinii fi haalli kaffaltii erga mirkanaa'ee booda ni mari'atama",
+    f_agreement_check:"Waliigaltee armaan olii nan fudhadha",
+    f_submit:"Iyyata Galchi",
+    f_submit_note:"Iyyata keessan galchaa, dafnee isin quunnamna.",
+    f_success_title:"Iyyanni Argameera",
+    f_success_desc:"Sagantaa ergaa Vovexiif iyyachuu keessaniif galatoomaa. Iyyata keessan ilaalla, dafnees isin quunnamna.",
+
     final_eyebrow:"Dhaabbata Teeknoloojii Qabaa",final_quote:"“Fuuldurri tasgabbiin ijaarama.”",
     final_founder:"— Eyoel Mulugeta, CEO fi Hundaa'aa Vovex",
     final_cta1:"Seenaa keenya ›",final_cta2:"Dhaabbilee keenya ›",
@@ -513,12 +970,39 @@ const T = {
   ti:{
     nav_about:"ብዛዕባ",nav_ventures:"ትካላት",nav_platforms:"ስራሕቲ",
     nav_principles:"መትከላት",nav_timeline:"ድህረ ገጽ ህነጽ/ፍጠር",nav_contact:"ተወከሉና",
-    careers_label:"● ስራሕቲ",
-    careers_title:"ናብ ብድር ተቀላቀል",
-    careers_sub:"ንመጻኢ ንምስራት ፍቅር ዘለዎም ሰባት ክንደሊ ኢና።",
-    message_title:"ክፍቲ ስራሕቲ ኣይህልዉን",
-    message_desc:"ክፍቲ ስራሕቲ የለናን፣ ግን ንኽእለት ዘለዎም ሰባት ክንረኽብ ኩሉ ግዜ ፍቓድ ኣሎና።",
-  
+
+    ref_label:"● ፕሮግራም ምትሕልላፍ",
+    ref_title:"ዓማዊል ምኽሩ። ኮሚሽን ርኸቡ።",
+    ref_sub:"ናብ ፕሮግራም ምትሕልላፍ ቮቬክስ ብምጽንባር፣ ድህረ ገጽ፣ ብራንዲንግ ወይ ዲጂታላዊ መፍትሒታት ዘድልዮም ዓማዊል ምስ ቮቬክስ ብምትእስሳር ገንዘብ ርኸቡ።",
+
+    f_name:"ምሉእ ስም",
+    f_email:"ኢመይል",
+    f_phone:"ቁጽሪ ተሌፎን / ዋትስኣፕ",
+    f_age:"ዕድመ",
+    f_location:"ከተማ",
+    f_location_placeholder:"ከተማኹም ምረጹ",
+    f_location_other:"ካልእ (ካብ ኢትዮጵያ ወጻኢ)",
+    f_heard:"ብዛዕባ ቮቬክስ ብኸመይ ሰሚዕኩም?",
+    f_heard_ig:"ኢንስታግራም", f_heard_li:"ሊንክድኢን", f_heard_friend:"ዓርኪ", f_heard_site:"ድህረ ገጽ", f_heard_other:"ካልእ",
+    f_exp:"ኣብ ምትሕልላፍ፣ ሽያጥ ወይ ግብያ ተመክሮ ኣለኩም ድዩ?",
+    f_yes:"እወ", f_no:"ኣይፋልን",
+    f_exp_detail:"እወ እንተኾይኑ፣ ተመክሮኹም ብሓጺሩ ግለጹ",
+    f_findclients:"ዓማዊል ንምርካብ ብኸመይ ትሓስቡ?",
+    f_clienttype:"ኣየናይ ዓይነት ዓማዊል ከተምጽኡ ትኽእሉ?",
+    f_ct_small:"ንኣሽቱ ትካላት", f_ct_personal:"ውልቃዊ ብራንድታት", f_ct_startups:"ስታርትኣፕስ", f_ct_all:"ኩሉ",
+    f_estimate:"ኣብ ወርሒ ክተምጽኡ እትኽእሉ ግምት ቁጽሪ ዓማዊል",
+    f_why:"ስለምንታይ ናብ ፕሮግራም ምትሕልላፍ ቮቬክስ ክትጽንበሩ ትደልዩ?",
+    f_agreement_title:"ውዕል",
+    f_agreement_sub:"ነዚ ፎርም ብምስዳድ፣ በዞም ዝስዕቡ ትሰማምዑ፦",
+    f_agreement_1:"ኮሚሽን ዝኽፈል ዓሚል ንቮቬክስ ብዓወት ምስ ከፈለ ጥራይ እዩ",
+    f_agreement_2:"ናይ ሓሶት ወይ ንርእስኻ ምትሕልላፍ ኣይፍቀድን",
+    f_agreement_3:"መጠን ኮሚሽንን ውዕላት ክፍሊትን ድሕሪ ምጽዳቕ ክዝተየሎም እዩ",
+    f_agreement_check:"በዞም ኣብ ላዕሊ ዘለዉ ውዕላት እሰማማዕ",
+    f_submit:"ሕቶ ኣቕርቡ",
+    f_submit_note:"ሕቶኹም ኣቕርቡ፣ ኣብ ቀረባ ግዜ ክንረኽበኩም ኢና።",
+    f_success_title:"ሕቶ ተቐቢልና",
+    f_success_desc:"ንፕሮግራም ምትሕልላፍ ቮቬክስ ስለ ዝሓተትኩም ነመስግን። ሕቶኹም ክንግምግም ኢና፣ ኣብ ቀረባ ግዜ ክንረኽበኩም ኢና።",
+
     final_eyebrow:"ናይ ቴክኖሎጂ ሆልዲንግ ትካል",final_quote:"“መጻኢ ብህድኣት ይሃነጽ።”",
     final_founder:"— ኢዮኤል ሙሉጌታ፣ ሃላፊን መስራቲ ቮቬክስ",
     final_cta1:"ታሪክና ›",final_cta2:"ትካላትና ›",
@@ -528,12 +1012,39 @@ const T = {
   sw:{
     nav_about:"Kuhusu",nav_ventures:"Biashara",nav_platforms:"Kazi",
     nav_principles:"Kanuni",nav_timeline:"Jenga/Unda tovuti",nav_contact:"Wasiliana",
-    careers_label:"● Kazi",
-    careers_title:"Jiunge na Timu",
-    careers_sub:"Daima tunatafuta watu wenye shauku ya kutusaidia kujenga mustakabali.",
-    message_title:"Hakuna Nafasi Zilizo Wazi Sasa",
-    message_desc:"Hatuna nafasi zozote wazi kwa sasa, lakini tunavutiwa na watu wenye vipaji.",
-   
+
+    ref_label:"● Programu ya Rufaa",
+    ref_title:"Rejelea wateja. Pata kamisheni.",
+    ref_sub:"Jiunge na programu ya rufaa ya Vovex na upate pesa kwa kutuunganisha na wateja wanaohitaji tovuti, chapa, au suluhisho za kidijitali.",
+
+    f_name:"Jina Kamili",
+    f_email:"Anwani ya Barua Pepe",
+    f_phone:"Nambari ya Simu / WhatsApp",
+    f_age:"Umri",
+    f_location:"Mji",
+    f_location_placeholder:"Chagua mji wako",
+    f_location_other:"Nyingine (nje ya Ethiopia)",
+    f_heard:"Ulisikiaje kuhusu Vovex?",
+    f_heard_ig:"Instagram", f_heard_li:"LinkedIn", f_heard_friend:"Rafiki", f_heard_site:"Tovuti", f_heard_other:"Nyingine",
+    f_exp:"Una uzoefu wa rufaa, mauzo, au uuzaji?",
+    f_yes:"Ndiyo", f_no:"Hapana",
+    f_exp_detail:"Ikiwa ndiyo, eleza kwa ufupi uzoefu wako",
+    f_findclients:"Unapanga kuwapata vipi wateja?",
+    f_clienttype:"Ni aina gani ya wateja unaweza kuleta?",
+    f_ct_small:"Biashara ndogo", f_ct_personal:"Chapa binafsi", f_ct_startups:"Kampuni changa", f_ct_all:"Zote",
+    f_estimate:"Idadi ya wateja unaokadiria kuleta kwa mwezi",
+    f_why:"Kwa nini unataka kujiunga na programu ya rufaa ya Vovex?",
+    f_agreement_title:"Makubaliano",
+    f_agreement_sub:"Kwa kuwasilisha fomu hii, unakubali kwamba:",
+    f_agreement_1:"Kamisheni hulipwa tu baada ya mteja kulipa Vovex kwa mafanikio",
+    f_agreement_2:"Rufaa za uongo au za kujirejelea hazikubaliki",
+    f_agreement_3:"Viwango vya kamisheni na masharti ya malipo yatajadiliwa baada ya idhini",
+    f_agreement_check:"Nakubali masharti yaliyo hapo juu",
+    f_submit:"Wasilisha Maombi",
+    f_submit_note:"Wasilisha maombi yako na tutakujibu hivi karibuni.",
+    f_success_title:"Ombi Limepokelewa",
+    f_success_desc:"Asante kwa kuomba kujiunga na programu ya rufaa ya Vovex. Tutakagua ombi lako na kukujibu hivi karibuni.",
+
     final_eyebrow:"Kampuni ya Teknolojia ya Kushikilia",final_quote:"“Mustakabali unajengwa kwa utulivu.”",
     final_founder:"— Eyoel Mulugeta, Mkurugenzi Mtendaji na Mwanzilishi wa Vovex",
     final_cta1:"Hadithi yetu ›",final_cta2:"Biashara zetu ›",
@@ -543,12 +1054,39 @@ const T = {
   fr:{
     nav_about:"À propos",nav_ventures:"Activités",nav_platforms:"Carrières",
     nav_principles:"Principes",nav_timeline:"Construire/Créer un site web",nav_contact:"Contact",
-    careers_label:"● Carrières",
-    careers_title:"Rejoignez l'Équipe",
-    careers_sub:"Nous sommes toujours à la recherche de personnes passionnées pour nous aider à construire l'avenir.",
-    message_title:"Aucun Poste Ouvert Actuellement",
-    message_desc:"Nous n'avons aucun poste ouvert pour le moment, mais nous sommes toujours intéressés par les personnes talentueuses.",
-  
+
+    ref_label:"● Programme de Parrainage",
+    ref_title:"Parrainez des clients. Gagnez une commission.",
+    ref_sub:"Rejoignez le programme de parrainage Vovex et gagnez de l'argent en nous mettant en relation avec des clients ayant besoin de sites web, de branding ou de solutions numériques.",
+
+    f_name:"Nom Complet",
+    f_email:"Adresse E-mail",
+    f_phone:"Numéro de Téléphone / WhatsApp",
+    f_age:"Âge",
+    f_location:"Ville",
+    f_location_placeholder:"Sélectionnez votre ville",
+    f_location_other:"Autre (hors Éthiopie)",
+    f_heard:"Comment avez-vous entendu parler de Vovex ?",
+    f_heard_ig:"Instagram", f_heard_li:"LinkedIn", f_heard_friend:"Ami(e)", f_heard_site:"Site web", f_heard_other:"Autre",
+    f_exp:"Avez-vous de l'expérience en parrainage, vente ou marketing ?",
+    f_yes:"Oui", f_no:"Non",
+    f_exp_detail:"Si oui, décrivez brièvement votre expérience",
+    f_findclients:"Comment comptez-vous trouver des clients ?",
+    f_clienttype:"Quel type de clients pouvez-vous apporter ?",
+    f_ct_small:"Petites entreprises", f_ct_personal:"Marques personnelles", f_ct_startups:"Startups", f_ct_all:"Tous",
+    f_estimate:"Nombre estimé de clients que vous pouvez recommander par mois",
+    f_why:"Pourquoi souhaitez-vous rejoindre le programme de parrainage Vovex ?",
+    f_agreement_title:"Accord",
+    f_agreement_sub:"En soumettant ce formulaire, vous acceptez que :",
+    f_agreement_1:"La commission n'est versée qu'après le paiement effectif du client à Vovex",
+    f_agreement_2:"Les parrainages fictifs ou personnels ne sont pas autorisés",
+    f_agreement_3:"Les taux de commission et conditions de paiement seront discutés après approbation",
+    f_agreement_check:"J'accepte les conditions ci-dessus",
+    f_submit:"Soumettre la Candidature",
+    f_submit_note:"Soumettez votre candidature et nous vous répondrons rapidement.",
+    f_success_title:"Candidature Reçue",
+    f_success_desc:"Merci d'avoir postulé au programme de parrainage Vovex. Nous examinerons votre candidature et vous répondrons rapidement.",
+
     final_eyebrow:"Société Holding Technologique",final_quote:"“L'avenir se construit en silence.”",
     final_founder:"— Eyoel Mulugeta, PDG et Fondateur de Vovex",
     final_cta1:"Notre histoire ›",final_cta2:"Nos activités ›",
@@ -558,11 +1096,38 @@ const T = {
   ar:{
     nav_about:"عن الشركة",nav_ventures:"المشاريع",nav_platforms:"وظائف",
     nav_principles:"المبادئ",nav_timeline:"بناء/إنشاء موقع",nav_contact:"تواصل",
-    careers_label:"● وظائف",
-    careers_title:"انضم إلى الفريق",
-    careers_sub:"نحن دائمًا نبحث عن أشخاص شغوفين لمساعدتنا في بناء المستقبل.",
-    message_title:"لا توجد وظائف شاغرة حالياً",
-    message_desc:"ليس لدينا أي وظائف شاغرة في الوقت الحالي، لكننا دائمًا مهتمون بالمتعلمين الموهوبين.",
+
+    ref_label:"● برنامج الإحالة",
+    ref_title:"أحِل العملاء. اكسب عمولة.",
+    ref_sub:"انضم إلى برنامج الإحالة الخاص بـ Vovex واكسب المال من خلال ربطنا بعملاء يحتاجون إلى مواقع إلكترونية أو هوية بصرية أو حلول رقمية.",
+
+    f_name:"الاسم الكامل",
+    f_email:"البريد الإلكتروني",
+    f_phone:"رقم الهاتف / واتساب",
+    f_age:"العمر",
+    f_location:"المدينة",
+    f_location_placeholder:"اختر مدينتك",
+    f_location_other:"أخرى (خارج إثيوبيا)",
+    f_heard:"كيف سمعت عن Vovex؟",
+    f_heard_ig:"إنستغرام", f_heard_li:"لينكدإن", f_heard_friend:"صديق", f_heard_site:"الموقع الإلكتروني", f_heard_other:"أخرى",
+    f_exp:"هل لديك خبرة في الإحالات أو المبيعات أو التسويق؟",
+    f_yes:"نعم", f_no:"لا",
+    f_exp_detail:"إذا كانت الإجابة نعم، اشرح خبرتك باختصار",
+    f_findclients:"كيف تخطط لإيجاد العملاء؟",
+    f_clienttype:"ما نوع العملاء الذين يمكنك جلبهم؟",
+    f_ct_small:"شركات صغيرة", f_ct_personal:"علامات شخصية", f_ct_startups:"شركات ناشئة", f_ct_all:"كل ما سبق",
+    f_estimate:"العدد التقديري للعملاء الذين يمكنك إحالتهم شهرياً",
+    f_why:"لماذا تريد الانضمام إلى برنامج إحالة Vovex؟",
+    f_agreement_title:"الاتفاقية",
+    f_agreement_sub:"بإرسال هذا النموذج، فإنك توافق على أن:",
+    f_agreement_1:"تُدفع العمولة فقط بعد أن يدفع العميل بنجاح إلى Vovex",
+    f_agreement_2:"لا يُسمح بالإحالات الوهمية أو الذاتية",
+    f_agreement_3:"سيتم مناقشة معدلات العمولة وشروط الدفع بعد الموافقة",
+    f_agreement_check:"أوافق على الشروط أعلاه",
+    f_submit:"إرسال الطلب",
+    f_submit_note:"أرسل طلبك وسنتواصل معك قريباً.",
+    f_success_title:"تم استلام الطلب",
+    f_success_desc:"شكراً لتقديمك على برنامج إحالة Vovex. سنراجع طلبك ونتواصل معك قريباً.",
 
     final_eyebrow:"شركة تكنولوجيا قابضة",final_quote:"“المستقبل يُبنى في صمت.”",
     final_founder:"— إيويل مولجيتا، الرئيس التنفيذي ومؤسس Vovex",
@@ -573,12 +1138,39 @@ const T = {
   zh:{
     nav_about:"关于",nav_ventures:"业务",nav_platforms:"职业",
     nav_principles:"原则",nav_timeline:"构建/创建网站",nav_contact:"联系",
-    careers_label:"● 职业",
-    careers_title:"加入团队",
-    careers_sub:"我们一直在寻找有热情的人来帮助我们建设未来。",
-    message_title:"目前没有空缺职位",
-    message_desc:"我们目前没有任何职位空缺，但我们一直对优秀人才感兴趣。",
-   
+
+    ref_label:"● 推荐计划",
+    ref_title:"推荐客户，赚取佣金。",
+    ref_sub:"加入 Vovex 推荐计划，通过为我们介绍需要网站、品牌或数字解决方案的客户来赚取收入。",
+
+    f_name:"全名",
+    f_email:"电子邮箱",
+    f_phone:"电话号码 / WhatsApp",
+    f_age:"年龄",
+    f_location:"城市",
+    f_location_placeholder:"选择您的城市",
+    f_location_other:"其他（埃塞俄比亚以外）",
+    f_heard:"您是如何了解到 Vovex 的？",
+    f_heard_ig:"Instagram", f_heard_li:"领英 LinkedIn", f_heard_friend:"朋友", f_heard_site:"网站", f_heard_other:"其他",
+    f_exp:"您在推荐、销售或市场营销方面有经验吗？",
+    f_yes:"有", f_no:"没有",
+    f_exp_detail:"如果有，请简要说明您的经验",
+    f_findclients:"您计划如何寻找客户？",
+    f_clienttype:"您能带来哪类客户？",
+    f_ct_small:"小型企业", f_ct_personal:"个人品牌", f_ct_startups:"初创公司", f_ct_all:"以上全部",
+    f_estimate:"您每月预计可以推荐的客户数量",
+    f_why:"您为什么想加入 Vovex 推荐计划？",
+    f_agreement_title:"协议",
+    f_agreement_sub:"提交此表格即表示您同意：",
+    f_agreement_1:"只有在客户成功向 Vovex 付款后才会支付佣金",
+    f_agreement_2:"不允许虚假或自我推荐",
+    f_agreement_3:"佣金比例和付款条款将在批准后另行商定",
+    f_agreement_check:"我同意以上条款",
+    f_submit:"提交申请",
+    f_submit_note:"提交您的申请，我们会尽快与您联系。",
+    f_success_title:"已收到申请",
+    f_success_desc:"感谢您申请 Vovex 推荐计划。我们会审核您的申请，并尽快与您联系。",
+
     final_eyebrow:"科技控股集团",final_quote:"“未来，在寂静中构建。”",
     final_founder:"— 埃约尔·穆卢格塔，Vovex 首席执行官兼创始人",
     final_cta1:"我们的故事 ›",final_cta2:"我们的业务 ›",
@@ -606,6 +1198,42 @@ function setLang(lang) {
     b.classList.toggle('active', b.dataset.lang === lang)
   );
 }
+
+/* ════════════════════════════════
+   FORM: choice highlight + AJAX submit
+════════════════════════════════ */
+document.querySelectorAll('.choice-group').forEach(group => {
+  group.addEventListener('change', () => {
+    group.querySelectorAll('.choice-option').forEach(opt => {
+      const input = opt.querySelector('input');
+      opt.classList.toggle('checked', input.checked);
+    });
+  });
+});
+
+const form = document.getElementById('referral-form');
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const btn = form.querySelector('.btn-submit');
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-card').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      alert('Something went wrong submitting your application. Please try again.');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    alert('Something went wrong submitting your application. Please check your connection and try again.');
+  }
+});
 
 /* ════════════════════════════════
    FINAL CANVAS
@@ -641,7 +1269,7 @@ function setLang(lang) {
   draw();
 })();
 
-console.log('VOVEX Careers — Loaded.');
+console.log('VOVEX Referral Program — Loaded.');
 </script>
 </body>
 </html>
